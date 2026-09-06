@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小龙GESP精进 · 团队主页</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    font-family: "Microsoft YaHei", -apple-system, sans-serif;
+    background: linear-gradient(145deg, #f5f7fc 0%, #eef1f7 100%);
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  /* 满屏容器 */
+  .home-card {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    border-radius: 0;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(10px);
+    padding: 56px 64px;
+    box-shadow: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 左上角头像/用户区 */
+  .top-left {
+    position: absolute;
+    top: 36px;
+    left: 48px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #c8d0db;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.15s;
+    user-select: none;
+  }
+  .avatar:hover { background: #b6c0cd; }
+  .avatar.logged {
+    background: linear-gradient(135deg, #2563eb, #4f8df7);
+  }
+  .user-text {
+    font-size: 15px;
+    color: #475569;
+    font-weight: 560;
+    display: none;
+  }
+  .user-text.show { display: block; }
+
+  /* 中间内容区：撑满剩余空间 */
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 24px;
+  }
+
+  /* 网格卡片区 - 放大，适配满屏 */
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    width: 100%;
+    max-width: 920px;
+  }
+  .grid-item {
+    background: white;
+    border-radius: 40px;
+    padding: 44px 24px 48px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    border: 1px solid #e9edf4;
+    transition: 0.18s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 230px;
+  }
+  .grid-item:hover {
+    border-color: #b8cbe0;
+    background: #fafcff;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(37,99,235,0.08);
+  }
+  .grid-icon {
+    font-size: 48px;
+    margin-bottom: 14px;
+  }
+  .grid-label {
+    font-weight: 670;
+    font-size: 24px;
+    color: #17212b;
+  }
+  .grid-sub {
+    font-size: 16px;
+    color: #68768a;
+    margin-top: 8px;
+  }
+
+  /* 打卡专用卡片 */
+  .checkin-card {
+    background: white;
+    border-radius: 40px;
+    padding: 44px 24px 48px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    border: 1px solid #e9edf4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 230px;
+    cursor: default;
+  }
+  .checkin-card .grid-icon { font-size: 48px; margin-bottom: 10px; }
+  .checkin-label { font-weight: 670; font-size: 23px; color: #17212b; margin-bottom: 20px; }
+  .checkin-btn {
+    background: #2563eb;
+    border: none;
+    color: white;
+    font-weight: 630;
+    font-size: 18px;
+    padding: 16px 48px;
+    border-radius: 72px;
+    cursor: pointer;
+    transition: 0.12s;
+    box-shadow: 0 6px 16px rgba(37,99,235,0.22);
+    letter-spacing: 0.5px;
+    min-width: 170px;
+  }
+  .checkin-btn:active { transform: scale(0.95); }
+  .checkin-btn.done {
+    background: #a0b8d6;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  /* 模态弹窗 - 大 */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.42);
+    backdrop-filter: blur(5px);
+    z-index: 900;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+  .modal-box {
+    background: white;
+    max-width: 820px;
+    width: 100%;
+    border-radius: 44px;
+    padding: 48px 52px 52px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.24);
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  .modal-title {
+    font-size: 28px;
+    font-weight: 690;
+    margin-bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-close {
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #6f7d91;
+    line-height: 1;
+    padding: 8px;
+  }
+  .modal-body { margin-top: 8px; font-size: 17px; }
+  .modal-body textarea, .modal-body input[type="text"] {
+    width: 100%;
+    padding: 18px 20px;
+    border: 1px solid #d4ddee;
+    border-radius: 24px;
+    font-size: 16px;
+    resize: vertical;
+    font-family: inherit;
+    background: #fcfdfe;
+  }
+  .modal-body textarea { min-height: 260px; line-height: 1.65; }
+  .modal-actions { margin-top: 26px; display: flex; gap: 14px; justify: flex-end; }
+  .modal-actions button {
+    padding: 14px 34px;
+    border: none;
+    border-radius: 72px;
+    font-weight: 590;
+    font-size: 16px;
+    cursor: pointer;
+    background: #eef2f9;
+    transition: 0.12s;
+  }
+  .modal-actions button:hover { background: #e2e8f3; }
+  .modal-actions .primary { background: #2563eb; color: white; }
+  .modal-actions .primary:hover { background: #1d4ed8; }
+
+  /* 登录弹窗 */
+  .auth-modal-box {
+    max-width: 520px;
+    border-radius: 44px;
+    padding: 48px 46px;
+    text-align: center;
+  }
+  .auth-modal-box h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    font-weight: 690;
+  }
+  .auth-modal-box input {
+    width: 100%;
+    padding: 17px 22px;
+    border: 1px solid #d4ddee;
+    border-radius: 72px;
+    font-size: 16px;
+    margin-bottom: 16px;
+    background: #fcfdfe;
+  }
+  .auth-modal-box .auth-btns {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+  }
+  .auth-modal-box .auth-btns button {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 72px;
+    font-weight: 630;
+    font-size: 16px;
+    cursor: pointer;
+    background: #eef2f9;
+  }
+  .auth-modal-box .auth-btns .prim { background: #2563eb; color: white; }
+  .auth-hint { font-size: 14px; color: #8896aa; margin-top: 20px; line-height: 1.7; }
+  #authMsg { font-size: 15px; color: #dc2626; margin-top: 4px; min-height: 22px; }
+
+  /* 规则列表 */
+  .rule-list { list-style: none; padding: 0; }
+  .rule-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid #eef2f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+  }
+  .rule-list li:last-child { border: none; }
+  .rule-link a { color: #2563eb; text-decoration: none; font-weight: 540; }
+  .rule-link a:hover { text-decoration: underline; }
+  .rule-actions button {
+    background: none; border: none; color: #8b9bb5; cursor: pointer; font-size: 15px; margin-left: 12px;
+    padding: 8px 12px; border-radius: 10px;
+  }
+  .rule-actions button:hover { color: #dc2626; background: #fef2f2; }
+
+  .markdown-preview { white-space: pre-wrap; line-height: 1.85; color: #1e293b; font-size: 17px; }
+  .markdown-preview strong { color: #0f172a; }
+  .latex-block { background: #f8faff; padding: 10px 18px; border-radius: 14px; margin: 10px 0; font-style: italic; display: inline-block; }
+
+  .admin-section {
+    margin-top: 28px;
+    border-top: 1px solid #e0e6f0;
+    padding-top: 26px;
+  }
+  .admin-section-title { font-size: 16px; font-weight: 620; color: #475569; margin-bottom: 14px; }
+  .admin-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .admin-row input { flex: 1; min-width: 200px; }
+
+  @media (max-width: 760px) {
+    .home-card { padding: 36px 22px; }
+    .top-left { top: 24px; left: 24px; }
+    .avatar { width: 40px; height: 40px; font-size: 19px; }
+    .grid-2x2 { grid-template-columns: 1fr; gap: 20px; }
+    .grid-item, .checkin-card { min-height: 180px; padding: 34px 18px; border-radius: 32px; }
+    .modal-box { padding: 36px 28px; border-radius: 36px; }
+    .auth-modal-box { padding: 38px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="home-card" id="appRoot">
+
+  <!-- 左上角头像：未登录灰色，登录后蓝色并显示名字 -->
+  <div class="top-left">
+    <div class="avatar" id="avatarBtn" onclick="onAvatarClick()" title="登录 / 账号">👤</div>
+    <div class="user-text" id="userText"></div>
+  </div>
+
+  <!-- 中间内容 -->
+  <div class="content">
+    <div class="grid-2x2">
+      <div class="grid-item" onclick="openAnnouncementModal()">
+        <div class="grid-icon">📢</div>
+        <div class="grid-label">团队公告</div>
+        <div class="grid-sub">点击查看</div>
+      </div>
+      <div class="checkin-card" id="checkinCard">
+        <div class="grid-icon">✅</div>
+        <div class="checkin-label">每日打卡</div>
+        <button class="checkin-btn" id="checkinBtn" onclick="handleCheckin()">点击打卡</button>
+      </div>
+      <div class="grid-item" onclick="openRulesModal()">
+        <div class="grid-icon">⚖️</div>
+        <div class="grid-label">团队规则</div>
+        <div class="grid-sub">查看 / 管理</div>
+      </div>
+      <div class="grid-item" onclick="goRank()">
+        <div class="grid-icon">🏅</div>
+        <div class="grid-label">分值排行</div>
+        <div class="grid-sub">打开排行榜</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 登录/注册弹窗 -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal-box auth-modal-box">
+    <div class="modal-title"><span>🔐 登录 / 注册</span><button class="modal-close" onclick="closeModal('authModal')">✕</button></div>
+    <div class="modal-body">
+      <input type="text" id="miniUser" placeholder="用户名" maxlength="20">
+      <input type="password" id="miniPass" placeholder="密码（至少6位）" maxlength="30">
+      <div id="authMsg"></div>
+      <div class="auth-btns">
+        <button class="prim" onclick="miniLogin()">登录</button>
+        <button onclick="miniRegister()">注册</button>
+      </div>
+      <div class="auth-hint">管理员账号已内置。注册后即可登录使用打卡与排行榜功能。<br>数据保存在本机浏览器中。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 规则 Modal -->
+<div class="modal-overlay" id="rulesModal">
+  <div class="modal-box">
+    <div class="modal-title"><span>📋 团队规则</span><button class="modal-close" onclick="closeModal('rulesModal')">✕</button></div>
+    <div class="modal-body">
+      <div id="rulesBody"></div>
+      <div id="rulesAdminPanel" class="admin-section" style="display:none;">
+        <div class="admin-section-title">管理员：添加规则链接</div>
+        <div class="admin-row">
+          <input type="text" id="newRuleLabel" placeholder="显示文字，例如：GESP 官网">
+          <input type="text" id="newRuleUrl" placeholder="链接 URL，例如：https://...">
+          <button class="primary" onclick="addRule()">添加</button>
+        </div>
+        <ul class="rule-list" id="ruleListUl"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 公告 Modal -->
+<div class="modal-overlay" id="announceModal">
+  <div class="modal-box">
+    <div class="modal-title"><span>📢 团队公告</span><button class="modal-close" onclick="closeModal('announceModal')">✕</button></div>
+    <div class="modal-body">
+      <div id="announceDisplay" class="markdown-preview"></div>
+      <div id="announceEditArea" style="display:none;margin-top:18px;">
+        <textarea id="announceEditor" placeholder="支持 Markdown 和 LaTeX (行内 $...$ 或 $$...$$)"></textarea>
+        <div class="modal-actions">
+          <button onclick="cancelEditAnnounce()">取消</button>
+          <button class="primary" onclick="saveAnnounce()">保存</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px;text-align:right;">
+      <button id="editAnnounceBtn" style="display:none;padding:12px 28px;border:none;border-radius:72px;background:#eef2f9;font-weight:590;cursor:pointer;font-size:15px;" onclick="enableEditAnnounce()">✏️ 编辑公告</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const RANK_URL = 'https://CDxiaolang.github.io/score-board/';
+
+function goRank() {
+  window.open(RANK_URL, '_blank', 'noopener,noreferrer');
+}
+
+const STORAGE_HOME = 'teamHomeData';
+function loadHome() {
+  try {
+    const d = JSON.parse(localStorage.getItem(STORAGE_HOME));
+    if (d && typeof d === 'object') return d;
+  } catch {}
+  return { rules: [], announce: '## 欢迎加入团队！\n\n这里可以发布公告，支持 **Markdown** 和 $\\LaTeX$ 公式，例如：$E=mc^2$。' };
+}
+let homeData = loadHome();
+function saveHome() { localStorage.setItem(STORAGE_HOME, JSON.stringify(homeData)); }
+
+const ADMIN_USER = 'CD小狼2015';
+const ADMIN_PASS = '123cdxiaolang';
+let currentUser = null;
+let authShownThisSession = false;
+
+function isAdmin() { return currentUser && currentUser.name === ADMIN_USER; }
+
+function miniLogin() {
+  const u = document.getElementById('miniUser').value.trim();
+  const p = document.getElementById('miniPass').value.trim();
+  if (!u || !p) return setAuthMsg('请输入账号和密码');
+  if (u.length < 2) return setAuthMsg('用户名至少2个字符');
+  if (p.length < 6) return setAuthMsg('密码至少6位');
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    currentUser = { name: ADMIN_USER, isAdmin: true };
+  } else {
+    const stored = JSON.parse(localStorage.getItem('rankUsers') || '[]');
+    const found = stored.find(x => x.name === u && x.password === p);
+    if (!found) return setAuthMsg('账号或密码错误');
+    currentUser = { name: u, isAdmin: false };
+  }
+  closeModal('authModal');
+  applyAuthUI();
+  updateCheckinUI();
+  document.getElementById('miniUser').value = '';
+  document.getElementById('miniPass').value = '';
+}
+
+function miniRegister() {
+  const u = document.getElementById('miniUser').value.trim();
+  const p = document.getElementById('miniPass').value.trim();
+  if (!u || u.length < 2) return setAuthMsg('用户名至少2个字符');
+  if (!p || p.length < 6) return setAuthMsg('密码至少6位');
+  if (u === ADMIN_USER) return setAuthMsg('该用户名不可注册');
+  let stored = JSON.parse(localStorage.getItem('rankUsers') || '[]');
+  if (stored.find(x => x.name === u)) return setAuthMsg('用户名已存在');
+  stored.push({ name: u, password: p, score: 0, isAdmin: false });
+  localStorage.setItem('rankUsers', JSON.stringify(stored));
+  setAuthMsg('注册成功，请登录');
+}
+
+function setAuthMsg(t) { document.getElementById('authMsg').textContent = t; }
+
+function applyAuthUI() {
+  const av = document.getElementById('avatarBtn');
+  const ut = document.getElementById('userText');
+  if (currentUser) {
+    av.classList.add('logged');
+    av.title = currentUser.name + (currentUser.isAdmin ? ' (管理员)' : '');
+    av.textContent = currentUser.name.slice(0,1).toUpperCase();
+    ut.textContent = currentUser.name + (currentUser.isAdmin ? ' (管理员)' : '');
+    ut.classList.add('show');
+  } else {
+    av.classList.remove('logged');
+    av.title = '点击登录';
+    av.textContent = '👤';
+    ut.classList.remove('show');
+    ut.textContent = '';
+  }
+  document.getElementById('rulesAdminPanel').style.display = isAdmin() ? 'block' : 'none';
+  document.getElementById('editAnnounceBtn').style.display = isAdmin() ? 'inline-block' : 'none';
+  renderRules();
+}
+
+function onAvatarClick() {
+  if (currentUser) {
+    if (confirm('当前：' + currentUser.name + '\n要退出登录吗？')) {
+      currentUser = null;
+      applyAuthUI();
+      updateCheckinUI();
+      openAuthModal();
+    }
+  } else {
+    openAuthModal();
+  }
+}
+
+function getTodayStr() { return new Date().toISOString().slice(0,10); }
+function checkinStatus() { return localStorage.getItem('checkin_' + getTodayStr()) === 'done'; }
+
+function handleCheckin() {
+  if (!currentUser) {
+    openAuthModal();
+    return;
+  }
+  if (checkinStatus()) return;
+  let stored = JSON.parse(localStorage.getItem('rankUsers') || '[]');
+  let me = stored.find(x => x.name === currentUser.name);
+  if (me) {
+    me.score = (me.score || 0) + 1;
+  } else {
+    stored.push({ name: currentUser.name, password: '', score: 1, isAdmin: false });
+  }
+  localStorage.setItem('rankUsers', JSON.stringify(stored));
+  localStorage.setItem('checkin_' + getTodayStr(), 'done');
+  updateCheckinUI();
+}
+
+function updateCheckinUI() {
+  const btn = document.getElementById('checkinBtn');
+  if (currentUser && checkinStatus()) {
+    btn.textContent = '✅ 已打卡';
+    btn.classList.add('done');
+  } else {
+    btn.textContent = '点击打卡';
+    btn.classList.remove('done');
+  }
+}
+
+function openRulesModal() {
+  renderRules();
+  document.getElementById('rulesModal').style.display = 'flex';
+}
+
+function renderRules() {
+  const ul = document.getElementById('ruleListUl');
+  ul.innerHTML = homeData.rules.map((r, i) =>
+    `<li>
+      <span class="rule-link"><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.label}</a></span>
+      <span class="rule-actions">
+        ${isAdmin() ? `<button onclick="removeRule(${i})">删除</button>` : ''}
+      </span>
+    </li>`
+  ).join('');
+  const body = document.getElementById('rulesBody');
+  if (homeData.rules.length === 0) {
+    body.innerHTML = '<p style="color:#8896aa;">暂无规则，管理员可添加。</p>';
+  } else {
+    body.innerHTML = '<ul class="rule-list">' + homeData.rules.map(r =>
+      `<li><span class="rule-link"><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.label}</a></span></li>`
+    ).join('') + '</ul>';
+  }
+}
+
+function addRule() {
+  const label = document.getElementById('newRuleLabel').value.trim();
+  let url = document.getElementById('newRuleUrl').value.trim();
+  if (!label || !url) return alert('请填写显示文字和链接');
+  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
+  homeData.rules.push({ label, url });
+  saveHome();
+  renderRules();
+  document.getElementById('newRuleLabel').value = '';
+  document.getElementById('newRuleUrl').value = '';
+}
+
+function removeRule(idx) {
+  if (!confirm('确定删除这条规则？')) return;
+  homeData.rules.splice(idx, 1);
+  saveHome();
+  renderRules();
+}
+
+function openAnnouncementModal() {
+  renderAnnounce();
+  document.getElementById('announceModal').style.display = 'flex';
+}
+
+function renderAnnounce() {
+  const display = document.getElementById('announceDisplay');
+  let md = homeData.announce || '';
+  md = md.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  md = md.replace(/`(.+?)`/g, '<code style="background:#f1f5f9;padding:2px 6px;border-radius:6px;">$1</code>');
+  md = md.replace(/\$\$(.+?)\$\$/g, '<div class="latex-block">$$ $1 $$</div>');
+  md = md.replace(/\$(.+?)\$/g, '<span class="latex-block">$ $1 $</span>');
+  md = md.replace(/\n/g, '<br>');
+  display.innerHTML = md;
+}
+
+function enableEditAnnounce() {
+  document.getElementById('announceDisplay').style.display = 'none';
+  document.getElementById('announceEditArea').style.display = 'block';
+  document.getElementById('announceEditor').value = homeData.announce || '';
+}
+
+function cancelEditAnnounce() {
+  document.getElementById('announceDisplay').style.display = 'block';
+  document.getElementById('announceEditArea').style.display = 'none';
+}
+
+function saveAnnounce() {
+  const val = document.getElementById('announceEditor').value.trim();
+  homeData.announce = val || '暂无公告';
+  saveHome();
+  cancelEditAnnounce();
+  renderAnnounce();
+}
+
+function openAuthModal() {
+  document.getElementById('authMsg').textContent = '';
+  document.getElementById('authModal').style.display = 'flex';
+  setTimeout(() => document.getElementById('miniUser').focus(), 80);
+}
+function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+
+window.onclick = function(e) {
+  if (e.target.classList.contains('modal-overlay')) {
+    e.target.style.display = 'none';
+  }
+};
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    ['authModal','rulesModal','announceModal'].forEach(closeModal);
+  }
+  if ((e.key === 'Enter') && document.getElementById('authModal').style.display === 'flex') {
+    miniLogin();
+  }
+});
+
+applyAuthUI();
+updateCheckinUI();
+if (!currentUser && !authShownThisSession) {
+  authShownThisSession = true;
+  openAuthModal();
+}
+</script>
+
+</body>
+</html>
