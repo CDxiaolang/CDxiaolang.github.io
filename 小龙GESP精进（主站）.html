@@ -19,7 +19,6 @@
     padding: 0;
   }
 
-  /* 满屏容器 */
   .home-card {
     width: 100vw;
     height: 100vh;
@@ -34,7 +33,6 @@
     flex-direction: column;
   }
 
-  /* 左上角头像/用户区 */
   .top-left {
     position: absolute;
     top: 36px;
@@ -72,7 +70,6 @@
   }
   .user-text.show { display: block; }
 
-  /* 中间内容区：撑满剩余空间 */
   .content {
     flex: 1;
     display: flex;
@@ -81,7 +78,6 @@
     padding-top: 24px;
   }
 
-  /* 网格卡片区 - 放大，适配满屏 */
   .grid-2x2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -124,7 +120,6 @@
     margin-top: 8px;
   }
 
-  /* 打卡专用卡片 */
   .checkin-card {
     background: white;
     border-radius: 40px;
@@ -161,7 +156,6 @@
     cursor: not-allowed;
   }
 
-  /* 模态弹窗 - 大 */
   .modal-overlay {
     display: none;
     position: fixed;
@@ -212,8 +206,8 @@
     font-family: inherit;
     background: #fcfdfe;
   }
-  .modal-body textarea { min-height: 260px; line-height: 1.65; }
-  .modal-actions { margin-top: 26px; display: flex; gap: 14px; justify: flex-end; }
+  .modal-body textarea { min-height: 280px; line-height: 1.75; }
+  .modal-actions { margin-top: 26px; display: flex; gap: 14px; justify-content: flex-end; }
   .modal-actions button {
     padding: 14px 34px;
     border: none;
@@ -228,7 +222,6 @@
   .modal-actions .primary { background: #2563eb; color: white; }
   .modal-actions .primary:hover { background: #1d4ed8; }
 
-  /* 登录弹窗 */
   .auth-modal-box {
     max-width: 520px;
     border-radius: 44px;
@@ -268,7 +261,6 @@
   .auth-hint { font-size: 14px; color: #8896aa; margin-top: 20px; line-height: 1.7; }
   #authMsg { font-size: 15px; color: #dc2626; margin-top: 4px; min-height: 22px; }
 
-  /* 规则列表 */
   .rule-list { list-style: none; padding: 0; }
   .rule-list li {
     padding: 16px 0;
@@ -315,13 +307,11 @@
 
 <div class="home-card" id="appRoot">
 
-  <!-- 左上角头像：未登录灰色，登录后蓝色并显示名字 -->
   <div class="top-left">
     <div class="avatar" id="avatarBtn" onclick="onAvatarClick()" title="登录 / 账号">👤</div>
     <div class="user-text" id="userText"></div>
   </div>
 
-  <!-- 中间内容 -->
   <div class="content">
     <div class="grid-2x2">
       <div class="grid-item" onclick="openAnnouncementModal()">
@@ -348,7 +338,6 @@
   </div>
 </div>
 
-<!-- 登录/注册弹窗 -->
 <div class="modal-overlay" id="authModal">
   <div class="modal-box auth-modal-box">
     <div class="modal-title"><span>🔐 登录 / 注册</span><button class="modal-close" onclick="closeModal('authModal')">✕</button></div>
@@ -365,7 +354,6 @@
   </div>
 </div>
 
-<!-- 规则 Modal -->
 <div class="modal-overlay" id="rulesModal">
   <div class="modal-box">
     <div class="modal-title"><span>📋 团队规则</span><button class="modal-close" onclick="closeModal('rulesModal')">✕</button></div>
@@ -384,7 +372,6 @@
   </div>
 </div>
 
-<!-- 公告 Modal -->
 <div class="modal-overlay" id="announceModal">
   <div class="modal-box">
     <div class="modal-title"><span>📢 团队公告</span><button class="modal-close" onclick="closeModal('announceModal')">✕</button></div>
@@ -405,7 +392,8 @@
 </div>
 
 <script>
-const RANK_URL = 'https://CDxiaolang.github.io/score-board/';
+// ✅ 排行榜链接已修正
+const RANK_URL = 'https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E5%88%86%E5%80%BC%E6%8E%92%E5%90%8D%EF%BC%89.html';
 
 function goRank() {
   window.open(RANK_URL, '_blank', 'noopener,noreferrer');
