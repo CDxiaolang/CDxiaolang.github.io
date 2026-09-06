@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>分值排行榜||小龙GESP精进</title>
+<style>
+    * { box-sizing: border-box; }
+    body {
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+        background: #f4f6f8;
+        padding: 30px;
+        margin: 0;
+    }
+    h1 { text-align: center; margin-top: 0; }
+    .container {
+        width: 860px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 28px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        min-height: 470px;
+    }
+
+    /* ---------- 未登录界面 ---------- */
+    .guest-screen {
+        width: 370px;
+        margin: 44px auto;
+        background: #f0f7ff;
+        border-radius: 10px;
+        padding: 24px 26px;
+        border: 1px solid #d0e3ff;
+    }
+    .guest-screen h2 {
+        text-align: center;
+        margin: 0 0 14px 0;
+        font-size: 20px;
+    }
+    .guest-screen input {
+        width: 95%;
+        padding: 10px;
+        margin: 6px 0 12px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .guest-screen .btn-row {
+        display: flex;
+        gap: 12px;
+        margin: 12px 0 6px 0;
+    }
+    .guest-screen button {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .login-btn { background: #409eff; color: #fff; }
+    .register-btn { background: #67c23a; color: #fff; }
+    .error-msg { color: #F44336; font-size: 13px; margin-top: 6px; display: none; }
+    .hint {
+        font-size: 12px;
+        color: #777;
+        text-align: center;
+        margin-top: 14px;
+        line-height: 1.5;
+    }
+
+    /* ---------- 登录后主界面 ---------- */
+    .app-area { display: none; }
+    .top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        padding: 12px 18px;
+        background: #fff7e6;
+        border-radius: 8px;
+        border: 1px solid #ffe0b2;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    .logout-btn {
+        background: #e53935;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: normal;
+    }
+    .admin-panel {
+        display: none;
+        gap: 8px;
+        margin-bottom: 16px;
+        padding: 14px;
+        background: #f0f9eb;
+        border-radius: 8px;
+        border: 1px solid #c2e7b0;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .admin-panel input, .admin-panel select {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 13px;
+    }
+    .admin-panel input[type=text], .admin-panel input[type=number] {
+        flex: 1;
+        min-width: 108px;
+    }
+    .admin-panel button {
+        padding: 8px 14px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .add-score-btn { background: #409eff; color: #fff; }
+    .grant-btn { background: #673ab7; color: #fff; }
+    .revoke-btn { background: #607d8b; color: #fff; }
+    .reset-btn { background: #e53935; color: #fff; }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 6px;
+    }
+    th, td {
+        padding: 11px 8px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+    th {
+        background: #409eff;
+        color: #fff;
+    }
+    .highlight-row { background-color: #e3f2fd !important; font-weight: bold; }
+    .color-blue { color: #2196F3; }
+    .color-green { color: #4CAF50; }
+    .color-orange { color: #FF9800; }
+    .color-red { color: #F44336; }
+    .color-purple { color: #9C27B0; }
+
+    .action-btns button {
+        border: none;
+        padding: 5px 9px;
+        font-size: 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 2px;
+        color: #fff;
+    }
+    .grant-small { background: #673ab7; }
+    .revoke-small { background: #607d8b; }
+    .del-small { background: #ff9800; }
+
+    .empty-tip { text-align: center; color: #999; padding: 34px; }
+</style>
+</head>
+<body>
+
+<h1>🏆分值排行榜</h1>
+
+<div class="container">
+
+    <!-- 游客界面 -->
+    <div class="guest-screen" id="guestScreen">
+        <h2>🔐 登录 / 注册</h2>
+        <input type="text" id="authUsername" placeholder="用户名" maxlength="20">
+        <input type="password" id="authPassword" placeholder="密码" maxlength="30">
+        <div class="btn-row">
+            <button class="login-btn" onclick="login()">登录</button>
+            <button class="register-btn" onclick="register()">注册</button>
+        </div>
+        <div class="error-msg" id="authError"></div>
+        <div class="hint">
+            注册后即可登录查看排行榜<br>
+            已有账号请直接登录
+        </div>
+    </div>
+
+    <!-- 登录后主界面 -->
+    <div class="app-area" id="appArea">
+        <div class="top-bar">
+            <span id="userInfoDisplay"></span>
+            <button class="logout-btn" onclick="logout()">🚪 退出</button>
+        </div>
+
+        <div class="admin-panel" id="adminPanel">
+            <input type="text" id="memberName" placeholder="成员昵称" maxlength="20">
+            <input type="number" id="memberScore" placeholder="分数" min="1">
+            <button class="add-score-btn" onclick="addOrAddScore()">添加/加分</button>
+
+            <select id="grantSelect"></select>
+            <button class="grant-btn" onclick="grantSelected()">给权限</button>
+            <button class="revoke-btn" onclick="revokeSelected()">取消权限</button>
+            <button class="reset-btn" onclick="resetAllScores()">重置分数</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>昵称</th>
+                    <th>分数</th>
+                    <th id="opTh" style="display:none;">管理</th>
+                </tr>
+            </thead>
+            <tbody id="listBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+const KEY_USERS = 'rankUsers';
+const KEY_SESSION = 'rankCurrent';
+
+/* 默认管理员 — 不在界面显示任何提示 */
+const DEFAULT_ADMIN = {
+    name: 'CD小狼2015',
+    password: '123cdxiaolang',
+    score: 0,
+    isAdmin: true
+};
+
+/* ---------- 数据层 ---------- */
+function loadUsers() {
+    try {
+        const raw = localStorage.getItem(KEY_USERS);
+        if (!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr : [];
+    } catch { return []; }
+}
+
+function saveUsers() {
+    localStorage.setItem(KEY_USERS, JSON.stringify(users));
+}
+
+/* 确保默认管理员始终存在 */
+function ensureDefaultAdmin() {
+    const admin = users.find(u => u.name === DEFAULT_ADMIN.name);
+    if (!admin) {
+        users.unshift({ ...DEFAULT_ADMIN });
+        saveUsers();
+    } else {
+        admin.password = DEFAULT_ADMIN.password;
+        admin.isAdmin = true;
+        saveUsers();
+    }
+}
+
+let users = loadUsers();
+ensureDefaultAdmin();
+
+let currentUser = null;
+
+/* DOM */
+const guestScreen = document.getElementById('guestScreen');
+const appArea = document.getElementById('appArea');
+const userInfoDisplay = document.getElementById('userInfoDisplay');
+const adminPanel = document.getElementById('adminPanel');
+const listBody = document.getElementById('listBody');
+const opTh = document.getElementById('opTh');
+const authError = document.getElementById('authError');
+const grantSelect = document.getElementById('grantSelect');
+
+/* 颜色分级 */
+function scoreColor(score, isAdmin) {
+    if (isAdmin) return 'color-purple';
+    if (score >= 301) return 'color-red';
+    if (score >= 201) return 'color-orange';
+    if (score >= 101) return 'color-green';
+    return 'color-blue';
+}
+
+/* 渲染 */
+function render() {
+    listBody.innerHTML = '';
+    const sorted = [...users].sort((a,b) => b.score - a.score);
+
+    if (sorted.length === 0) {
+        listBody.innerHTML = '<tr><td colspan="4" class="empty-tip">暂无成员</td></tr>';
+    } else {
+        sorted.forEach((u, i) => {
+            const tr = document.createElement('tr');
+            if (currentUser && u.name === currentUser.name) tr.className = 'highlight-row';
+            const cls = scoreColor(u.score, u.isAdmin);
+            const crown = u.isAdmin ? ' 👑' : '';
+            let ops = '';
+            if (currentUser && currentUser.isAdmin) {
+                let btns = '';
+                if (u.name !== DEFAULT_ADMIN.name) {
+                    if (!u.isAdmin) {
+                        btns += `<button class="grant-small" onclick="grantAdmin('${u.name}')">给权限</button>`;
+                    } else {
+                        btns += `<button class="revoke-small" onclick="revokeAdmin('${u.name}')">取消权限</button>`;
+                    }
+                    btns += `<button class="del-small" onclick="deleteMember('${u.name}')">删除</button>`;
+                } else {
+                    btns += '<span style="font-size:12px;color:#999;">超级管理员</span>';
+                }
+                ops = `<td class="action-btns">${btns}</td>`;
+            }
+            tr.innerHTML = `
+                <td>${i+1}</td>
+                <td class="${cls}">${u.name}${crown}</td>
+                <td class="${cls}">${u.score}</td>
+                ${ops}
+            `;
+            listBody.appendChild(tr);
+        });
+    }
+
+    opTh.style.display = (currentUser && currentUser.isAdmin) ? 'table-cell' : 'none';
+
+    if (currentUser && currentUser.isAdmin) {
+        const prev = grantSelect.value;
+        grantSelect.innerHTML = users
+            .filter(u => u.name !== DEFAULT_ADMIN.name)
+            .map(u => `<option value="${u.name}">${u.name}${u.isAdmin?' (管理员)':''}</option>`)
+            .join('');
+        if (prev && [...grantSelect.options].some(o=>o.value===prev)) grantSelect.value = prev;
+    }
+}
+
+function updateUI() {
+    if (currentUser) {
+        guestScreen.style.display = 'none';
+        appArea.style.display = 'block';
+        userInfoDisplay.textContent = `👤 ${currentUser.name}  ·  分数：${currentUser.score}`;
+        userInfoDisplay.style.color = scoreColor(currentUser.score, currentUser.isAdmin).replace('color-','');
+        adminPanel.style.display = currentUser.isAdmin ? 'flex' : 'none';
+    } else {
+        guestScreen.style.display = 'block';
+        appArea.style.display = 'none';
+        document.getElementById('authUsername').value = '';
+        document.getElementById('authPassword').value = '';
+    }
+    render();
+}
+
+/* 登录 / 注册 */
+function showError(msg) {
+    authError.textContent = msg;
+    authError.style.display = 'block';
+    setTimeout(()=>{ authError.style.display = 'none'; }, 4300);
+}
+
+function login() {
+    const name = document.getElementById('authUsername').value.trim();
+    const pwd = document.getElementById('authPassword').value.trim();
+    if (!name) return showError('请输入用户名');
+    if (!pwd) return showError('请输入密码');
+    if (pwd.length < 6) return showError('密码长度至少6位');
+
+    const user = users.find(u => u.name === name && u.password === pwd);
+    if (!user) return showError('用户名或密码错误');
+
+    currentUser = user;
+    sessionStorage.setItem(KEY_SESSION, JSON.stringify(user));
+    authError.style.display = 'none';
+    updateUI();
+}
+
+function register() {
+    const name = document.getElementById('authUsername').value.trim();
+    const pwd = document.getElementById('authPassword').value.trim();
+    if (!name) return showError('请输入用户名');
+    if (name.length < 2) return showError('用户名至少2个字符');
+    if (name === DEFAULT_ADMIN.name) return showError('该用户名已被注册');
+    if (!pwd) return showError('请输入密码');
+    if (pwd.length < 6) return showError('密码长度至少6位');
+    if (users.find(u => u.name === name)) return showError('用户名已存在');
+
+    users.push({ name, password: pwd, score: 0, isAdmin: false });
+    saveUsers();
+    alert('✅ 注册成功，请登录');
+    document.getElementById('authPassword').value = '';
+    authError.style.display = 'none';
+}
+
+function logout() {
+    currentUser = null;
+    sessionStorage.removeItem(KEY_SESSION);
+    updateUI();
+}
+
+/* 管理员操作 */
+function addOrAddScore() {
+    if (!currentUser?.isAdmin) return;
+    const name = document.getElementById('memberName').value.trim();
+    const score = parseInt(document.getElementById('memberScore').value, 10);
+    if (!name) return alert('请输入成员昵称');
+    if (isNaN(score) || score <= 0) return alert('请输入有效正数分数');
+
+    const exist = users.find(u => u.name === name);
+    if (exist) {
+        exist.score += score;
+        alert(`✅ 已为 ${name} 增加 ${score} 分，当前 ${exist.score} 分`);
+    } else {
+        users.push({ name, password: 'default123', score, isAdmin: false });
+        alert(`✅ 已添加新成员 ${name} ，初始分数 ${score}`);
+    }
+    saveUsers();
+    refreshCurrent();
+    updateUI();
+    document.getElementById('memberName').value = '';
+    document.getElementById('memberScore').value = '';
+}
+
+function grantAdmin(name) {
+    if (!currentUser?.isAdmin || name === DEFAULT_ADMIN.name) return;
+    const u = users.find(x => x.name === name);
+    if (!u || u.isAdmin) return;
+    u.isAdmin = true;
+    saveUsers();
+    refreshCurrent();
+    render();
+}
+
+function revokeAdmin(name) {
+    if (!currentUser?.isAdmin || name === DEFAULT_ADMIN.name) return alert('不能取消超级管理员权限');
+    const u = users.find(x => x.name === name);
+    if (!u || !u.isAdmin) return;
+    u.isAdmin = false;
+    saveUsers();
+    refreshCurrent();
+    render();
+}
+
+function grantSelected() {
+    const name = grantSelect.value;
+    if (name) grantAdmin(name);
+}
+
+function revokeSelected() {
+    const name = grantSelect.value;
+    if (name) revokeAdmin(name);
+}
+
+function resetAllScores() {
+    if (!currentUser?.isAdmin) return;
+    if (!confirm('⚠️ 确定清空所有人分数？')) return;
+    users.forEach(u => { u.score = 0; });
+    saveUsers();
+    refreshCurrent();
+    updateUI();
+}
+
+function deleteMember(name) {
+    if (!currentUser?.isAdmin || name === DEFAULT_ADMIN.name) return alert('不能删除超级管理员');
+    if (!confirm(`确定删除成员 ${name} ？`)) return;
+    users = users.filter(u => u.name !== name);
+    if (currentUser && currentUser.name === name) {
+        currentUser = null;
+        sessionStorage.removeItem(KEY_SESSION);
+    }
+    saveUsers();
+    refreshCurrent();
+    updateUI();
+}
+
+function refreshCurrent() {
+    if (!currentUser) return;
+    const fresh = users.find(u => u.name === currentUser.name);
+    currentUser = fresh || null;
+    if (!currentUser) sessionStorage.removeItem(KEY_SESSION);
+    else sessionStorage.setItem(KEY_SESSION, JSON.stringify(currentUser));
+}
+
+/* 键盘事件 */
+document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && guestScreen.style.display !== 'none') login();
+});
+
+/* 启动 */
+updateUI();
+</script>
+
+</body>
+</html>
