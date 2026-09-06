@@ -13,60 +13,60 @@
     }
     h1 { text-align: center; margin-top: 0; }
     .container {
-        width: 880px;
+        width: 900px;
         margin: 0 auto;
         background: #fff;
         padding: 30px;
         border-radius: 12px;
         box-shadow: 0 4px 14px rgba(0,0,0,0.09);
-        min-height: 490px;
+        min-height: 510px;
     }
     .guest-screen {
-        width: 400px;
-        margin: 50px auto;
+        width: 420px;
+        margin: 70px auto;
         background: #f0f7ff;
-        border-radius: 12px;
-        padding: 28px 30px;
+        border-radius: 14px;
+        padding: 32px 36px;
         border: 1px solid #d0e3ff;
     }
-    .guest-screen h2 { text-align: center; margin: 0 0 16px 0; font-size: 22px; }
+    .guest-screen h2 { text-align: center; margin: 0 0 18px 0; font-size: 24px; }
     .guest-screen input {
-        width: 96%; padding: 12px; margin: 6px 0 14px 0;
-        border: 1px solid #ccc; border-radius: 6px; font-size: 15px;
+        width: 94%; padding: 13px; margin: 6px 0 16px 0;
+        border: 1px solid #ccc; border-radius: 7px; font-size: 16px;
     }
-    .guest-screen .btn-row { display: flex; gap: 14px; margin: 14px 0 8px 0; }
+    .guest-screen .btn-row { display: flex; gap: 16px; margin: 16px 0 10px 0; }
     .guest-screen button {
-        flex: 1; padding: 12px; border: none; border-radius: 6px;
-        cursor: pointer; font-size: 15px; font-weight: bold;
+        flex: 1; padding: 13px; border: none; border-radius: 7px;
+        cursor: pointer; font-size: 16px; font-weight: bold;
     }
     .login-btn { background: #409eff; color: #fff; }
     .register-btn { background: #67c23a; color: #fff; }
     .error-msg { color: #F44336; font-size: 14px; margin-top: 6px; display: none; }
-    .hint { font-size: 13px; color: #777; text-align: center; margin-top: 16px; line-height: 1.5; }
+    .hint { font-size: 13px; color: #777; text-align: center; margin-top: 18px; line-height: 1.5; }
 
     .app-area { display: none; }
     .top-bar {
         display: flex; align-items: center; justify-content: space-between;
-        margin-bottom: 16px; padding: 14px 20px;
+        margin-bottom: 16px; padding: 16px 22px;
         background: #fff7e6; border-radius: 8px; border: 1px solid #ffe0b2;
-        font-weight: bold; font-size: 18px;
+        font-weight: bold; font-size: 19px;
     }
     .logout-btn {
         background: #e53935; color: #fff; border: none;
-        padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: normal;
+        padding: 9px 20px; border-radius: 6px; cursor: pointer; font-weight: normal;
     }
     .admin-panel {
-        display: none; gap: 10px; margin-bottom: 18px; padding: 16px;
+        display: none; gap: 11px; margin-bottom: 20px; padding: 18px;
         background: #f0f9eb; border-radius: 8px; border: 1px solid #c2e7b0;
         flex-wrap: wrap; align-items: center;
     }
     .admin-panel input, .admin-panel select {
-        padding: 9px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
+        padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
     }
-    .admin-panel input[type=text], .admin-panel input[type=number] { flex: 1; min-width: 110px; }
+    .admin-panel input[type=text], .admin-panel input[type=number] { flex: 1; min-width: 115px; }
     .admin-panel button {
-        padding: 9px 16px; border: none; border-radius: 5px;
-        cursor: pointer; font-size: 14px; font-weight: 600;
+        padding: 10px 18px; border: none; border-radius: 5px;
+        cursor: pointer; font-size: 14px; font-weight: 620;
     }
     .add-score-btn { background: #409eff; color: #fff; }
     .grant-btn { background: #673ab7; color: #fff; }
@@ -74,7 +74,7 @@
     .reset-btn { background: #e53935; color: #fff; }
 
     table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-    th, td { padding: 12px 8px; text-align: center; border-bottom: 1px solid #eee; }
+    th, td { padding: 13px 8px; text-align: center; border-bottom: 1px solid #eee; }
     th { background: #409eff; color: #fff; }
     .highlight-row { background-color: #e3f2fd !important; font-weight: bold; }
     .color-blue { color: #2196F3; }
@@ -84,7 +84,7 @@
     .color-purple { color: #9C27B0; }
 
     .action-btns button {
-        border: none; padding: 6px 10px; font-size: 13px;
+        border: none; padding: 7px 11px; font-size: 13px;
         border-radius: 4px; cursor: pointer; margin: 0 2px; color: #fff;
     }
     .grant-small { background: #673ab7; }
@@ -193,9 +193,10 @@ const grantSelect = document.getElementById('grantSelect');
 
 function scoreColor(score, isAdmin) {
     if (isAdmin) return 'color-purple';
-    if (score >= 301) return 'color-red';
-    if (score >= 201) return 'color-orange';
-    if (score >= 101) return 'color-green';
+    if (score >= 351) return 'color-red';
+    if (score >= 251) return 'color-orange';
+    if (score >= 151) return 'color-green';
+    if (score >= 81) return 'color-blue';
     return 'color-blue';
 }
 
@@ -242,12 +243,21 @@ function render() {
     }
 }
 
+function refreshCurrent() {
+    if (currentUser) {
+        const fresh = users.find(u => u.name === currentUser.name);
+        if (fresh) {
+            currentUser.score = fresh.score;
+            currentUser.isAdmin = fresh.isAdmin;
+        }
+    }
+}
+
 function updateUI() {
     if (currentUser) {
         guestScreen.style.display = 'none';
         appArea.style.display = 'block';
         userInfoDisplay.textContent = `👤 ${currentUser.name}  ·  分数：${currentUser.score}`;
-        userInfoDisplay.style.color = scoreColor(currentUser.score, currentUser.isAdmin).replace('color-','');
         adminPanel.style.display = currentUser.isAdmin ? 'flex' : 'none';
     } else {
         guestScreen.style.display = 'block';
@@ -261,7 +271,7 @@ function updateUI() {
 function showError(msg) {
     authError.textContent = msg;
     authError.style.display = 'block';
-    setTimeout(()=>{ authError.style.display = 'none'; }, 5000);
+    setTimeout(()=>{ authError.style.display = 'none'; }, 4500);
 }
 
 function login() {
@@ -350,3 +360,25 @@ function deleteMember(name) {
     if (!currentUser?.isAdmin || name === DEFAULT_ADMIN.name) return alert('不能删除超级管理员');
     if (!confirm(`确定删除成员 ${name} ？`)) return;
     users = users.filter(u => u.name !== name);
+    saveUsers(); refreshCurrent(); updateUI();
+}
+
+// ===== 启动：自动恢复登录态 =====
+(function init() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(KEY_SESSION) || 'null');
+        if (saved && saved.name) {
+            const live = users.find(u => u.name === saved.name && u.password === (saved.name === DEFAULT_ADMIN.name ? DEFAULT_ADMIN.password : u.password));
+            if (live) {
+                currentUser = live;
+            } else {
+                localStorage.removeItem(KEY_SESSION);
+            }
+        }
+    } catch { localStorage.removeItem(KEY_SESSION); }
+    updateUI();
+})();
+</script>
+
+</body>
+</html>
