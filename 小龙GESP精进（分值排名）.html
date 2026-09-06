@@ -13,69 +13,68 @@
     }
     h1 { text-align: center; margin-top: 0; }
     .container {
-        width: 860px;
+        width: 880px;
         margin: 0 auto;
         background: #fff;
-        padding: 28px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        min-height: 470px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+        min-height: 490px;
     }
-
     .guest-screen {
-        width: 370px;
-        margin: 44px auto;
+        width: 400px;
+        margin: 50px auto;
         background: #f0f7ff;
-        border-radius: 10px;
-        padding: 24px 26px;
+        border-radius: 12px;
+        padding: 28px 30px;
         border: 1px solid #d0e3ff;
     }
-    .guest-screen h2 { text-align: center; margin: 0 0 14px 0; font-size: 20px; }
+    .guest-screen h2 { text-align: center; margin: 0 0 16px 0; font-size: 22px; }
     .guest-screen input {
-        width: 95%; padding: 10px; margin: 6px 0 12px 0;
-        border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
+        width: 96%; padding: 12px; margin: 6px 0 14px 0;
+        border: 1px solid #ccc; border-radius: 6px; font-size: 15px;
     }
-    .guest-screen .btn-row { display: flex; gap: 12px; margin: 12px 0 6px 0; }
+    .guest-screen .btn-row { display: flex; gap: 14px; margin: 14px 0 8px 0; }
     .guest-screen button {
-        flex: 1; padding: 10px; border: none; border-radius: 5px;
-        cursor: pointer; font-size: 14px; font-weight: bold;
+        flex: 1; padding: 12px; border: none; border-radius: 6px;
+        cursor: pointer; font-size: 15px; font-weight: bold;
     }
     .login-btn { background: #409eff; color: #fff; }
     .register-btn { background: #67c23a; color: #fff; }
-    .error-msg { color: #F44336; font-size: 13px; margin-top: 6px; display: none; }
-    .hint { font-size: 12px; color: #777; text-align: center; margin-top: 14px; line-height: 1.5; }
+    .error-msg { color: #F44336; font-size: 14px; margin-top: 6px; display: none; }
+    .hint { font-size: 13px; color: #777; text-align: center; margin-top: 16px; line-height: 1.5; }
 
     .app-area { display: none; }
     .top-bar {
         display: flex; align-items: center; justify-content: space-between;
-        margin-bottom: 14px; padding: 12px 18px;
+        margin-bottom: 16px; padding: 14px 20px;
         background: #fff7e6; border-radius: 8px; border: 1px solid #ffe0b2;
-        font-weight: bold; font-size: 17px;
+        font-weight: bold; font-size: 18px;
     }
     .logout-btn {
         background: #e53935; color: #fff; border: none;
-        padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: normal;
+        padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: normal;
     }
     .admin-panel {
-        display: none; gap: 8px; margin-bottom: 16px; padding: 14px;
+        display: none; gap: 10px; margin-bottom: 18px; padding: 16px;
         background: #f0f9eb; border-radius: 8px; border: 1px solid #c2e7b0;
         flex-wrap: wrap; align-items: center;
     }
     .admin-panel input, .admin-panel select {
-        padding: 8px; border: 1px solid #ccc; border-radius: 5px; font-size: 13px;
+        padding: 9px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;
     }
-    .admin-panel input[type=text], .admin-panel input[type=number] { flex: 1; min-width: 108px; }
+    .admin-panel input[type=text], .admin-panel input[type=number] { flex: 1; min-width: 110px; }
     .admin-panel button {
-        padding: 8px 14px; border: none; border-radius: 5px;
-        cursor: pointer; font-size: 13px; font-weight: 600;
+        padding: 9px 16px; border: none; border-radius: 5px;
+        cursor: pointer; font-size: 14px; font-weight: 600;
     }
     .add-score-btn { background: #409eff; color: #fff; }
     .grant-btn { background: #673ab7; color: #fff; }
     .revoke-btn { background: #607d8b; color: #fff; }
     .reset-btn { background: #e53935; color: #fff; }
 
-    table { width: 100%; border-collapse: collapse; margin-top: 6px; }
-    th, td { padding: 11px 8px; text-align: center; border-bottom: 1px solid #eee; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { padding: 12px 8px; text-align: center; border-bottom: 1px solid #eee; }
     th { background: #409eff; color: #fff; }
     .highlight-row { background-color: #e3f2fd !important; font-weight: bold; }
     .color-blue { color: #2196F3; }
@@ -85,13 +84,13 @@
     .color-purple { color: #9C27B0; }
 
     .action-btns button {
-        border: none; padding: 5px 9px; font-size: 12px;
+        border: none; padding: 6px 10px; font-size: 13px;
         border-radius: 4px; cursor: pointer; margin: 0 2px; color: #fff;
     }
     .grant-small { background: #673ab7; }
     .revoke-small { background: #607d8b; }
     .del-small { background: #ff9800; }
-    .empty-tip { text-align: center; color: #999; padding: 34px; }
+    .empty-tip { text-align: center; color: #999; padding: 36px; }
 </style>
 </head>
 <body>
@@ -147,7 +146,7 @@
 
 <script>
 const KEY_USERS = 'rankUsers';
-const KEY_SESSION = 'rankCurrent';   // ← 改成 localStorage 的 key，主站同款
+const KEY_SESSION = 'rankCurrent';   // 和主站共用一个 localStorage key
 
 const DEFAULT_ADMIN = {
     name: 'CD小狼2015',
@@ -262,10 +261,9 @@ function updateUI() {
 function showError(msg) {
     authError.textContent = msg;
     authError.style.display = 'block';
-    setTimeout(()=>{ authError.style.display = 'none'; }, 4300);
+    setTimeout(()=>{ authError.style.display = 'none'; }, 5000);
 }
 
-/* 登录：校验通过后写 localStorage，刷新不丢 */
 function login() {
     const name = document.getElementById('authUsername').value.trim();
     const pwd = document.getElementById('authPassword').value.trim();
@@ -277,7 +275,7 @@ function login() {
     if (!user) return showError('用户名或密码错误');
 
     currentUser = user;
-    localStorage.setItem(KEY_SESSION, JSON.stringify(user)); // ← 关键：localStorage 不是 sessionStorage
+    localStorage.setItem(KEY_SESSION, JSON.stringify(user)); // 持久化
     authError.style.display = 'none';
     updateUI();
 }
@@ -299,7 +297,6 @@ function register() {
     authError.style.display = 'none';
 }
 
-/* 退出：清 localStorage */
 function logout() {
     currentUser = null;
     localStorage.removeItem(KEY_SESSION);
@@ -353,37 +350,3 @@ function deleteMember(name) {
     if (!currentUser?.isAdmin || name === DEFAULT_ADMIN.name) return alert('不能删除超级管理员');
     if (!confirm(`确定删除成员 ${name} ？`)) return;
     users = users.filter(u => u.name !== name);
-    if (currentUser && currentUser.name === name) {
-        currentUser = null;
-        localStorage.removeItem(KEY_SESSION);
-    }
-    saveUsers(); refreshCurrent(); updateUI();
-}
-function refreshCurrent() {
-    if (!currentUser) return;
-    const fresh = users.find(u => u.name === currentUser.name);
-    currentUser = fresh || null;
-    if (!currentUser) localStorage.removeItem(KEY_SESSION);
-    else localStorage.setItem(KEY_SESSION, JSON.stringify(currentUser));
-}
-
-document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && guestScreen.style.display !== 'none') login();
-});
-
-/* 启动：自动从 localStorage 恢复登录态，不再一刷新就掉线 */
-(function restoreSession() {
-    try {
-        const saved = JSON.parse(localStorage.getItem(KEY_SESSION) || 'null');
-        if (saved && saved.name) {
-            const live = users.find(u => u.name === saved.name && u.password === saved.password);
-            if (live) currentUser = live;
-            else localStorage.removeItem(KEY_SESSION);
-        }
-    } catch { localStorage.removeItem(KEY_SESSION); }
-    updateUI();
-})();
-</script>
-
-</body>
-</html>
