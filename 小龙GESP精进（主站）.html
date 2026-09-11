@@ -35,108 +35,101 @@
   .user-text { font-size: 15px; color: #475569; font-weight: 560; display: none; }
   .user-text.show { display: block; }
   .content { flex: 1; display: flex; align-items: center; justify-content: center; padding-top: 24px; }
-  .grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: 100%; max-width: 970px; }
+  .grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: 100%; max-width: 1060px; }
   .grid-item {
-    background: white; border-radius: 40px; padding: 54px 28px 58px;
+    background: white; border-radius: 40px; padding: 44px 24px 38px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.04); border: 1px solid #e9edf4;
     transition: 0.18s; cursor: pointer; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; min-height: 248px;
+    align-items: center; justify-content: center; min-height: 230px;
   }
   .grid-item:hover { border-color: #b8cbe0; background: #fafcff; transform: translateY(-3px); box-shadow: 0 14px 32px rgba(37,99,235,0.062); }
-  .grid-icon { font-size: 54px; margin-bottom: 16px; }
-  .grid-label { font-weight: 755; font-size: 27px; color: #17212b; }
-  .grid-sub { font-size: 17px; color: #68768a; margin-top: 10px; }
+  .grid-icon { font-size: 48px; margin-bottom: 12px; }
+  .grid-label { font-weight: 730; font-size: 24px; color: #17212b; }
+  .grid-sub { font-size: 16px; color: #68768a; margin-top: 8px; }
   .checkin-card {
-    background: white; border-radius: 40px; padding: 54px 28px 59px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.043); border: 1px solid #e9edf4;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 260px; cursor: default;
+    background: white; border-radius: 40px; padding: 44px 24px 43px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.042); border: 1px solid #e9edf4;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 250px; cursor: default;
   }
-  .checkin-card .grid-icon { font-size: 58px; margin-bottom: 12px; }
-  .checkin-label { font-weight: 765; font-size: 27px; color: #17212b; margin-bottom: 26px; }
+  .checkin-card .grid-icon { font-size: 48px; margin-bottom: 8px; }
+  .checkin-label { font-weight: 720; font-size: 23px; color: #17212b; margin-bottom: 20px; }
   .checkin-btn {
-    background: #2563eb; border: none; color: white; font-weight: 690; font-size: 21px;
-    padding: 19px 72px; border-radius: 86px; cursor: pointer; transition: 0.12s;
-    box-shadow: 0 6px 18px rgba(37,99,235,0.22); letter-spacing: 0.5px; min-width: 208px;
+    background: #2563eb; border: none; color: white; font-weight: 660; font-size: 20px;
+    padding: 16px 70px; border-radius: 76px; cursor: pointer; transition: 0.12s;
+    box-shadow: 0 6px 18px rgba(37,99,235,0.22); letter-spacing: 0.5px; min-width: 188px;
   }
-  .checkin-btn:active { transform: scale(0.95); }
+  .checkin-btn:active { transform: scale(0.97); }
   .checkin-btn.done { background: #a0b8d6; box-shadow: none; cursor: not-allowed; }
   .modal-overlay {
-    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.49);
-    backdrop-filter: blur(5px); z-index: 998; justify-content: center; align-items: center; padding: 40px;
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.47);
+    backdrop-filter: blur(5px); z-index: 997; justify-content: center; align-items: center; padding: 30px;
   }
   .modal-box {
-    background: white; max-width: 880px; width: 96%; border-radius: 52px;
-    padding: 55px 60px 62px; box-shadow: 0 50px 92px rgba(0,0,0,0.25);
-    max-height: 85vh; overflow-y: auto; position: relative;
+    background: white; max-width: 960px; width: 94%; border-radius: 48px;
+    padding: 48px 48px 52px; box-shadow: 0 50px 82px rgba(0,0,0,0.22);
+    max-height: 87vh; overflow-y: auto; position: relative;
   }
-  .modal-title { font-size: 32px; font-weight: 780; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; }
-  .modal-close { background: transparent; border: none; font-size: 36px; cursor: pointer; color: #6f7d91; padding: 8px; }
-  .modal-body { margin-top: 6px; font-size: 18px; }
+  .modal-title { font-size: 30px; font-weight: 760; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; }
+  .modal-close { background: transparent; border: none; font-size: 34px; cursor: pointer; color: #6f7d91; padding: 6px; }
+  .modal-body { margin-top: 4px; font-size: 18px; }
   .modal-body textarea, .modal-body input[type="text"] {
-    width: 100%; padding: 20px 24px; border: 1px solid #d4ddee; border-radius: 30px;
-    font-size: 18px; resize: vertical; font-family: inherit; background: #fcfdfe;
+    width: 100%; padding: 18px 22px; border: 1px solid #d4ddee; border-radius: 28px;
+    font-size: 17px; resize: vertical; font-family: inherit; background: #fcfdfe;
   }
-  .modal-body textarea { min-height: 320px; line-height: 1.75; }
-  .modal-actions { margin-top: 28px; display: flex; gap: 14px; justify-content: flex-end; }
-  .modal-actions button { padding: 16px 42px; border: none; border-radius: 78px; font-weight: 640; font-size: 18px; cursor: pointer; background: #eef2f9; transition: 0.12s; }
+  .modal-body textarea { min-height: 280px; line-height: 1.65; }
+  .modal-actions { margin-top: 24px; display: flex; gap: 14px; justify-content: flex-end; flex-wrap: wrap; }
+  .modal-actions button { padding: 14px 38px; border: none; border-radius: 68px; font-weight: 610; font-size: 17px; cursor: pointer; background: #eef2f9; transition: 0.12s; }
   .modal-actions button:hover { background: #e2e8f3; }
   .modal-actions .primary { background: #2563eb; color: white; }
   .modal-actions .primary:hover { background: #1d4ed8; }
-  .auth-modal-box { max-width: 540px; border-radius: 50px; padding: 54px 52px; text-align: center; }
-  .auth-modal-box h2 { font-size: 29px; margin-bottom: 32px; font-weight: 760; }
-  .auth-modal-box input { width: 100%; padding: 20px 26px; border: 1px solid #d4ddee; border-radius: 66px; font-size: 19px; margin-bottom: 18px; background: #fcfdfe; }
-  .auth-modal-box .auth-btns { display: flex; gap: 16px; margin-top: 14px; }
-  .auth-modal-box .auth-btns button { flex: 1; padding: 18px; border: none; border-radius: 74px; font-weight: 680; font-size: 19px; cursor: pointer; background: #eef2f9; }
+  .auth-modal-box { max-width: 480px; border-radius: 46px; padding: 48px 44px; text-align: center; }
+  .auth-modal-box h2 { font-size: 28px; margin-bottom: 28px; font-weight: 735; }
+  .auth-modal-box input { width: 100%; padding: 18px 24px; border: 1px solid #d4ddee; border-radius: 60px; font-size: 18px; margin-bottom: 16px; background: #fcfdfe; }
+  .auth-modal-box .auth-btns { display: flex; gap: 14px; margin-top: 12px; }
+  .auth-modal-box .auth-btns button { flex: 1; padding: 16px; border: none; border-radius: 68px; font-weight: 640; font-size: 18px; cursor: pointer; background: #eef2f9; }
   .auth-modal-box .auth-btns .prim { background: #2563eb; color: white; }
-  .auth-hint { font-size: 15px; color: #8896aa; margin-top: 22px; line-height: 1.7; }
+  .auth-hint { font-size: 14px; color: #8896aa; margin-top: 18px; line-height: 1.6; }
   #authMsg { font-size: 16px; color: #dc2626; margin-top: 4px; min-height: 24px; }
-  .rule-list { list-style: none; padding: 0; }
-  .rule-list li { padding: 20px 0; border-bottom: 1px solid #eef2f8; display: flex; justify-content: space-between; align-items: center; font-size: 20px; }
-  .rule-list li:last-child { border: none; }
-  .rule-link a { color: #2563eb; text-decoration: none; font-weight: 590; }
-  .rule-link a:hover { text-decoration: underline; }
-  .rule-actions button { background: none; border: none; color: #8b9bb5; cursor: pointer; font-size: 17px; margin-left: 14px; padding: 8px 12px; border-radius: 12px; }
-  .rule-actions button:hover { color: #dc2626; background: #fef2f2; }
 
-  /* 公告渲染区 —— 洛谷风格 Markdown + LaTeX */
-  .markdown-preview { line-height: 1.9; color: #1e293b; font-size: 19px; word-break: break-word; }
-  .markdown-preview h1, .markdown-preview h2, .markdown-preview h3 { margin: 18px 0 10px; line-height: 1.45; }
-  .markdown-preview h1 { font-size: 30px; }
-  .markdown-preview h2 { font-size: 26px; }
-  .markdown-preview h3 { font-size: 22px; }
-  .markdown-preview p { margin: 12px 0; }
-  .markdown-preview ul, .markdown-preview ol { margin: 12px 0 12px 26px; }
-  .markdown-preview li { margin: 6px 0; }
+  /* 题目 & 题解样式 */
+  .problem-item, .solution-item { background: #f8fafd; border-radius: 28px; padding: 18px 22px; margin: 12px 0; border: 1px solid #e6ecf5; }
+  .problem-item strong, .solution-item strong { font-size: 19px; }
+  .problem-meta { color: #64748b; font-size: 15px; margin-top: 6px; }
+  .prob-solution-area { margin-top: 14px; border-top: 1px dashed #ccd7e6; padding-top: 12px; }
+  .sol-author { font-size: 14px; color: #5f6f84; margin-bottom: 6px; }
+  .empty-tip { color: #8896aa; padding: 16px 0; }
+  .admin-section { margin-top: 28px; border-top: 1px solid #e0e6f0; padding-top: 24px; }
+  .admin-section-title { font-size: 18px; font-weight: 620; color: #475569; margin-bottom: 12px; }
+  .admin-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+  .admin-row input { flex: 1; min-width: 130px; }
+
+  /* 公告渲染区 */
+  .markdown-preview { line-height: 1.85; color: #1e293b; font-size: 18px; word-break: break-word; }
+  .markdown-preview h1, .markdown-preview h2, .markdown-preview h3 { margin: 16px 0 8px; line-height: 1.4; }
+  .markdown-preview h1 { font-size: 28px; }
+  .markdown-preview h2 { font-size: 24px; }
+  .markdown-preview h3 { font-size: 20px; }
+  .markdown-preview p { margin: 10px 0; }
+  .markdown-preview ul, .markdown-preview ol { margin: 10px 0 10px 24px; }
+  .markdown-preview li { margin: 4px 0; }
   .markdown-preview a { color: #2563eb; }
-  .markdown-preview code {
-    background: #f1f5f9; padding: 2px 7px; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.93em;
-  }
-  .markdown-preview pre {
-    background: #0f172a; color: #e2e8f0; padding: 18px 22px; border-radius: 14px;
-    overflow-x: auto; margin: 16px 0;
-  }
+  .markdown-preview code { background: #f1f5f9; padding: 2px 7px; border-radius: 6px; font-family: Consolas, monospace; font-size: 0.93em; }
+  .markdown-preview pre { background: #0f172a; color: #e2e8f0; padding: 16px 20px; border-radius: 14px; overflow-x: auto; margin: 14px 0; }
   .markdown-preview pre code { background: none; padding: 0; color: inherit; }
-  .markdown-preview blockquote {
-    border-left: 4px solid #2563eb; background: #f8faff; padding: 12px 18px;
-    margin: 14px 0; border-radius: 0 10px 10px 0; color: #334155;
-  }
-  .markdown-preview table { border-collapse: collapse; margin: 16px 0; width: 100%; }
-  .markdown-preview th, .markdown-preview td { border: 1px solid #d8e0ec; padding: 10px 14px; text-align: left; }
-  .markdown-preview img { max-width: 100%; border-radius: 10px; margin: 12px 0; }
-  .markdown-preview hr { border: none; border-top: 1px solid #d8e0ec; margin: 22px 0; }
+  .markdown-preview blockquote { border-left: 4px solid #2563eb; background: #f8faff; padding: 10px 16px; margin: 12px 0; border-radius: 0 10px 10px 0; color: #334155; }
+  .markdown-preview table { border-collapse: collapse; margin: 14px 0; width: 100%; }
+  .markdown-preview th, .markdown-preview td { border: 1px solid #d8e0ec; padding: 8px 12px; text-align: left; }
+  .markdown-preview img { max-width: 100%; border-radius: 10px; margin: 10px 0; }
+  .markdown-preview hr { border: none; border-top: 1px solid #d8e0ec; margin: 20px 0; }
 
-  .admin-section { margin-top: 32px; border-top: 1px solid #e0e6f0; padding-top: 28px; }
-  .admin-section-title { font-size: 19px; font-weight: 660; color: #475569; margin-bottom: 14px; }
-  .admin-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
-  .admin-row input { flex: 1; min-width: 210px; }
-  @media (max-width: 800px) {
-    .home-card { padding: 36px 16px; }
-    .top-left { top: 18px; left: 14px; }
-    .avatar { width: 39px; height: 41px; font-size: 18px; }
-    .grid-2x2 { grid-template-columns: 1fr; gap: 20px; }
-    .grid-item, .checkin-card { min-height: 190px; padding: 34px 14px; border-radius: 30px; }
-    .modal-box { padding: 36px 22px; border-radius: 36px; }
-    .auth-modal-box { padding: 40px 24px; }
+  @media (max-width: 850px) {
+    .home-card { padding: 32px 14px; }
+    .top-left { top: 14px; left: 10px; }
+    .avatar { width: 35px; height: 37px; font-size: 16px; }
+    .grid-2x2 { grid-template-columns: 1fr; gap: 16px; }
+    .grid-item, .checkin-card { min-height: 175px; padding: 28px 12px; border-radius: 28px; }
+    .modal-box { padding: 30px 18px; border-radius: 32px; }
+    .auth-modal-box { padding: 34px 18px; }
   }
 </style>
 </head>
@@ -149,7 +142,7 @@
   </div>
   <div class="content">
     <div class="grid-2x2">
-      <div class="grid-item" onclick="openAnnouncementModal()">
+      <div class="grid-item" onclick="openModal('announceModal')">
         <div class="grid-icon">📢</div>
         <div class="grid-label">团队公告</div>
         <div class="grid-sub">点击查看</div>
@@ -159,20 +152,21 @@
         <div class="checkin-label">每日打卡</div>
         <button class="checkin-btn" id="checkinBtn" onclick="handleCheckin()">点击打卡</button>
       </div>
-      <div class="grid-item" onclick="openRulesModal()">
-        <div class="grid-icon">⚖️</div>
-        <div class="grid-label">团队规则</div>
-        <div class="grid-sub">查看 / 管理</div>
+      <div class="grid-item" onclick="openModal('problemsModal')">
+        <div class="grid-icon">📚</div>
+        <div class="grid-label">团队题目</div>
+        <div class="grid-sub">发布与浏览</div>
       </div>
-      <div class="grid-item" onclick="goRank()">
-        <div class="grid-icon">🏅</div>
-        <div class="grid-label">分值排行</div>
-        <div class="grid-sub">打开排行榜</div>
+      <div class="grid-item" onclick="openModal('solutionsModal')">
+        <div class="grid-icon">✍️</div>
+        <div class="grid-label">题解广场</div>
+        <div class="grid-sub">提交与查看</div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- 登录模态框 -->
 <div class="modal-overlay" id="authModal">
   <div class="modal-box auth-modal-box">
     <div class="modal-title"><span>🔐 登录 / 注册</span><button class="modal-close" onclick="closeModal('authModal')">✕</button></div>
@@ -184,53 +178,54 @@
         <button class="prim" onclick="miniLogin()">登录</button>
         <button onclick="miniRegister()">注册</button>
       </div>
-      <div class="auth-hint">管理员账号已内置。注册后即可使用打卡与排行榜。<br>数据保存在本机浏览器中。</div>
+      <div class="auth-hint">管理员为「CD小狼2015」，登录即拥有管理权限。<br>数据保存在本机浏览器中。</div>
     </div>
   </div>
 </div>
 
-<div class="modal-overlay" id="rulesModal">
+<!-- 团队题目模态框 -->
+<div class="modal-overlay" id="problemsModal">
   <div class="modal-box">
-    <div class="modal-title"><span>📋 团队规则</span><button class="modal-close" onclick="closeModal('rulesModal')">✕</button></div>
+    <div class="modal-title"><span>📚 团队题目</span><button class="modal-close" onclick="closeModal('problemsModal')">✕</button></div>
     <div class="modal-body">
-      <div id="rulesBody"></div>
-      <div id="rulesAdminPanel" class="admin-section" style="display:none;">
-        <div class="admin-section-title">管理员：添加规则链接</div>
+      <div id="problemsListContainer"></div>
+      <div class="admin-section" id="problemAdminSection" style="display:none;">
+        <div class="admin-section-title">管理员：添加新题目</div>
         <div class="admin-row">
-          <input type="text" id="newRuleLabel" placeholder="显示文字，例如：GESP 官网">
-          <input type="text" id="newRuleUrl" placeholder="链接 URL，例如：https://...">
-          <button class="primary" onclick="addRule()">添加</button>
+          <input type="text" id="newProbTitle" placeholder="题目名称" style="min-width:140px;">
+          <input type="text" id="newProbDesc" placeholder="题目描述（支持 Markdown）">
+          <button class="primary" onclick="addProblem()">添加题目</button>
         </div>
-        <ul class="rule-list" id="ruleListUl"></ul>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal-overlay" id="announceModal">
+<!-- 题解广场模态框 -->
+<div class="modal-overlay" id="solutionsModal">
   <div class="modal-box">
-    <div class="modal-title"><span>📢 团队公告</span><button class="modal-close" onclick="closeModal('announceModal')">✕</button></div>
+    <div class="modal-title"><span>✍️ 题解广场</span><button class="modal-close" onclick="closeModal('solutionsModal')">✕</button></div>
     <div class="modal-body">
-      <div id="announceDisplay" class="markdown-preview"></div>
-      <div id="announceEditArea" style="display:none;margin-top:18px;">
-        <textarea id="announceEditor" placeholder="支持 Markdown + LaTeX：&#10;# 标题&#10;**粗体** *斜体*&#10;- 列表&#10;`代码`&#10;行内公式 $E=mc^2$&#10;块级公式：&#10;$$&#10;\int_0^1 x^2\,dx = \frac13&#10;$$"></textarea>
-        <div class="modal-actions">
-          <button onclick="cancelEditAnnounce()">取消</button>
-          <button class="primary" onclick="saveAnnounce()">保存</button>
+      <div id="solutionPostArea">
+        <h3 style="font-size:22px; margin-bottom:12px;">💡 提交题解</h3>
+        <select id="solutionProbSelect" style="width:100%; padding:14px 18px; border-radius:30px; border:1px solid #d4ddee; background:#fcfdfe; font-size:17px; margin-bottom:12px;"></select>
+        <textarea id="solutionContent" placeholder="写下你的题解（支持 Markdown + LaTeX）" style="min-height:180px;"></textarea>
+        <div class="modal-actions" style="justify-content:space-between;">
+          <span style="color:#66768a; font-size:15px;">题解会显示你的名字</span>
+          <button class="primary" onclick="submitSolution()">提交题解</button>
         </div>
       </div>
-    </div>
-    <div style="margin-top:22px;text-align:right;">
-      <button id="editAnnounceBtn" style="display:none;padding:14px 32px;border:none;border-radius:74px;background:#eef2f9;font-weight:635;cursor:pointer;font-size:17px;" onclick="enableEditAnnounce()">✏️ 编辑公告</button>
+      <hr style="margin: 28px 0; border: none; border-top: 1px solid #e2e8f0;">
+      <div id="solutionsListContainer"></div>
     </div>
   </div>
 </div>
 
 <script>
 /* ========== 配置 ========== */
-const RANK_URL = 'https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E5%88%86%E5%80%BC%E6%8E%92%E5%90%8D%EF%BC%89.html';
-const KEY_USERS = 'rankUsers';
-const KEY_SESSION = 'rankCurrent';
+const KEY_USERS = 'teamUsers';
+const KEY_SESSION = 'teamSession';
+const ADMIN_NAME = 'CD小狼2015';
 
 /* ========== 用户数据 ========== */
 function loadUsers() {
@@ -239,54 +234,43 @@ function loadUsers() {
 }
 function saveUsers() { localStorage.setItem(KEY_USERS, JSON.stringify(users)); }
 
-const ADMIN_USER = 'CD小狼2015';
-const ADMIN_PASS = '123cdxiaolang';
 let users = loadUsers();
-(function ensureAdmin() {
-  const adm = users.find(u => u.name === ADMIN_USER);
-  if (!adm) users.unshift({ name: ADMIN_USER, password: ADMIN_PASS, score: 0, isAdmin: true });
-  else { adm.password = ADMIN_PASS; adm.isAdmin = true; }
-  saveUsers();
-})();
-
 let currentUser = null;
 
 /* ========== 登录态 UI ========== */
-function isAdmin() { return currentUser && currentUser.name === ADMIN_USER; }
+function isAdmin() { return currentUser && currentUser.name === ADMIN_NAME; }
 function applyAuthUI() {
   const av = document.getElementById('avatarBtn'), ut = document.getElementById('userText');
   if (currentUser) {
     av.classList.add('logged');
-    av.title = currentUser.name + (currentUser.isAdmin ? ' (管理员)' : '');
+    av.title = currentUser.name + (isAdmin() ? ' (管理员)' : '');
     av.textContent = currentUser.name.slice(0,1).toUpperCase();
-    ut.textContent = currentUser.name + (currentUser.isAdmin ? ' (管理员)' : '');
+    ut.textContent = currentUser.name + (isAdmin() ? ' (管理员)' : '');
     ut.classList.add('show');
   } else {
     av.classList.remove('logged'); av.title = '点击登录'; av.textContent = '👤';
     ut.classList.remove('show'); ut.textContent = '';
   }
-  document.getElementById('rulesAdminPanel').style.display = isAdmin() ? 'block' : 'none';
-  document.getElementById('editAnnounceBtn').style.display = isAdmin() ? 'inline-block' : 'none';
-  renderRules();
+  // 控制管理员面板显示
+  document.getElementById('problemAdminSection').style.display = isAdmin() ? 'block' : 'none';
+  populateSolutionSelect();
+  renderProblems();
+  renderSolutions();
 }
 function onAvatarClick() {
   if (currentUser) {
     if (confirm('当前：' + currentUser.name + '\n要退出登录吗？')) {
       currentUser = null; localStorage.removeItem(KEY_SESSION);
-      applyAuthUI(); updateCheckinUI(); openAuthModal();
+      applyAuthUI(); updateCheckinUI(); 
     }
-  } else openAuthModal();
-}
-function goRank() {
-  if (!currentUser) { openAuthModal(); return; }
-  window.open(RANK_URL, '_blank', 'noopener,noreferrer');
+  } else openModal('authModal');
 }
 
 /* ========== 打卡 ========== */
 function getTodayStr() { return new Date().toISOString().slice(0,10); }
 function checkinStatus() { return localStorage.getItem('checkin_' + getTodayStr()) === 'done'; }
 function handleCheckin() {
-  if (!currentUser) { openAuthModal(); return; }
+  if (!currentUser) { openModal('authModal'); return; }
   if (checkinStatus()) return;
   let stored = JSON.parse(localStorage.getItem(KEY_USERS) || '[]');
   let me = stored.find(x => x.name === currentUser.name);
@@ -303,87 +287,134 @@ function updateCheckinUI() {
   else { btn.textContent = '点击打卡'; btn.classList.remove('done'); }
 }
 
-/* ========== 规则 ========== */
-const STORAGE_HOME = 'teamHomeData';
-function loadHome() {
-  try { const d = JSON.parse(localStorage.getItem(STORAGE_HOME)); if (d && typeof d === 'object') return d; } catch {}
-  return { rules: [], announce: '# 欢迎加入团队！\n\n这里可以发 **Markdown** 公告，支持行内公式 $E=mc^2$ 与块级公式：\n\n$$\n\\int_0^1 x^2\\,dx = \\frac{1}{3}\n$$\n\n- 支持列表\n- 支持 `代码`\n> 支持引用' };
+/* ========== 题目 & 题解存储 ========== */
+const STORAGE_PROBLEMS = 'teamProblems';
+const STORAGE_SOLUTIONS = 'teamSolutions';
+
+function loadProblems() {
+  try { const d = JSON.parse(localStorage.getItem(STORAGE_PROBLEMS)); return Array.isArray(d) ? d : []; } catch { return []; }
 }
-let homeData = loadHome();
-function saveHome() { localStorage.setItem(STORAGE_HOME, JSON.stringify(homeData)); }
-function openRulesModal() { renderRules(); document.getElementById('rulesModal').style.display = 'flex'; }
-function renderRules() {
-  const ul = document.getElementById('ruleListUl');
-  ul.innerHTML = homeData.rules.map((r,i) =>
-    `<li><span class="rule-link"><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.label}</a></span>
-      <span class="rule-actions">${isAdmin() ? `<button onclick="removeRule(${i})">删除</button>` : ''}</span></li>`
-  ).join('');
-  const body = document.getElementById('rulesBody');
-  body.innerHTML = homeData.rules.length === 0
-    ? '<p style="color:#8896aa;">暂无规则，管理员可添加。</p>'
-    : '<ul class="rule-list">' + homeData.rules.map(r =>
-        `<li><span class="rule-link"><a href="${r.url}" target="_blank" rel="noopener noreferrer">${r.label}</a></span></li>`
-      ).join('') + '</ul>';
+function saveProblems(data) { localStorage.setItem(STORAGE_PROBLEMS, JSON.stringify(data)); }
+
+function loadSolutions() {
+  try { const d = JSON.parse(localStorage.getItem(STORAGE_SOLUTIONS)); return Array.isArray(d) ? d : []; } catch { return []; }
 }
-function addRule() {
-  const label = document.getElementById('newRuleLabel').value.trim();
-  let url = document.getElementById('newRuleUrl').value.trim();
-  if (!label || !url) return alert('请填写显示文字和链接');
-  if (!/^https?:\/\//i.test(url)) url = 'https://' + url;
-  homeData.rules.push({ label, url }); saveHome(); renderRules();
-  document.getElementById('newRuleLabel').value = ''; document.getElementById('newRuleUrl').value = '';
-}
-function removeRule(idx) {
-  if (!confirm('确定删除这条规则？')) return;
-  homeData.rules.splice(idx, 1); saveHome(); renderRules();
+function saveSolutions(data) { localStorage.setItem(STORAGE_SOLUTIONS, JSON.stringify(data)); }
+
+let problems = loadProblems();
+let solutions = loadSolutions();
+
+/* ========== 题目管理 ========== */
+function addProblem() {
+  const title = document.getElementById('newProbTitle').value.trim();
+  const desc = document.getElementById('newProbDesc').value.trim();
+  if (!title) return alert('请输入题目名称');
+  problems.push({ id: Date.now() + Math.random(), title, desc: desc || '暂无描述', author: currentUser?.name || '管理员', time: new Date().toLocaleString() });
+  saveProblems(problems);
+  document.getElementById('newProbTitle').value = '';
+  document.getElementById('newProbDesc').value = '';
+  renderProblems();
+  populateSolutionSelect();
 }
 
-/* ========== 公告：Markdown + KaTeX 渲染 ========== */
-function renderMarkdownToHTML(md) {
-  if (!window.marked) return md;
-  // marked v12 全局 parse
-  const html = window.marked.parse(md, { gfm: true, breaks: false });
-  return html;
+function deleteProblem(id) {
+  if (!confirm('确定删除该题目及其所有题解？')) return;
+  problems = problems.filter(p => p.id !== id);
+  solutions = solutions.filter(s => s.problemId !== id);
+  saveProblems(problems);
+  saveSolutions(solutions);
+  renderProblems();
+  populateSolutionSelect();
+  renderSolutions();
 }
-function openAnnouncementModal() { renderAnnounce(); document.getElementById('announceModal').style.display = 'flex'; }
-function renderAnnounce() {
-  const box = document.getElementById('announceDisplay');
-  const raw = homeData.announce || '';
-  // 先用 marked 转成 HTML
-  box.innerHTML = renderMarkdownToHTML(raw);
-  // 再用 KaTeX auto-render 扫描整个容器，把 $...$ 和 $$...$$ 渲染成公式
+
+/* ========== 题解提交 ========== */
+function populateSolutionSelect() {
+  const sel = document.getElementById('solutionProbSelect');
+  if (!sel) return;
+  sel.innerHTML = '<option value="">-- 选择题目 --</option>' + 
+    problems.map(p => `<option value="${p.id}">${p.title}</option>`).join('');
+}
+
+function submitSolution() {
+  if (!currentUser) { alert('请先登录'); return; }
+  const probId = document.getElementById('solutionProbSelect').value;
+  const content = document.getElementById('solutionContent').value.trim();
+  if (!probId) return alert('请选择一个题目');
+  if (!content) return alert('题解内容不能为空');
+  solutions.push({
+    id: Date.now() + Math.random(),
+    problemId: probId,
+    author: currentUser.name,
+    content: content,
+    time: new Date().toLocaleString()
+  });
+  saveSolutions(solutions);
+  document.getElementById('solutionContent').value = '';
+  renderSolutions();
+}
+
+/* ========== 渲染题目 ========== */
+function renderProblems() {
+  const container = document.getElementById('problemsListContainer');
+  if (!container) return;
+  if (problems.length === 0) {
+    container.innerHTML = '<div class="empty-tip">📌 还没有题目，管理员可以添加。</div>';
+    return;
+  }
+  container.innerHTML = problems.map(p => {
+    const relatedSols = solutions.filter(s => s.problemId === p.id);
+    const solCount = relatedSols.length;
+    return `
+      <div class="problem-item">
+        <strong>${p.title}</strong>
+        <div class="problem-meta">${p.author} · ${p.time} · ${solCount} 篇题解 ${isAdmin() ? `<button onclick="deleteProblem(${JSON.stringify(p.id)})" style="margin-left:16px;background:none;border:none;color:#dc2626;cursor:pointer;">删除</button>` : ''}</div>
+        <div class="markdown-preview" style="margin-top:8px;">${renderMarkdownToHTML(p.desc)}</div>
+      </div>
+    `;
+  }).join('');
+  // 渲染公式
   if (window.renderMathInElement) {
-    try {
-      window.renderMathInElement(box, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false }
-        ],
-        throwOnError: false
-      });
-    } catch (e) {}
+    document.querySelectorAll('#problemsModal .markdown-preview').forEach(el => {
+      try { window.renderMathInElement(el, { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }], throwOnError: false }); } catch(e) {}
+    });
   }
 }
-function enableEditAnnounce() {
-  document.getElementById('announceDisplay').style.display = 'none';
-  document.getElementById('announceEditArea').style.display = 'block';
-  document.getElementById('announceEditor').value = homeData.announce || '';
+
+/* ========== 渲染题解 ========== */
+function renderSolutions() {
+  const container = document.getElementById('solutionsListContainer');
+  if (!container) return;
+  if (solutions.length === 0) {
+    container.innerHTML = '<div class="empty-tip">📝 还没有题解，提交第一篇吧</div>';
+    return;
+  }
+  container.innerHTML = '<h3 style="font-size:20px;margin-bottom:12px;">📖 全部题解</h3>' +
+    solutions.map(s => {
+      const prob = problems.find(p => p.id === s.problemId);
+      return `<div class="solution-item"><strong>${prob ? prob.title : '已删除题目'}</strong> · ${s.author} <span style="color:#6b7c93;font-size:14px;">${s.time}</span><div class="markdown-preview" style="margin-top:8px;">${renderMarkdownToHTML(s.content)}</div></div>`;
+    }).join('');
+  // 渲染公式
+  if (window.renderMathInElement) {
+    document.querySelectorAll('#solutionsModal .markdown-preview').forEach(el => {
+      try { window.renderMathInElement(el, { delimiters: [{ left: '$$', right: '$$', display: true }, { left: '$', right: '$', display: false }], throwOnError: false }); } catch(e) {}
+    });
+  }
 }
-function cancelEditAnnounce() {
-  document.getElementById('announceDisplay').style.display = 'block';
-  document.getElementById('announceEditArea').style.display = 'none';
-}
-function saveAnnounce() {
-  const val = document.getElementById('announceEditor').value;
-  homeData.announce = val || '暂无公告';
-  saveHome(); cancelEditAnnounce(); renderAnnounce();
+
+/* ========== Markdown 渲染 ========== */
+function renderMarkdownToHTML(md) {
+  if (!window.marked) return md;
+  return window.marked.parse(md, { gfm: true, breaks: false });
 }
 
 /* ========== 登录注册 ========== */
-function openAuthModal() {
-  document.getElementById('authMsg').textContent = '';
-  document.getElementById('authModal').style.display = 'flex';
-  setTimeout(() => document.getElementById('miniUser').focus(), 80);
+function openModal(id) { 
+  document.getElementById(id).style.display = 'flex'; 
+  if (id === 'authModal') {
+    document.getElementById('authMsg').textContent = '';
+    setTimeout(() => document.getElementById('miniUser').focus(), 80);
+  }
 }
 function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 function miniLogin() {
@@ -392,13 +423,17 @@ function miniLogin() {
   if (!u || !p) return setAuthMsg('请输入账号和密码');
   if (u.length < 2) return setAuthMsg('用户名至少2个字符');
   if (p.length < 6) return setAuthMsg('密码至少6位');
-  if (u === ADMIN_USER && p === ADMIN_PASS) {
-    currentUser = { name: ADMIN_USER, isAdmin: true, score: 0 };
-    const adm = users.find(x => x.name === ADMIN_USER); if (adm) currentUser.score = adm.score;
+  // 管理员登录：只用名称判定，密码任意
+  if (u === ADMIN_NAME) {
+    currentUser = { name: ADMIN_NAME, isAdmin: true, score: 0 };
+    // 确保在用户列表中存在
+    let adm = users.find(x => x.name === ADMIN_NAME);
+    if (!adm) { users.push({ name: ADMIN_NAME, password: '', score: 0, isAdmin: true }); saveUsers(); }
+    else currentUser.score = adm.score || 0;
   } else {
     const found = users.find(x => x.name === u && x.password === p);
     if (!found) return setAuthMsg('账号或密码错误');
-    currentUser = { name: u, isAdmin: !!found.isAdmin, score: found.score || 0 };
+    currentUser = { name: u, isAdmin: false, score: found.score || 0 };
   }
   localStorage.setItem(KEY_SESSION, JSON.stringify(currentUser));
   closeModal('authModal'); applyAuthUI(); updateCheckinUI();
@@ -409,7 +444,7 @@ function miniRegister() {
   const p = document.getElementById('miniPass').value.trim();
   if (!u || u.length < 2) return setAuthMsg('用户名至少2个字符');
   if (!p || p.length < 6) return setAuthMsg('密码至少6位');
-  if (u === ADMIN_USER) return setAuthMsg('该用户名不可注册');
+  if (u === ADMIN_NAME) return setAuthMsg('该用户名不可注册');
   if (users.find(x => x.name === u)) return setAuthMsg('用户名已存在');
   users.push({ name: u, password: p, score: 0, isAdmin: false }); saveUsers();
   setAuthMsg('注册成功，请登录');
@@ -419,30 +454,26 @@ function setAuthMsg(t) { document.getElementById('authMsg').textContent = t; }
 /* ========== 全局事件 ========== */
 window.onclick = e => { if (e.target.classList.contains('modal-overlay')) e.target.style.display = 'none'; };
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') ['authModal','rulesModal','announceModal'].forEach(closeModal);
+  if (e.key === 'Escape') ['authModal','problemsModal','solutionsModal'].forEach(closeModal);
   if (e.key === 'Enter' && document.getElementById('authModal').style.display === 'flex') miniLogin();
 });
 
 /* ========== 启动 ========== */
 (function init() {
-  // 等待 CDN 脚本完全加载后再执行第一次渲染（保证 auto-render 可用）
   function doRender() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY_SESSION) || 'null');
+      if (saved && saved.name) {
+        const live = users.find(u => u.name === saved.name && (saved.name === ADMIN_NAME ? true : u.password === saved.password));
+        if (live) currentUser = { name: live.name, isAdmin: live.name === ADMIN_NAME, score: live.score || 0 };
+        else localStorage.removeItem(KEY_SESSION);
+      }
+    } catch { localStorage.removeItem(KEY_SESSION); }
     applyAuthUI(); updateCheckinUI();
-    if (!currentUser) openAuthModal();
+    if (!currentUser) openModal('authModal');
   }
   if (document.readyState === 'complete') doRender();
   else window.addEventListener('load', doRender);
-
-  try {
-    const saved = JSON.parse(localStorage.getItem(KEY_SESSION) || 'null');
-    if (saved && saved.name) {
-      const live = users.find(u => u.name === saved.name && u.password === (saved.name === ADMIN_USER ? ADMIN_PASS : u.password));
-      if (live) currentUser = { name: live.name, isAdmin: !!live.isAdmin, score: live.score || 0 };
-      else localStorage.removeItem(KEY_SESSION);
-    }
-  } catch { localStorage.removeItem(KEY_SESSION); }
-  // 先恢复登录态再更新 UI
-  doRender();
 })();
 </script>
 
