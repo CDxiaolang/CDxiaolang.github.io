@@ -44,8 +44,11 @@ body{display:flex;justify-content:center;align-items:center}
 .auth-modal-box .auth-btns .prim{background:#2563eb;color:white}
 .auth-hint{font-size:14px;color:#8896aa;margin-top:18px;line-height:1.6}
 #authMsg{font-size:16px;color:#dc2626;margin-top:4px;min-height:24px}
-.problem-card{background:#f9fbfd;border:2px solid #dce2ec;border-radius:32px;padding:24px 28px;margin:18px 0;transition:.1s}
+.problem-card{background:#f9fbfd;border:2px solid #dce2ec;border-radius:32px;padding:24px 28px;margin:18px 0;transition:.1s;position:relative}
 .problem-card:hover{border-color:#bcc8da;background:#f6f9fd}
+.problem-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.edit-problem-btn{font-size:13px;padding:3px 12px;border:none;border-radius:8px;cursor:pointer;background:#eef2f9;color:#475569;transition:.1s;font-weight:500}
+.edit-problem-btn:hover{background:#2563eb;color:#fff}
 .problem-title-link{font-size:22px;font-weight:690;color:#2563eb;text-decoration:none;word-break:break-all}
 .problem-title-link:hover{text-decoration:underline}
 .problem-title-link .luogu-id-inline{color:#64748b;font-weight:500;font-size:18px;margin-right:6px}
@@ -59,6 +62,9 @@ body{display:flex;justify-content:center;align-items:center}
 .admin-problem-controls button:hover{background:#e2e8f3}
 .admin-problem-controls .danger{color:#dc2626;background:#fef2f2}.admin-problem-controls .danger:hover{background:#fee2e2}
 .empty-tip{color:#8896aa;padding:20px 0}
+.edit-problem-panel{background:#f1f5f9;border-radius:16px;padding:16px 20px;margin-top:14px;display:none}
+.edit-problem-panel label{font-size:14px;color:#475569;display:block;margin-bottom:4px;font-weight:600}
+.edit-problem-panel input{margin-bottom:10px}
 .markdown-preview{line-height:1.81;color:#1e293b;font-size:18px;word-break:break-word}
 .markdown-preview h1,.markdown-preview h2,.markdown-preview h3{margin:16px 0 8px;line-height:1.4}
 .markdown-preview h1{font-size:28px}.markdown-preview h2{font-size:24px}.markdown-preview h3{font-size:20px}
@@ -87,7 +93,7 @@ body{display:flex;justify-content:center;align-items:center}
     <div class="avatar" id="avatarBtn" onclick="onAvatarClick()" title="登录 / 账号">👤</div>
     <div class="user-text" id="userText"></div>
   </div>
-  <button class="rank-btn" onclick="location.href='https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E5%88%86%E5%80%BC%E6%8E%92%E5%90%8D%EF%BC%89'">🏆 排行榜</button>
+  <button class="rank-btn" onclick="location.href='rank.html'">🏆 排行榜</button>
   <div class="content">
     <div class="grid-2x2">
       <div class="grid-item" onclick="openModal('announceModal')"><div class="grid-icon">📢</div><div class="grid-label">团队公告</div><div class="grid-sub">点击查看</div></div>
@@ -205,6 +211,36 @@ sv(SP,probs);document.getElementById('newProbLuogu').value='';document.getElemen
 function delProb(id){if(!confirm('确定删除该题目及其所有题解？'))return;probs=probs.filter(p=>p.id!==id);sols=sols.filter(s=>s.problemId!==id);sv(SP,probs);sv(SS,sols);rP();ps();rS()}
 function upLim(pid,v){const nl=parseInt(v);if(isNaN(nl)||nl<1)return;const p=probs.find(x=>x.id===pid);if(p&&p.solutionLimit!==nl){p.solutionLimit=nl;sv(SP,probs);rP();ps()}}
 
+/* ===== 修改题目 ===== */
+function toggleEditProblem(pid){
+  const panel=document.getElementById('editPanel_'+pid);
+  if(!panel)return;
+  panel.style.display=panel.style.display==='block'?'none':'block';
+  if(panel.style.display==='block'){
+    const p=probs.find(x=>x.id===pid);
+    if(p){
+      document.getElementById('editLuogu_'+pid).value=p.luoguId;
+      document.getElementById('editName_'+pid).value=p.title;
+      document.getElementById('editLimit_'+pid).value=p.solutionLimit;
+      document.getElementById('editAuthor_'+pid).value=p.author;
+    }
+  }
+}
+function saveEditProblem(pid){
+  const p=probs.find(x=>x.id===pid);
+  if(!p)return;
+  const nl=document.getElementById('editLuogu_'+pid).value.trim();
+  const nn=document.getElementById('editName_'+pid).value.trim();
+  const nlim=parseInt(document.getElementById('editLimit_'+pid).value);
+  const na=document.getElementById('editAuthor_'+pid).value.trim();
+  if(!nl)return alert('洛谷题号不能为空');
+  if(!nn)return alert('题目名称不能为空');
+  if(!nlim||nlim<1)return alert('题解上限至少为1');
+  if(!na)return alert('创建者不能为空');
+  p.luoguId=nl;p.title=nn;p.solutionLimit=nlim;p.author=na;
+  sv(SP,probs);rP();ps();
+}
+
 function ps(){
 const sel=document.getElementById('solutionProbSelect');if(!sel)return;
 sel.innerHTML='<option value="">-- 选择题目 --</option>'+probs.map(p=>`<option value="${p.id}">${p.luoguId} ${p.title} [${sols.filter(s=>s.problemId===p.id).length}/${p.solutionLimit}]</option>`).join('');
@@ -225,7 +261,21 @@ const c=document.getElementById('problemsListContainer');if(!c)return;
 if(!probs.length){c.innerHTML='<div class="empty-tip">📌 还没有题目，管理员可以添加。</div>';return}
 c.innerHTML=probs.map(p=>{
 const cnt=sols.filter(s=>s.problemId===p.id).length,url=`https://www.luogu.com.cn/problem/${p.luoguId}`;
-return `<div class="problem-card"><a class="problem-title-link" href="${url}" target="_blank" rel="noopener noreferrer" title="打开洛谷原题"><span class="luogu-id-inline">${p.luoguId}</span><span class="title-text">${p.title}</span></a><div class="problem-meta"><span>${p.author}</span><span>${p.time}</span><span class="solution-count-pill">📝 题解 ${cnt}/${p.solutionLimit}</span></div>${isAdm()?`<div class="admin-problem-controls"><label style="font-size:15px;color:#475569">题解上限：</label><input type="number" value="${p.solutionLimit}" min="1" onchange="upLim('${p.id}',this.value)"><button class="danger" onclick="delProb('${p.id}')">删除题目</button></div>`:''}</div>`
+return `<div class="problem-card">
+  <div class="problem-header">
+    ${isAdm()?`<button class="edit-problem-btn" onclick="toggleEditProblem('${p.id}')">✏️ 修改</button>`:''}
+    <a class="problem-title-link" href="${url}" target="_blank" rel="noopener noreferrer" title="打开洛谷原题"><span class="luogu-id-inline">${p.luoguId}</span><span class="title-text">${p.title}</span></a>
+  </div>
+  <div class="problem-meta"><span>${p.author}</span><span>${p.time}</span><span class="solution-count-pill">📝 题解 ${cnt}/${p.solutionLimit}</span></div>
+  ${isAdm()?`<div class="edit-problem-panel" id="editPanel_${p.id}">
+    <label>洛谷题号</label><input type="text" id="editLuogu_${p.id}" style="margin-bottom:8px">
+    <label>题目名称</label><input type="text" id="editName_${p.id}" style="margin-bottom:8px">
+    <label>题解上限</label><input type="number" id="editLimit_${p.id}" min="1" style="margin-bottom:8px">
+    <label>创建者</label><input type="text" id="editAuthor_${p.id}" style="margin-bottom:12px">
+    <div class="modal-actions" style="margin-top:0"><button onclick="toggleEditProblem('${p.id}')">取消</button><button class="primary" onclick="saveEditProblem('${p.id}')">保存修改</button></div>
+  </div>`:''}
+  ${isAdm()?`<div class="admin-problem-controls"><label style="font-size:15px;color:#475569">题解上限：</label><input type="number" value="${p.solutionLimit}" min="1" onchange="upLim('${p.id}',this.value)"><button class="danger" onclick="delProb('${p.id}')">删除题目</button></div>`:''}
+</div>`
 }).join('')
 }
 
