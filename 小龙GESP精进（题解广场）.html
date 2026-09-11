@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>小龙GESP精进 · 题解广场</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;font-family:"Microsoft YaHei",sans-serif;background:linear-gradient(145deg,#f5f7fc,#eef1f7);color:#17212b}
+body{padding:32px 48px 64px}
+.top-bar{display:flex;align-items:center;gap:16px;margin-bottom:28px;flex-wrap:wrap}
+.back-btn{padding:10px 24px;border:none;border-radius:24px;font-size:15px;font-weight:600;cursor:pointer;background:#eef2f9;color:#475569;transition:.12s;text-decoration:none;display:inline-block}
+.back-btn:hover{background:#e2e8f3}
+.page-title{font-size:32px;font-weight:750}
+.user-area{margin-left:auto;display:flex;align-items:center;gap:12px}
+.avatar{width:40px;height:40px;border-radius:50%;background:#c8d0db;color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;cursor:pointer;border:2px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.08);user-select:none}
+.avatar.logged{background:linear-gradient(135deg,#2563eb,#4f8df7)}
+.user-name{font-size:15px;color:#475569;font-weight:550}
+.login-hint{font-size:14px;color:#8896aa;cursor:pointer;text-decoration:underline}
+
+/* 待审区 */
+.pending-section{position:relative;margin-bottom:32px;background:#fff;border-radius:24px;padding:28px 32px;border:2px solid #bae6fd}
+.pending-tag{position:absolute;top:-14px;right:24px;background:#0284c7;color:#fff;padding:4px 18px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.5px}
+.section-title{font-size:24px;font-weight:720;margin-bottom:16px;color:#17212b}
+
+/* 提交区 */
+.post-section{background:#fff;border-radius:24px;padding:28px 32px;margin-bottom:32px;border:1px solid #e9edf4;box-shadow:0 4px 14px rgba(0,0,0,.03)}
+.post-section h3{font-size:22px;margin-bottom:14px}
+.post-section select,.post-section textarea{width:100%;padding:16px 20px;border:1px solid #d4ddee;border-radius:20px;font-size:17px;font-family:inherit;background:#fcfdfe;outline:none;resize:vertical}
+.post-section textarea{min-height:180px;margin-top:12px}
+.limit-hint{font-size:15px;color:#64748b;margin:10px 0}
+.post-actions{margin-top:14px;display:flex;gap:14px;justify-content:space-between;align-items:center}
+.post-actions .hint{color:#66768a;font-size:15px}
+.post-actions button{padding:12px 36px;border:none;border-radius:30px;font-size:17px;font-weight:600;cursor:pointer;background:#2563eb;color:#fff;transition:.12s}
+.post-actions button:hover{background:#1d4ed8}
+
+/* 已通过列表 */
+.solutions-section{background:#fff;border-radius:24px;padding:28px 32px;border:1px solid #e9edf4;box-shadow:0 4px 14px rgba(0,0,0,.03)}
+.solution-card{background:#fff;border:3px solid #b9b9b9;border-radius:8px;padding:20px 24px;margin:18px 0;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+.solution-card .sol-head{font-size:20px;color:#333;font-weight:600;line-height:1.5}
+.solution-card .sol-meta{color:#666;font-size:15px;margin-top:6px}
+.solution-card .sol-body{margin-top:14px}
+.solution-card .sol-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.solution-card .sol-actions button{padding:8px 22px;border:none;border-radius:999px;font-size:15px;cursor:pointer;font-weight:600}
+.btn-pass{background:#ecfdf5;color:#047857}.btn-pass:hover{background:#d1fae5}
+.btn-del{background:#fef2f2;color:#dc2626}.btn-del:hover{background:#fee2e2}
+
+/* Markdown */
+.markdown-preview{line-height:1.81;color:#1e293b;font-size:17px;word-break:break-word}
+.markdown-preview h1,.markdown-preview h2,.markdown-preview h3{margin:16px 0 8px;line-height:1.4}
+.markdown-preview h1{font-size:26px}.markdown-preview h2{font-size:22px}.markdown-preview h3{font-size:19px}
+.markdown-preview p{margin:10px 0}.markdown-preview ul,.markdown-preview ol{margin:10px 0 10px 24px}
+.markdown-preview li{margin:4px 0}.markdown-preview a{color:#2563eb}
+.markdown-preview code{background:#f1f5f9;padding:2px 7px;border-radius:6px;font-family:Consolas,monospace;font-size:.93em}
+.markdown-preview pre{background:#0f172a;color:#e2e8f0;padding:16px 20px;border-radius:14px;overflow-x:auto;margin:14px 0}
+.markdown-preview pre code{background:none;padding:0;color:inherit}
+.markdown-preview blockquote{border-left:4px solid #2563eb;background:#f8faff;padding:10px 16px;margin:12px 0;border-radius:0 10px 10px 0;color:#334155}
+.markdown-preview table{border-collapse:collapse;margin:14px 0;width:100%}
+.markdown-preview th,.markdown-preview td{border:1px solid #d8e0ec;padding:8px 12px;text-align:left}
+
+.empty-tip{color:#8896aa;padding:24px 0;text-align:center}
+
+/* 登录弹窗 */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.47);backdrop-filter:blur(5px);z-index:995;justify-content:center;align-items:center;padding:30px}
+.modal-box{background:#fff;max-width:460px;width:94%;border-radius:46px;padding:48px 44px;text-align:center;box-shadow:0 50px 82px rgba(0,0,0,.215)}
+.modal-box h2{font-size:28px;margin-bottom:28px;font-weight:718}
+.modal-box input{width:100%;padding:18px 24px;border:1px solid #d4ddee;border-radius:60px;font-size:18px;margin-bottom:16px;background:#fcfdfe;outline:none}
+.modal-box .auth-btns{display:flex;gap:14px;margin-top:12px}
+.modal-box .auth-btns button{flex:1;padding:16px;border:none;border-radius:68px;font-weight:628;font-size:18px;cursor:pointer;background:#eef2f9}
+.modal-box .auth-btns .prim{background:#2563eb;color:#fff}
+.auth-hint{font-size:14px;color:#8896aa;margin-top:18px;line-height:1.6}
+#authMsg{font-size:16px;color:#dc2626;margin-top:4px;min-height:24px}
+
+@media(max-width:860px){
+body{padding:16px 12px 48px}
+.page-title{font-size:24px}
+.post-section,.solutions-section,.pending-section{padding:20px 16px;border-radius:16px}
+.solution-card{padding:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a class="back-btn" href="https://CDxiaolang.github.io/小龙GESP精进（主站）.html">← 返回主页</a>
+  <div class="page-title">✍️ 题解广场</div>
+  <div class="user-area">
+    <div class="avatar" id="avatarBtn" onclick="onAvatarClick()">👤</div>
+    <div class="user-name" id="userName"></div>
+    <div class="login-hint" id="loginHint" onclick="openModal('authModal')">登录/注册</div>
+  </div>
+</div>
+
+<!-- 待审区（仅管理员） -->
+<div class="pending-section" id="pendingSection" style="display:none">
+  <div class="pending-tag">待审区</div>
+  <div class="section-title">待审核题解</div>
+  <div id="pendingList"></div>
+</div>
+
+<!-- 提交区 -->
+<div class="post-section">
+  <h3>💡 提交题解</h3>
+  <select id="probSelect" onchange="updateLimitHint()"></select>
+  <div class="limit-hint" id="limitHint"></div>
+  <textarea id="solContent" placeholder="写下你的题解（支持 Markdown + LaTeX），提交后进入待审区。"></textarea>
+  <div class="post-actions">
+    <span class="hint">题解会显示你的名字</span>
+    <button onclick="submitSolution()">提交题解</button>
+  </div>
+</div>
+
+<!-- 已通过列表 -->
+<div class="solutions-section">
+  <div class="section-title">已通过题解</div>
+  <div id="solutionsList"></div>
+</div>
+
+<!-- 登录弹窗 -->
+<div class="modal-overlay" id="authModal" onclick="if(event.target===this)closeModal('authModal')">
+<div class="modal-box">
+  <h2>🔐 登录 / 注册</h2>
+  <input type="text" id="miniUser" placeholder="用户名" maxlength="20">
+  <input type="password" id="miniPass" placeholder="密码（至少6位）" maxlength="30">
+  <div id="authMsg"></div>
+  <div class="auth-btns">
+    <button class="prim" onclick="miniLogin()">登录</button>
+    <button onclick="miniRegister()">注册</button>
+  </div>
+  <div class="auth-hint">所有用户需注册后登录。<br>用户名「CD小狼2015」注册后将自动获得管理员权限。</div>
+</div>
+</div>
+
+<script>
+var KU='teamUsersV5',KS='teamSessionV5',AD='CD小狼2015',SS='teamSolutionsV6',PS='teamPendingSolutionsV1',SP='teamProblemsV5';
+var users=JSON.parse(localStorage.getItem(KU)||'[]'),cur=null;
+var probs=JSON.parse(localStorage.getItem(SP)||'[]');
+var sols=JSON.parse(localStorage.getItem(SS)||'[]');
+var pending=JSON.parse(localStorage.getItem(PS)||'[]');
+
+function genId(){return Date.now()+'_'+Math.random().toString(36).substr(2,9)}
+function isAdm(){return cur&&cur.name===AD}
+
+function init(){
+  var s=JSON.parse(localStorage.getItem(KS)||'null');
+  if(s&&s.name){var l=users.find(function(u){return u.name===s.name});if(l)cur={name:l.name,isAdmin:l.name===AD}}
+  updateUserUI();loadProbSelect();renderPending();renderSols();
+}
+
+function updateUserUI(){
+  var av=document.getElementById('avatarBtn'),un=document.getElementById('userName'),lh=document.getElementById('loginHint');
+  if(cur){av.className='avatar logged';av.textContent=cur.name.substr(0,1).toUpperCase();un.textContent=cur.name+(isAdm()?' (管理员)':'');lh.style.display='none'}
+  else{av.className='avatar';av.textContent='👤';un.textContent='';lh.style.display='inline'}
+  document.getElementById('pendingSection').style.display=isAdm()?'block':'none';
+}
+
+function onAvatarClick(){if(cur){if(confirm('当前：'+cur.name+'\n要退出登录吗？')){cur=null;localStorage.removeItem(KS);updateUserUI();loadProbSelect();renderPending()}}else openModal('authModal')}
+
+function openModal(id){document.getElementById(id).style.display='flex';if(id==='authModal')setTimeout(function(){document.getElementById('miniUser').focus()},80)}
+function closeModal(id){document.getElementById(id).style.display='none'}
+
+function miniLogin(){var u=document.getElementById('miniUser').value.trim(),p=document.getElementById('miniPass').value.trim();if(!u||!p)return setMsg('请输入账号和密码');if(u.length<2)return setMsg('用户名至少2个字符');if(p.length<6)return setMsg('密码至少6位');var f=users.find(function(x){return x.name===u&&x.password===p});if(!f)return setMsg('账号或密码错误');cur={name:u,isAdmin:u===AD};localStorage.setItem(KS,JSON.stringify(cur));closeModal('authModal');updateUserUI();loadProbSelect();renderPending();document.getElementById('miniUser').value='';document.getElementById('miniPass').value=''}
+function miniRegister(){var u=document.getElementById('miniUser').value.trim(),p=document.getElementById('miniPass').value.trim();if(!u||u.length<2)return setMsg('用户名至少2个字符');if(!p||p.length<6)return setMsg('密码至少6位');if(users.find(function(x){return x.name===u}))return setMsg('用户名已存在');users.push({name:u,password:p});localStorage.setItem(KU,JSON.stringify(users));setMsg('注册成功，请登录')}
+function setMsg(t){document.getElementById('authMsg').textContent=t}
+
+function loadProbSelect(){
+  var sel=document.getElementById('probSelect');if(!sel)return;
+  sel.innerHTML='<option value="">-- 选择题目 --</option>'+probs.map(function(p){var c=sols.filter(function(s){return s.problemId===p.id}).length;return '<option value="'+p.id+'">'+p.luoguId+' '+p.title+' [已通过 '+c+'/'+p.solutionLimit+']</option>'}).join('');
+  updateLimitHint();
+}
+function updateLimitHint(){
+  var sel=document.getElementById('probSelect'),h=document.getElementById('limitHint');if(!sel||!h)return;
+  var p=probs.find(function(x){return x.id===sel.value});
+  if(p){var c=sols.filter(function(s){return s.problemId===p.id}).length;h.textContent='已通过题解：'+c+'/'+p.solutionLimit+'（提交后进入待审区）';h.style.color=c>=p.solutionLimit?'#dc2626':'#64748b'}else h.textContent='';
+}
+
+function submitSolution(){
+  if(!cur)return openModal('authModal');
+  var pid=document.getElementById('probSelect').value,c=document.getElementById('solContent').value.trim();
+  if(!pid)return alert('请选择一个题目');if(!c)return alert('题解内容不能为空');
+  pending.push({id:genId(),problemId:pid,author:cur.name,content:c,time:new Date().toLocaleString()});
+  localStorage.setItem(PS,JSON.stringify(pending));
+  document.getElementById('solContent').value='';alert('已提交，等待管理员审核。');loadProbSelect();renderPending();
+}
+
+function approvePending(id){
+  var item=pending.find(function(x){return x.id===id});if(!item)return;
+  sols.push({id:item.id,problemId:item.problemId,author:item.author,content:item.content,time:item.time});
+  pending=pending.filter(function(x){return x.id!==id});
+  localStorage.setItem(SS,JSON.stringify(sols));localStorage.setItem(PS,JSON.stringify(pending));
+  loadProbSelect();renderSols();renderPending();
+}
+function delPending(id){if(!confirm('删除该待审题解？'))return;pending=pending.filter(function(x){return x.id!==id});localStorage.setItem(PS,JSON.stringify(pending));renderPending();}
+function delSol(id){if(!confirm('删除该题解？'))return;sols=sols.filter(function(x){return x.id!==id});localStorage.setItem(SS,JSON.stringify(sols));loadProbSelect();renderSols();}
+
+function cardHTML(item,isPending){
+  var p=probs.find(function(x){return x.id===item.problemId});
+  var head=p?(p.luoguId+'：'+p.title+' + 题解'):'已删除题目 + 题解';
+  var body='<div class="markdown-preview">'+(window.marked?marked.parse(item.content,{gfm:true,breaks:false}):item.content)+'</div>';
+  var actions='';
+  if(isPending&&isAdm())actions='<div class="sol-actions"><button class="btn-pass" onclick="approvePending(\''+item.id+'\')">通过</button><button class="btn-del" onclick="delPending(\''+item.id+'\')">删除</button></div>';
+  else if(!isPending&&isAdm())actions='<div class="sol-actions"><button class="btn-del" onclick="delSol(\''+item.id+'\')">删除</button></div>';
+  return '<div class="solution-card"><div class="sol-head">'+head+'</div><div class="sol-meta">'+(item.author||'')+'　'+(item.time||'')+'</div><div class="sol-body">'+body+'</div>'+actions+'</div>';
+}
+
+function renderPending(){
+  var c=document.getElementById('pendingList');if(!c)return;
+  if(!isAdm()){c.innerHTML='';return}
+  c.innerHTML=pending.length?pending.map(function(x){return cardHTML(x,true)}).join(''):'<div class="empty-tip">暂无待审题解</div>';
+  if(window.renderMathInElement)c.querySelectorAll('.markdown-preview').forEach(function(el){try{renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})}catch(e){}});
+}
+function renderSols(){
+  var c=document.getElementById('solutionsList');if(!c)return;
+  c.innerHTML=sols.length?sols.map(function(x){return cardHTML(x,false)}).join(''):'<div class="empty-tip">暂无已通过题解</div>';
+  if(window.renderMathInElement)c.querySelectorAll('.markdown-preview').forEach(function(el){try{renderMathInElement(el,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false})}catch(e){}});
+}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal('authModal');if(e.key==='Enter'&&document.getElementById('authModal').style.display==='flex')miniLogin()});
+init();
+</script>
+</body>
+</html>
