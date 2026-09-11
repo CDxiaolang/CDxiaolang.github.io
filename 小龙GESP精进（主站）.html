@@ -72,13 +72,13 @@ body{display:flex;justify-content:center;align-items:center}
     <div class="avatar" id="avatarBtn" onclick="onAvatarClick()" title="登录 / 账号">👤</div>
     <div class="user-text" id="userText"></div>
   </div>
-  <button class="rank-btn" onclick="location.href='https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E5%88%86%E5%80%BC%E6%8E%92%E5%90%8D%EF%BC%89.html'">🏆 排行榜</button>
+  <button class="rank-btn" onclick="if(!cur){openModal('authModal');return}location.href='https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E5%88%86%E5%80%BC%E6%8E%92%E5%90%8D%EF%BC%89.html'">🏆 排行榜</button>
   <div class="content">
     <div class="grid-2x2">
-      <div class="grid-item" onclick="event.stopPropagation();openModal('announceModal')"><div class="grid-icon">📢</div><div class="grid-label">团队公告</div><div class="grid-sub">点击查看</div></div>
+      <div class="grid-item" onclick="event.stopPropagation();if(!cur){openModal('authModal');return}openModal('announceModal')"><div class="grid-icon">📢</div><div class="grid-label">团队公告</div><div class="grid-sub">点击查看</div></div>
       <div class="checkin-card"><div class="grid-icon">✅</div><div class="checkin-label">每日打卡</div><button class="checkin-btn" id="checkinBtn" onclick="event.stopPropagation();handleCheckin()">点击打卡</button></div>
-      <div class="grid-item" onclick="event.stopPropagation();openModal('problemsModal')"><div class="grid-icon">📚</div><div class="grid-label">团队题目</div><div class="grid-sub">洛谷题号·题解上限</div></div>
-      <div class="grid-item" onclick="event.stopPropagation();location.href='https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E9%A2%98%E8%A7%A3%E5%B9%BF%E5%9C%BA%EF%BC%89.html'"><div class="grid-icon">✍️</div><div class="grid-label">题解广场</div><div class="grid-sub">提交与审核查看</div></div>
+      <div class="grid-item" onclick="event.stopPropagation();if(!cur){openModal('authModal');return}openModal('problemsModal')"><div class="grid-icon">📚</div><div class="grid-label">团队题目</div><div class="grid-sub">洛谷题号·题解上限</div></div>
+      <div class="grid-item" onclick="event.stopPropagation();if(!cur){openModal('authModal');return}location.href='https://cdxiaolang.github.io/%E5%B0%8F%E9%BE%99GESP%E7%B2%BE%E8%BF%9B%EF%BC%88%E9%A2%98%E8%A7%A3%E5%B9%BF%E5%9C%BA%EF%BC%89.html'"><div class="grid-icon">✍️</div><div class="grid-label">题解广场</div><div class="grid-sub">提交与审核查看</div></div>
     </div>
   </div>
 </div>
