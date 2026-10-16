@@ -161,27 +161,9 @@ GitHub 仓库 → 点 <code>data.js</code> → 右上角 <b>铅笔图标</b> →
 <script>
 window.__TEAM_DATA__={updatedAt:"—",team:null,member:null,problem:null,contest:null,training:null,homework:null,file:null};
 window.__TEAM_CONFIG__={ads:[],rules:[]};
-async function loadScript(url,label){
-  const fresh=url+'?_='+Date.now();
-  try{
-    const res=await fetch(fresh,{cache:'no-store'});
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    const text=await res.text();
-    (new Function(text))();
-    console.log('%c✅ '+label+' 加载成功（fetch）','color:#27ae60');
-    return true;
-  }catch(e){
-    console.warn('['+label+'] fetch 失败，尝试 script 标签降级…',e.message);
-    return new Promise((resolve)=>{
-      const s=document.createElement('script');
-      s.src=fresh;
-      s.onload=()=>{console.log('%c✅ '+label+' 加载成功（script）','color:#27ae60');resolve(true)};
-      s.onerror=()=>{console.error('❌ '+label+' 加载失败');resolve(false)};
-      document.head.appendChild(s);
-    });
-  }
-}
-const DATA=window.__TEAM_DATA__,CONFIG=window.__TEAM_CONFIG__;
+</script>
+<script>
+let DATA={},CONFIG={};
 const TID=128840,BASE='https://www.luogu.com.cn';
 const TAB_NAMES={overview:"概览",problem:"题目",homework:"作业",training:"题单",contest:"比赛",member:"成员",file:"文件"};
 const ROLE_LABEL={owner:"👑 所有者",admin:"🛡 管理员",member:"· 成员"};
@@ -217,20 +199,20 @@ function renderMarkdown(el,text){if(!text)return;let html;if(window.marked&&wind
 function renderTeamDesc(){const el=document.getElementById("teamDesc");if(!el)return;const t=getNoticeText();if(t){el.classList.add("markdown-body");renderMarkdown(el,t)}else{el.textContent="暂无团队简介"}}
 function renderUserInfo(){const cm=getCurrentMember();if(!cm){document.getElementById("userInfo").innerHTML='<div class="user-name">访客</div><div class="user-role">未登录</div>';return}const role=cm.isOwner?"所有者":(cm.isAdmin?"管理员":"成员");document.getElementById("userInfo").innerHTML=`<div class="user-name">${esc(cm.name)}</div><div class="user-role">${role}</div>`;if(cm.avatar){const img=document.getElementById("userAvatar");img.src=cm.avatar;img.onerror=()=>{img.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%233498db'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='18'%3E"+encodeURIComponent(cm.name[0]||"?")+"%3C/text%3E%3C/svg%3E"}}}
 function renderAds(){
-  const ads=(CONFIG.ads||[]).filter(a=>a&&(a.title||a.big||a.bg));
-  const slider=document.getElementById("adSlider");
-  console.log('[广告] 共 '+ads.length+' 条');
-  if(!ads.length){slider.innerHTML='<div class="ad-empty">📢 广告位招租 · 管理员编辑 config.js 添加</div>';return}
-  slider.innerHTML=ads.map((a,i)=>{
-    let bgStyle=a.bg||'linear-gradient(135deg,#3498db,#2980b9)';
-    if(!/url\(|linear-gradient|radial-gradient|^#/.test(bgStyle))bgStyle='linear-gradient(135deg,'+bgStyle+')';
-    return '<a class="ad-slide '+(i===0?'active':'')+'" href="'+esc(a.link||'#')+'" target="_blank" rel="noopener"><div class="ad-bg" style="background:'+esc(bgStyle)+'"></div>'+(a.big?'<div class="ad-big">'+esc(a.big)+'</div>':'')+(a.title?'<div class="ad-title">'+esc(a.title)+'</div>':'')+'</a>';
-  }).join('')+'<div class="ad-dots">'+ads.map((_,i)=>'<div class="ad-dot '+(i===0?'active':'')+'" data-idx="'+i+'"></div>').join('')+'</div>';
-  const slides=slider.querySelectorAll('.ad-slide');
-  const dots=slider.querySelectorAll('.ad-dot');
-  function show(i){adIndex=i;slides.forEach((s,j)=>s.classList.toggle('active',j===i));dots.forEach((d,j)=>d.classList.toggle('active',j===i))}
-  dots.forEach(d=>d.onclick=e=>{e.preventDefault();show(Number(d.dataset.idx))});
-  if(ads.length>1){clearInterval(adTimer);adTimer=setInterval(()=>show((adIndex+1)%ads.length),5000)}
+const ads=(CONFIG.ads||[]).filter(a=>a&&(a.title||a.big||a.bg));
+const slider=document.getElementById("adSlider");
+console.log('[广告] 共 '+ads.length+' 条');
+if(!ads.length){slider.innerHTML='<div class="ad-empty">📢 广告位招租 · 管理员编辑 config.js 添加</div>';return}
+slider.innerHTML=ads.map((a,i)=>{
+let bgStyle=a.bg||'linear-gradient(135deg,#3498db,#2980b9)';
+if(!/url\(|linear-gradient|radial-gradient|^#/.test(bgStyle))bgStyle='linear-gradient(135deg,'+bgStyle+')';
+return '<a class="ad-slide '+(i===0?'active':'')+'" href="'+esc(a.link||'#')+'" target="_blank" rel="noopener"><div class="ad-bg" style="background:'+esc(bgStyle)+'"></div>'+(a.big?'<div class="ad-big">'+esc(a.big)+'</div>':'')+(a.title?'<div class="ad-title">'+esc(a.title)+'</div>':'')+'</a>';
+}).join('')+'<div class="ad-dots">'+ads.map((_,i)=>'<div class="ad-dot '+(i===0?'active':'')+'" data-idx="'+i+'"></div>').join('')+'</div>';
+const slides=slider.querySelectorAll('.ad-slide');
+const dots=slider.querySelectorAll('.ad-dot');
+function show(i){adIndex=i;slides.forEach((s,j)=>s.classList.toggle('active',j===i));dots.forEach((d,j)=>d.classList.toggle('active',j===i))}
+dots.forEach(d=>d.onclick=e=>{e.preventDefault();show(Number(d.dataset.idx))});
+if(ads.length>1){clearInterval(adTimer);adTimer=setInterval(()=>show((adIndex+1)%ads.length),5000)}
 }
 function renderRules(){document.getElementById("rulesList").innerHTML=(CONFIG.rules||[]).map(r=>`<li>${esc(r)}</li>`).join('')}
 function sortMembers(m){const o={owner:0,admin:1,member:2};return m.slice().sort((a,b)=>{const d=(o[a.role]||9)-(o[b.role]||9);return d!==0?d:(a.name>b.name?1:-1)})}
@@ -325,6 +307,26 @@ function openUpdate(){document.getElementById("updateModal").classList.add("show
 function closeUpdate(){document.getElementById("updateModal").classList.remove("show");document.body.style.overflow=""}
 window.openUpdate=openUpdate;
 window.closeUpdate=closeUpdate;
+async function loadScript(url,label){
+  const fresh=url+'?_='+Date.now();
+  try{
+    const res=await fetch(fresh,{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const text=await res.text();
+    (new Function(text))();
+    console.log('%c✅ '+label+' 加载成功（fetch）','color:#27ae60');
+    return true;
+  }catch(e){
+    console.warn('['+label+'] fetch 失败，尝试 script 降级…',e.message);
+    return new Promise(resolve=>{
+      const s=document.createElement('script');
+      s.src=fresh;
+      s.onload=()=>{console.log('%c✅ '+label+' 加载成功（script）','color:#27ae60');resolve(true)};
+      s.onerror=()=>{console.error('❌ '+label+' 加载失败');resolve(false)};
+      document.head.appendChild(s);
+    });
+  }
+}
 function init(){
 console.log('=== 渲染开始 ===');
 console.log('DATA.member:',!!DATA.member,'| CONFIG.ads:',(CONFIG.ads||[]).length);
@@ -345,6 +347,9 @@ switchView("overview");
 async function boot(){
 await loadScript('./data.js','data.js');
 await loadScript('./config.js','config.js');
+DATA=window.__TEAM_DATA__||{};
+CONFIG=window.__TEAM_CONFIG__||{};
+console.log('重载后 DATA.member:',!!DATA.member,'| CONFIG.ads:',(CONFIG.ads||[]).length);
 init();
 window.addEventListener('load',()=>setTimeout(renderTeamDesc,100));
 [300,1000,2000,3500].forEach(t=>setTimeout(renderTeamDesc,t));
