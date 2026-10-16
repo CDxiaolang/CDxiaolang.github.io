@@ -12,7 +12,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#2c3e50;line-height:1.65;font-size:14px}
 a{text-decoration:none;color:inherit}
-.topbar{background:#fff;border-bottom:1px solid #e1e8ed;position:sticky;top:0;z-index:200}
+.topbar{background:#fff;border-bottom:1px solid #e1e8ed;position:sticky;top:0;z-index:100}
 .topbar-inner{max-width:1100px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:8px;font-weight:700;color:#3498db;font-size:16px}
 .logo-icon{width:32px;height:32px;border-radius:7px;background:#3498db;color:#fff;display:grid;place-items:center;font-weight:800}
@@ -23,17 +23,18 @@ a{text-decoration:none;color:inherit}
 .user-role{color:#3498db;font-weight:600}
 .update-btn{padding:8px 18px;background:#3498db;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
 .update-btn:hover{background:#2980b9}.update-btn:active{transform:scale(.97)}
-.ad-banner{position:relative;z-index:50;max-width:1100px;margin:16px auto 0;padding:0 20px}
-.ad-slider{position:relative;width:100%;height:160px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#3498db,#2980b9);border:1px solid #e1e8ed;box-shadow:0 4px 16px rgba(52,152,219,.15)}
-.ad-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .8s;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;overflow:hidden}
-.ad-slide.active{opacity:1}
-.ad-slide .ad-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background-size:cover;background-position:center}
-.ad-slide .ad-big{position:relative;z-index:2;color:#fff;font-size:30px;font-weight:800;letter-spacing:3px;text-shadow:0 3px 16px rgba(0,0,0,.35)}
-.ad-slide .ad-title{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;padding:22px 24px 16px;font-size:15px;font-weight:600;z-index:3}
-.ad-dots{position:absolute;bottom:12px;right:16px;display:flex;gap:6px;z-index:4}
+.ad-wrap{position:relative;z-index:300;max-width:1100px;margin:20px auto 0;padding:0 20px}
+.ad-tag{position:absolute;top:10px;left:34px;background:rgba(255,255,255,.95);color:#3498db;font-size:11px;font-weight:700;padding:3px 11px;border-radius:12px;z-index:10;letter-spacing:1px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.ad-card{display:block;position:relative;height:180px;border-radius:12px;overflow:hidden;text-decoration:none;box-shadow:0 6px 24px rgba(52,152,219,.3);border:2px solid #3498db;transition:transform .2s,box-shadow .2s;background:#3498db}
+.ad-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(52,152,219,.45)}
+.ad-card-bg{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center}
+.ad-card-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:20px;color:#fff;text-align:center}
+.ad-card-big{font-size:32px;font-weight:800;letter-spacing:3px;text-shadow:0 3px 16px rgba(0,0,0,.45);margin-bottom:10px}
+.ad-card-title{font-size:15px;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.45);opacity:.96}
+.ad-empty{display:grid;place-items:center;height:180px;border-radius:12px;background:#fff;border:2px dashed #cbd5e0;color:#a0aec0;font-size:14px}
+.ad-dots{position:absolute;bottom:14px;right:24px;display:flex;gap:6px;z-index:5}
 .ad-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.2s}
 .ad-dot.active{background:#fff;width:24px;border-radius:5px}
-.ad-empty{display:grid;place-items:center;height:100%;color:#fff;font-size:14px;opacity:.85}
 .container{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:20px}
 .team-header{background:#fff;border:1px solid #e1e8ed;border-radius:10px;padding:26px 28px;margin-bottom:18px;position:relative;overflow:hidden}
 .team-header::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3498db,#2ecc71,#f39c12)}
@@ -119,7 +120,7 @@ footer b{color:#3498db}
 .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);background:#2c3e50;color:#fff;padding:11px 24px;border-radius:8px;font-size:13.5px;opacity:0;visibility:hidden;transition:.28s;z-index:1001}
 .toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 @media(max-width:860px){.two-col{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(2,1fr)}.user-info{display:none}}
-@media(max-width:480px){.container{padding:12px}.member-grid{grid-template-columns:1fr}.ad-slider{height:120px}}
+@media(max-width:480px){.container{padding:12px}.member-grid{grid-template-columns:1fr}.ad-card{height:130px}.ad-card-big{font-size:22px}}
 </style>
 </head>
 <body>
@@ -130,7 +131,10 @@ footer b{color:#3498db}
 <div class="user-info" id="userInfo"><div class="user-name">访客</div><div class="user-role">未登录</div></div>
 <img class="user-avatar" id="userAvatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23eaf4fc'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='%233498db' font-size='18'%3E?%3C/text%3E%3C/svg%3E" alt="头像">
 </div></div></nav>
-<div class="ad-banner"><div class="ad-slider" id="adSlider"><div class="ad-empty">加载中…</div></div></div>
+<div class="ad-wrap">
+  <div class="ad-tag">📢 推荐</div>
+  <div id="adSlider"><div class="ad-empty">加载中…</div></div>
+</div>
 <div class="container">
 <div class="team-header">
 <div class="team-header-top">
@@ -198,21 +202,32 @@ function avatarColor(i){return["#3498db","#2ecc71","#f39c12","#9b59b6","#e74c3c"
 function renderMarkdown(el,text){if(!text)return;let html;if(window.marked&&window.marked.parse){try{html=window.marked.parse(text,{breaks:true,gfm:true})}catch(e){html=esc(text).replace(/\n/g,"<br>")}}else{html=esc(text).replace(/\n/g,"<br>")}el.innerHTML=html;if(window.renderMathInElement){try{window.renderMathInElement(el,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#e74c3c"})}catch(e){}}}
 function renderTeamDesc(){const el=document.getElementById("teamDesc");if(!el)return;const t=getNoticeText();if(t){el.classList.add("markdown-body");renderMarkdown(el,t)}else{el.textContent="暂无团队简介"}}
 function renderUserInfo(){const cm=getCurrentMember();if(!cm){document.getElementById("userInfo").innerHTML='<div class="user-name">访客</div><div class="user-role">未登录</div>';return}const role=cm.isOwner?"所有者":(cm.isAdmin?"管理员":"成员");document.getElementById("userInfo").innerHTML=`<div class="user-name">${esc(cm.name)}</div><div class="user-role">${role}</div>`;if(cm.avatar){const img=document.getElementById("userAvatar");img.src=cm.avatar;img.onerror=()=>{img.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%233498db'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='18'%3E"+encodeURIComponent(cm.name[0]||"?")+"%3C/text%3E%3C/svg%3E"}}}
+
 function renderAds(){
-const ads=(CONFIG.ads||[]).filter(a=>a&&(a.title||a.big||a.bg));
-const slider=document.getElementById("adSlider");
-console.log('[广告] 共 '+ads.length+' 条');
-if(!ads.length){slider.innerHTML='<div class="ad-empty">📢 广告位招租 · 管理员编辑 config.js 添加</div>';return}
-slider.innerHTML=ads.map((a,i)=>{
-let bgStyle=a.bg||'linear-gradient(135deg,#3498db,#2980b9)';
-if(!/url\(|linear-gradient|radial-gradient|^#/.test(bgStyle))bgStyle='linear-gradient(135deg,'+bgStyle+')';
-return '<a class="ad-slide '+(i===0?'active':'')+'" href="'+esc(a.link||'#')+'" target="_blank" rel="noopener"><div class="ad-bg" style="background:'+esc(bgStyle)+'"></div>'+(a.big?'<div class="ad-big">'+esc(a.big)+'</div>':'')+(a.title?'<div class="ad-title">'+esc(a.title)+'</div>':'')+'</a>';
-}).join('')+'<div class="ad-dots">'+ads.map((_,i)=>'<div class="ad-dot '+(i===0?'active':'')+'" data-idx="'+i+'"></div>').join('')+'</div>';
-const slides=slider.querySelectorAll('.ad-slide');
-const dots=slider.querySelectorAll('.ad-dot');
-function show(i){adIndex=i;slides.forEach((s,j)=>s.classList.toggle('active',j===i));dots.forEach((d,j)=>d.classList.toggle('active',j===i))}
-dots.forEach(d=>d.onclick=e=>{e.preventDefault();show(Number(d.dataset.idx))});
-if(ads.length>1){clearInterval(adTimer);adTimer=setInterval(()=>show((adIndex+1)%ads.length),5000)}
+  const ads=(CONFIG.ads||[]).filter(a=>a&&(a.title||a.big||a.bg));
+  const box=document.getElementById("adSlider");
+  console.log('[广告] 共 '+ads.length+' 条');
+  if(!ads.length){box.innerHTML='<div class="ad-empty">📢 广告位招租 · 管理员编辑 config.js 添加</div>';return}
+  function render(){
+    const a=ads[adIndex];
+    let bg=a.bg||'linear-gradient(135deg,#3498db,#2980b9)';
+    if(!/url\(|linear-gradient|radial-gradient|^#/.test(bg))bg='linear-gradient(135deg,'+bg+')';
+    box.innerHTML='<a class="ad-card" href="'+esc(a.link||'#')+'" target="_blank" rel="noopener">'+
+      '<div class="ad-card-bg" style="background:'+esc(bg)+'"></div>'+
+      '<div class="ad-card-content">'+
+        (a.big?'<div class="ad-card-big">'+esc(a.big)+'</div>':'')+
+        (a.title?'<div class="ad-card-title">'+esc(a.title)+'</div>':'')+
+      '</div>'+
+      '<div class="ad-dots">'+ads.map((_,i)=>'<div class="ad-dot '+(i===adIndex?'active':'')+'" data-idx="'+i+'"></div>').join('')+'</div>'+
+    '</a>';
+    box.querySelectorAll('.ad-dot').forEach(d=>{
+      d.onclick=e=>{e.preventDefault();e.stopPropagation();adIndex=Number(d.dataset.idx);render()};
+    });
+  }
+  adIndex=0;
+  render();
+  clearInterval(adTimer);
+  if(ads.length>1)adTimer=setInterval(()=>{adIndex=(adIndex+1)%ads.length;render()},5000);
 }
 function renderRules(){document.getElementById("rulesList").innerHTML=(CONFIG.rules||[]).map(r=>`<li>${esc(r)}</li>`).join('')}
 function sortMembers(m){const o={owner:0,admin:1,member:2};return m.slice().sort((a,b)=>{const d=(o[a.role]||9)-(o[b.role]||9);return d!==0?d:(a.name>b.name?1:-1)})}
@@ -317,7 +332,7 @@ async function loadScript(url,label){
     console.log('%c✅ '+label+' 加载成功（fetch）','color:#27ae60');
     return true;
   }catch(e){
-    console.warn('['+label+'] fetch 失败，尝试 script 降级…',e.message);
+    console.warn('['+label+'] fetch 失败，降级 script 标签…',e.message);
     return new Promise(resolve=>{
       const s=document.createElement('script');
       s.src=fresh;
