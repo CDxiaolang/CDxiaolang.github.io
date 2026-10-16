@@ -12,7 +12,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f5f7fa;color:#2c3e50;line-height:1.65;font-size:14px}
 a{text-decoration:none;color:inherit}
-.topbar{background:#fff;border-bottom:1px solid #e1e8ed;position:sticky;top:0;z-index:100}
+.topbar{background:#fff;border-bottom:1px solid #e1e8ed;position:sticky;top:0;z-index:200}
 .topbar-inner{max-width:1100px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{display:flex;align-items:center;gap:8px;font-weight:700;color:#3498db;font-size:16px}
 .logo-icon{width:32px;height:32px;border-radius:7px;background:#3498db;color:#fff;display:grid;place-items:center;font-weight:800}
@@ -23,17 +23,18 @@ a{text-decoration:none;color:inherit}
 .user-role{color:#3498db;font-weight:600}
 .update-btn{padding:8px 18px;background:#3498db;color:#fff;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:.15s}
 .update-btn:hover{background:#2980b9}.update-btn:active{transform:scale(.97)}
-.ad-banner{max-width:1100px;margin:16px auto 0;padding:0 20px}
-.ad-slider{position:relative;border-radius:10px;overflow:hidden;background:#fff;border:1px solid #e1e8ed;height:140px}
-.ad-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;overflow:hidden}
+.ad-banner{position:relative;z-index:50;max-width:1100px;margin:16px auto 0;padding:0 20px}
+.ad-slider{position:relative;width:100%;height:160px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#3498db,#2980b9);border:1px solid #e1e8ed;box-shadow:0 4px 16px rgba(52,152,219,.15)}
+.ad-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .8s;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;overflow:hidden}
 .ad-slide.active{opacity:1}
-.ad-slide .ad-title{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;padding:20px;font-size:15px;font-weight:600;z-index:2}
-.ad-slide .ad-bg{position:absolute;inset:0;z-index:1}
-.ad-slide .ad-big{position:relative;z-index:2;color:#fff;font-size:26px;font-weight:800;letter-spacing:2px;text-shadow:0 3px 12px rgba(0,0,0,.3)}
-.ad-dots{position:absolute;bottom:8px;right:14px;display:flex;gap:6px;z-index:3}
-.ad-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.2s}
-.ad-dot.active{background:#fff;width:22px;border-radius:4px}
-.container{max-width:1100px;margin:0 auto;padding:20px}
+.ad-slide .ad-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;background-size:cover;background-position:center}
+.ad-slide .ad-big{position:relative;z-index:2;color:#fff;font-size:30px;font-weight:800;letter-spacing:3px;text-shadow:0 3px 16px rgba(0,0,0,.35)}
+.ad-slide .ad-title{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.65));color:#fff;padding:22px 24px 16px;font-size:15px;font-weight:600;z-index:3}
+.ad-dots{position:absolute;bottom:12px;right:16px;display:flex;gap:6px;z-index:4}
+.ad-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.2s}
+.ad-dot.active{background:#fff;width:24px;border-radius:5px}
+.ad-empty{display:grid;place-items:center;height:100%;color:#fff;font-size:14px;opacity:.85}
+.container{position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:20px}
 .team-header{background:#fff;border:1px solid #e1e8ed;border-radius:10px;padding:26px 28px;margin-bottom:18px;position:relative;overflow:hidden}
 .team-header::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3498db,#2ecc71,#f39c12)}
 .team-header-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
@@ -92,7 +93,7 @@ a{text-decoration:none;color:inherit}
 .rules h3::before{content:"";width:3px;height:16px;border-radius:2px;background:#f39c12}
 .rules ol{margin-left:22px;color:#5b6b7a;font-size:13.5px;line-height:1.9}
 .rules li{margin:5px 0}
-footer{text-align:center;padding:26px 20px;color:#7f8c8d;font-size:12.5px;border-top:1px solid #e1e8ed;margin-top:24px}
+footer{position:relative;z-index:10;text-align:center;padding:26px 20px;color:#7f8c8d;font-size:12.5px;border-top:1px solid #e1e8ed;margin-top:24px}
 footer b{color:#3498db}
 .markdown-body{font-size:13.5px;line-height:1.75;color:#2c3e50;word-wrap:break-word}
 .markdown-body h1,.markdown-body h2,.markdown-body h3{margin:14px 0 8px;font-weight:700;line-height:1.3}
@@ -118,7 +119,7 @@ footer b{color:#3498db}
 .toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,20px);background:#2c3e50;color:#fff;padding:11px 24px;border-radius:8px;font-size:13.5px;opacity:0;visibility:hidden;transition:.28s;z-index:1001}
 .toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 @media(max-width:860px){.two-col{grid-template-columns:1fr}.stats-row{grid-template-columns:repeat(2,1fr)}.user-info{display:none}}
-@media(max-width:480px){.container{padding:12px}.member-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.container{padding:12px}.member-grid{grid-template-columns:1fr}.ad-slider{height:120px}}
 </style>
 </head>
 <body>
@@ -129,7 +130,7 @@ footer b{color:#3498db}
 <div class="user-info" id="userInfo"><div class="user-name">访客</div><div class="user-role">未登录</div></div>
 <img class="user-avatar" id="userAvatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23eaf4fc'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='%233498db' font-size='18'%3E?%3C/text%3E%3C/svg%3E" alt="头像">
 </div></div></nav>
-<div class="ad-banner"><div class="ad-slider" id="adSlider"></div></div>
+<div class="ad-banner"><div class="ad-slider" id="adSlider"><div class="ad-empty">加载中…</div></div></div>
 <div class="container">
 <div class="team-header">
 <div class="team-header-top">
@@ -152,19 +153,35 @@ footer b{color:#3498db}
 <a class="bookmarklet" id="bookmarkletLink" href="javascript:void(0)">📌 更新洛谷团队数据</a>
 <div class="step"><b>第 2 步</b>：打开洛谷团队页面（已登录），点击书签栏上的按钮</div>
 <div class="step"><b>第 3 步</b>：脚本自动抓取所有分页 → 下载 <code>data.js</code></div>
-<div class="step"><b>第 4 步</b>：把 <code>data.js</code> 放到本 HTML 同目录覆盖旧文件 → 刷新页面</div>
-<div class="gh-tip">💡 <b>如果部署在 GitHub Pages</b>：<br>
-下载 <code>data.js</code> 后，打开你的 GitHub 仓库 → 点 <code>data.js</code> → 右上角 <b>铅笔图标</b> → 全选删除 → <b>Ctrl+V</b> 粘贴新内容 → <b>Commit changes</b>。1 分钟后刷新网站即可。</div>
+<div class="step"><b>第 4 步</b>：把 <code>data.js</code> 上传到 GitHub 覆盖旧文件 → 1 分钟后刷新网站</div>
+<div class="gh-tip">💡 <b>部署在 GitHub Pages 时</b>：<br>
+GitHub 仓库 → 点 <code>data.js</code> → 右上角 <b>铅笔图标</b> → 全选删除 → <b>Ctrl+V</b> 粘贴新内容 → <b>Commit changes</b>。</div>
 </div></div>
 <div class="toast" id="toast"></div>
 <script>
-window.__TEAM_DATA__=window.__TEAM_DATA__||{updatedAt:"—",team:null,member:null,problem:null,contest:null,training:null,homework:null,file:null};
-window.__TEAM_CONFIG__=window.__TEAM_CONFIG__||{ads:[],rules:[]};
-</script>
-<script src="./data.js" onerror="void 0"></script>
-<script src="./config.js" onerror="void 0"></script>
-<script>
-const DATA=window.__TEAM_DATA__||{},CONFIG=window.__TEAM_CONFIG__||{};
+window.__TEAM_DATA__={updatedAt:"—",team:null,member:null,problem:null,contest:null,training:null,homework:null,file:null};
+window.__TEAM_CONFIG__={ads:[],rules:[]};
+async function loadScript(url,label){
+  const fresh=url+'?_='+Date.now();
+  try{
+    const res=await fetch(fresh,{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const text=await res.text();
+    (new Function(text))();
+    console.log('%c✅ '+label+' 加载成功（fetch）','color:#27ae60');
+    return true;
+  }catch(e){
+    console.warn('['+label+'] fetch 失败，尝试 script 标签降级…',e.message);
+    return new Promise((resolve)=>{
+      const s=document.createElement('script');
+      s.src=fresh;
+      s.onload=()=>{console.log('%c✅ '+label+' 加载成功（script）','color:#27ae60');resolve(true)};
+      s.onerror=()=>{console.error('❌ '+label+' 加载失败');resolve(false)};
+      document.head.appendChild(s);
+    });
+  }
+}
+const DATA=window.__TEAM_DATA__,CONFIG=window.__TEAM_CONFIG__;
 const TID=128840,BASE='https://www.luogu.com.cn';
 const TAB_NAMES={overview:"概览",problem:"题目",homework:"作业",training:"题单",contest:"比赛",member:"成员",file:"文件"};
 const ROLE_LABEL={owner:"👑 所有者",admin:"🛡 管理员",member:"· 成员"};
@@ -199,7 +216,22 @@ function avatarColor(i){return["#3498db","#2ecc71","#f39c12","#9b59b6","#e74c3c"
 function renderMarkdown(el,text){if(!text)return;let html;if(window.marked&&window.marked.parse){try{html=window.marked.parse(text,{breaks:true,gfm:true})}catch(e){html=esc(text).replace(/\n/g,"<br>")}}else{html=esc(text).replace(/\n/g,"<br>")}el.innerHTML=html;if(window.renderMathInElement){try{window.renderMathInElement(el,{delimiters:[{left:"$$",right:"$$",display:true},{left:"$",right:"$",display:false},{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],throwOnError:false,errorColor:"#e74c3c"})}catch(e){}}}
 function renderTeamDesc(){const el=document.getElementById("teamDesc");if(!el)return;const t=getNoticeText();if(t){el.classList.add("markdown-body");renderMarkdown(el,t)}else{el.textContent="暂无团队简介"}}
 function renderUserInfo(){const cm=getCurrentMember();if(!cm){document.getElementById("userInfo").innerHTML='<div class="user-name">访客</div><div class="user-role">未登录</div>';return}const role=cm.isOwner?"所有者":(cm.isAdmin?"管理员":"成员");document.getElementById("userInfo").innerHTML=`<div class="user-name">${esc(cm.name)}</div><div class="user-role">${role}</div>`;if(cm.avatar){const img=document.getElementById("userAvatar");img.src=cm.avatar;img.onerror=()=>{img.src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%233498db'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='18'%3E"+encodeURIComponent(cm.name[0]||"?")+"%3C/text%3E%3C/svg%3E"}}}
-function renderAds(){const ads=(CONFIG.ads||[]).filter(a=>a&&a.title);const slider=document.getElementById("adSlider");if(!ads.length){slider.innerHTML='<div style="display:grid;place-items:center;height:100%;color:#b0b8c4">📢 广告位招租</div>';return}slider.innerHTML=ads.map((a,i)=>`<a class="ad-slide ${i===0?'active':''}" href="${esc(a.link||'#')}" target="_blank" rel="noopener"><div class="ad-bg" style="background:${esc(a.bg||'#3498db')}"></div>${a.big?`<div class="ad-big">${esc(a.big)}</div>`:''}${a.title?`<div class="ad-title">${esc(a.title)}</div>`:''}</a>`).join('')+`<div class="ad-dots">${ads.map((_,i)=>`<div class="ad-dot ${i===0?'active':''}" data-idx="${i}"></div>`).join('')}</div>`;const slides=slider.querySelectorAll('.ad-slide');const dots=slider.querySelectorAll('.ad-dot');function show(i){adIndex=i;slides.forEach((s,j)=>s.classList.toggle('active',j===i));dots.forEach((d,j)=>d.classList.toggle('active',j===i))}dots.forEach(d=>d.onclick=e=>{e.preventDefault();show(Number(d.dataset.idx))});if(ads.length>1){clearInterval(adTimer);adTimer=setInterval(()=>show((adIndex+1)%ads.length),5000)}}
+function renderAds(){
+  const ads=(CONFIG.ads||[]).filter(a=>a&&(a.title||a.big||a.bg));
+  const slider=document.getElementById("adSlider");
+  console.log('[广告] 共 '+ads.length+' 条');
+  if(!ads.length){slider.innerHTML='<div class="ad-empty">📢 广告位招租 · 管理员编辑 config.js 添加</div>';return}
+  slider.innerHTML=ads.map((a,i)=>{
+    let bgStyle=a.bg||'linear-gradient(135deg,#3498db,#2980b9)';
+    if(!/url\(|linear-gradient|radial-gradient|^#/.test(bgStyle))bgStyle='linear-gradient(135deg,'+bgStyle+')';
+    return '<a class="ad-slide '+(i===0?'active':'')+'" href="'+esc(a.link||'#')+'" target="_blank" rel="noopener"><div class="ad-bg" style="background:'+esc(bgStyle)+'"></div>'+(a.big?'<div class="ad-big">'+esc(a.big)+'</div>':'')+(a.title?'<div class="ad-title">'+esc(a.title)+'</div>':'')+'</a>';
+  }).join('')+'<div class="ad-dots">'+ads.map((_,i)=>'<div class="ad-dot '+(i===0?'active':'')+'" data-idx="'+i+'"></div>').join('')+'</div>';
+  const slides=slider.querySelectorAll('.ad-slide');
+  const dots=slider.querySelectorAll('.ad-dot');
+  function show(i){adIndex=i;slides.forEach((s,j)=>s.classList.toggle('active',j===i));dots.forEach((d,j)=>d.classList.toggle('active',j===i))}
+  dots.forEach(d=>d.onclick=e=>{e.preventDefault();show(Number(d.dataset.idx))});
+  if(ads.length>1){clearInterval(adTimer);adTimer=setInterval(()=>show((adIndex+1)%ads.length),5000)}
+}
 function renderRules(){document.getElementById("rulesList").innerHTML=(CONFIG.rules||[]).map(r=>`<li>${esc(r)}</li>`).join('')}
 function sortMembers(m){const o={owner:0,admin:1,member:2};return m.slice().sort((a,b)=>{const d=(o[a.role]||9)-(o[b.role]||9);return d!==0?d:(a.name>b.name?1:-1)})}
 function problemRow(p){return`<a class="item-row" href="${BASE}/problem/${esc(p.id)}" target="_blank" rel="noopener"><span class="item-id">${esc(p.id)}</span><span class="item-title">${esc(p.title)}</span>${diffTag(p.difficulty)}</a>`}
@@ -294,6 +326,8 @@ function closeUpdate(){document.getElementById("updateModal").classList.remove("
 window.openUpdate=openUpdate;
 window.closeUpdate=closeUpdate;
 function init(){
+console.log('=== 渲染开始 ===');
+console.log('DATA.member:',!!DATA.member,'| CONFIG.ads:',(CONFIG.ads||[]).length);
 renderAds();renderRules();renderUserInfo();
 const team=getTeamInfo();
 document.getElementById("teamName").textContent=(team&&team.name)?team.name:"团队 "+TID;
@@ -308,9 +342,14 @@ document.getElementById("updateModal").addEventListener("click",function(e){if(e
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeUpdate()});
 switchView("overview");
 }
-if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init)}else{init()}
-window.addEventListener("load",()=>setTimeout(renderTeamDesc,100));
+async function boot(){
+await loadScript('./data.js','data.js');
+await loadScript('./config.js','config.js');
+init();
+window.addEventListener('load',()=>setTimeout(renderTeamDesc,100));
 [300,1000,2000,3500].forEach(t=>setTimeout(renderTeamDesc,t));
+}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",boot)}else{boot()}
 </script>
 </body>
 </html>
