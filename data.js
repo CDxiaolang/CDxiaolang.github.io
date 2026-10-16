@@ -7,7 +7,7 @@ window.__TEAM_DATA__ = {
     "data": {
       "problems": {
         "perPage": 20,
-        "count": 50,
+        "count": 49,
         "result": [
           {
             "pid": "T784648",
@@ -1978,44 +1978,6 @@ window.__TEAM_DATA__ = {
               "openness": 1,
               "premiumUntil": 1788969599
             }
-          },
-          {
-            "pid": "T834090",
-            "type": "T",
-            "name": "测试题目",
-            "difficulty": 0,
-            "fullScore": 0,
-            "submitted": false,
-            "accepted": false,
-            "tags": [],
-            "totalSubmit": 0,
-            "totalAccepted": 0,
-            "flag": 0,
-            "provider": {
-              "id": 128840,
-              "name": "小龙GESP算法精进",
-              "isPremium": false,
-              "type": 2,
-              "master": {
-                "uid": 1760152,
-                "avatar": "https://cdn.luogu.com.cn/upload/usericon/1760152.png",
-                "name": "CD小狼2015",
-                "slogan": "星之所向CDxiaolang||不方便互关||这辈子不打基础赛了qwp（真的吗？？？哈不计等级分计算我又行了）",
-                "badge": null,
-                "isAdmin": false,
-                "isBanned": false,
-                "color": "Red",
-                "ccfLevel": 0,
-                "xcpcLevel": 0,
-                "background": "",
-                "verified": true
-              },
-              "memberCount": 34,
-              "createTime": 1778764245,
-              "description": "# 直通项：\n* ${\\color{purple} 紫名}$、${\\color{red} 红名}$\n* 等级分$\\ge$1000\n* 有勾或有气球\n* 有资深出/验题经验\n* 大管理或团主邀请或放行（特殊）\n* 能写黑题\n* 可以资金赞助的\n* 出题数量$\\ge$5\n## 选择项（选两个）：\n* ${\\color{orange} 橙名}$\n* 等级分$\\ge$500\n* 管理能力强\n* 每周有5天时间，并能为团队作出贡献的\n* 能写黄题及以上\n* 出题数量$\\ge$2\n## 必选项：\n* 不是${\\color{grey} 灰名}$或${\\color{brown} 棕名}$\n* 两月内没有处罚记录",
-              "openness": 1,
-              "premiumUntil": 1788969599
-            }
           }
         ]
       },
@@ -2084,13 +2046,13 @@ window.__TEAM_DATA__ = {
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 35,
+      "followerCount": 36,
       "ranking": 2020,
       "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1791870114.178307
+    "time": 1792152350.653025
   },
   "homework": {
     "instance": "main",
@@ -2296,13 +2258,13 @@ window.__TEAM_DATA__ = {
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 35,
+      "followerCount": 36,
       "ranking": 2020,
       "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1791870121.661715
+    "time": 1792152356.174841
   },
   "training": {
     "instance": "main",
@@ -2438,13 +2400,13 @@ window.__TEAM_DATA__ = {
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 35,
+      "followerCount": 36,
       "ranking": 2020,
       "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1791870123.889738
+    "time": 1792152358.77863
   },
   "contest": {
     "instance": "main",
@@ -2608,13 +2570,13 @@ window.__TEAM_DATA__ = {
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 35,
+      "followerCount": 36,
       "ranking": 2020,
       "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1791870130.517597
+    "time": 1792152362.028642
   },
   "member": {
     "instance": "main",
@@ -2880,7 +2842,7 @@ window.__TEAM_DATA__ = {
               "uid": 2242055,
               "avatar": "https://cdn.luogu.com.cn/upload/usericon/2242055.png",
               "name": "MTF1",
-              "slogan": "低山臭水遇知音 穷凶极恶双子星",
+              "slogan": "https://www.luogu.com.cn/team/139059小团",
               "badge": null,
               "isAdmin": false,
               "isBanned": false,
@@ -2995,7 +2957,7 @@ window.__TEAM_DATA__ = {
               "uid": 2122365,
               "avatar": "https://cdn.luogu.com.cn/upload/usericon/2122365.png",
               "name": "lilinjie",
-              "slogan": "心若澄澈，行自高洁 || ♀ || 壶关私 || 五年级蒟蒻 || 生日 10.26 || 因JC发生的恐怖事情而被气死(╯▔皿▔)╯",
+              "slogan": "心若澄澈，行自高洁 || 小号 Lovely_Lucky_Joy 小小号 _Jie_Ran || ♀ || 壶关私 || 五年级蒟蒻 || 生日 10.26 || 被JC(╯▔皿▔)╯",
               "badge": null,
               "isAdmin": false,
               "isBanned": false,
@@ -3095,7 +3057,7 @@ window.__TEAM_DATA__ = {
               "color": "Green",
               "ccfLevel": 0,
               "xcpcLevel": 0,
-              "background": "https://cdn.luogu.com.cn/upload/image_hosting/jmrv06e9.png"
+              "background": "https://cdn.luogu.com.cn/upload/image_hosting/lug33kp8.webp"
             },
             "type": 1,
             "group": {
@@ -3295,7 +3257,7 @@ window.__TEAM_DATA__ = {
               "uid": 1824721,
               "avatar": "https://cdn.luogu.com.cn/upload/usericon/1824721.png",
               "name": "luogu_LiuShaRui",
-              "slogan": "&BSD_5622 八级面积求错98分的废物 无条件互关 友团：124697",
+              "slogan": "&BSD_5622  初赛 J:92 S:GESP八级98  无条件互关 友团：124697",
               "badge": null,
               "isAdmin": false,
               "isBanned": false,
@@ -3518,13 +3480,13 @@ window.__TEAM_DATA__ = {
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 35,
+      "followerCount": 36,
       "ranking": 2020,
       "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1791870132.549122
+    "time": 1792152364.284034
   },
   "file": {
     "instance": "main",
@@ -3721,14 +3683,14 @@ window.__TEAM_DATA__ = {
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 35,
+      "followerCount": 36,
       "ranking": 2020,
       "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1791870133.824812
+    "time": 1792152365.45922
   },
   "team": null,
-  "updatedAt": "2026-10-13 05:42:14"
+  "updatedAt": "2026-10-16 12:06:06"
 };
