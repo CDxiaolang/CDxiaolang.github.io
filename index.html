@@ -39,7 +39,9 @@ a{text-decoration:none;color:inherit}
 .team-header{background:#fff;border:1px solid #e1e8ed;border-radius:10px;padding:26px 28px;margin-bottom:18px;position:relative;overflow:hidden}
 .team-header::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3498db,#2ecc71,#f39c12)}
 .team-header-top{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.team-avatar{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,#3498db,#2980b9);display:grid;place-items:center;font-size:28px;color:#fff;flex-shrink:0}
+.team-avatar{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,#3498db,#2980b9);display:grid;place-items:center;font-size:28px;color:#fff;flex-shrink:0;overflow:hidden}
+.team-avatar img{width:100%;height:100%;object-fit:cover}
+.team-info{flex:1;min-width:200px}
 .team-info h1{font-size:21px;font-weight:700;margin-bottom:5px}
 .team-meta{display:flex;gap:8px;flex-wrap:wrap}
 .tag{font-size:11.5px;padding:3px 10px;border-radius:4px;font-weight:600;background:#eaf4fc;color:#3498db}
@@ -138,7 +140,7 @@ footer b{color:#3498db}
 <div class="container">
 <div class="team-header">
 <div class="team-header-top">
-<div class="team-avatar">🚀</div>
+<div class="team-avatar" id="teamAvatar">🚀</div>
 <div class="team-info"><h1 id="teamName">加载中...</h1><div class="team-meta" id="teamMeta"></div></div>
 </div>
 <div id="teamDesc"></div>
@@ -179,9 +181,36 @@ function num(v){const n=Number(v);return isFinite(n)?n:0}
 function toast(m){const el=document.getElementById("toast");el.textContent=m;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2500)}
 function deepGet(o,p){return p.split('.').reduce((a,k)=>(a==null?undefined:a[k]),o)}
 function pick(o,paths){for(const p of paths){const v=deepGet(o,p);if(v!==undefined&&v!==null&&v!=='')return v}return undefined}
+function pickAny(o,keys){if(!o)return undefined;for(const k of keys){const v=o[k];if(v!==undefined&&v!==null&&v!=='')return v}return undefined}
 function findList(key){const cd=DATA[key];if(!cd)return[];const d=cd.data||cd;for(const k in d){const v=d[k];if(v&&Array.isArray(v.result))return v.result;if(Array.isArray(v)&&v.length&&typeof v[0]==='object')return v}return[]}
+
 function getMasterUid(){let uid=0;try{const t=DATA.team,d=t&&t.data?t.data:t;if(d){const tob=d.team||d;uid=num(pick(tob,['master.uid','masterUid','master_uid','owner.uid']))||0}}catch(e){}if(!uid){try{const m=DATA.member,dm=m&&m.data?m.data:m;if(dm&&dm.team)uid=num(pick(dm.team,['master.uid','masterUid','master_uid']))||0}catch(e){}}return uid}
-function getTeamInfo(){const t=DATA.team;if(!t)return null;const d=t.data||t;let tob=d.team||d;if(!tob.name){try{const m=DATA.member,dm=m&&m.data?m.data:m;if(dm&&dm.team&&dm.team.name)tob=dm.team}catch(e){}}return tob}
+
+function getTeamInfo(){
+  const t=DATA.team;if(!t)return null;
+  const d=t.data||t;
+  let tob=d.team||d;
+  if(!tob||(!tob.name&&!tob.title)){
+    try{const m=DATA.member,dm=m&&m.data?m.data:m;if(dm&&dm.team)tob=dm.team}catch(e){}
+  }
+  return tob;
+}
+function getTeamName(){
+  const t=getTeamInfo();
+  if(!t)return "";
+  return pickAny(t,["name","title","teamName","team_name","displayName","display_name","nickname"])||"";
+}
+function getTeamAvatar(){
+  const t=getTeamInfo();
+  if(!t)return "";
+  return pickAny(t,["avatar","icon","image","logo","teamAvatar"])||"";
+}
+function getTeamDescription(){
+  const t=getTeamInfo();
+  if(!t)return "";
+  return pickAny(t,["description","desc","intro","introduction","about","signature","notice","announcement","announce"])||"";
+}
+
 function getGroups(){const cd=DATA.member;if(!cd)return[];const d=cd.data||cd;return(d.groups&&Array.isArray(d.groups))?d.groups:[]}
 function getGroupMemberUids(g){const list=g.members||g.uids||g.userIds||g.user_ids||[];const out=[];(Array.isArray(list)?list:[]).forEach(u=>{const uid=typeof u==='number'?u:num(pick(u,['uid','user.uid','id','userId']));if(uid>0)out.push(uid)});return out}
 function getAdminGroupUids(){const s={};getGroups().forEach(g=>{const n=g.name||'';if(!/管理|admin|出题/i.test(n))return;getGroupMemberUids(g).forEach(u=>s[u]=true)});return s}
@@ -194,7 +223,26 @@ function getContests(){return findList("contest").map(c=>({id:c.id||"",title:c.t
 function getTrainings(){return findList("training").map(t=>({id:t.id||"",title:t.title||t.name||"",problemCount:t.problemCount||0}))}
 function getHomework(){return findList("homework").map(h=>({id:h.id||"",title:h.title||h.name||"",problemCount:h.problemCount||0}))}
 function getFiles(){return findList("file").map(f=>({name:f.name||f.filename||"",size:f.size||0}))}
-function getNoticeText(){const t=getTeamInfo();if(!t)return"";const cs=["notice","announcement","announce","description","introduction","intro"];for(const k of cs){const v=t[k];if(v&&typeof v==="string"&&v.trim())return v}return""}
+
+function getNoticeText(){
+  const t=getTeamInfo();
+  if(!t){
+    console.log("[简介] team 对象为空");
+    return "";
+  }
+  console.log("[简介] team 全部字段:",Object.keys(t).join(", "));
+  const cs=["notice","announcement","announce","description","desc","intro","introduction","about","signature"];
+  for(const k of cs){
+    const v=t[k];
+    if(v&&typeof v==="string"&&v.trim()){
+      console.log("[简介] 命中字段 "+k+"，长度 "+v.length);
+      return v;
+    }
+  }
+  console.log("[简介] 所有候选字段都为空");
+  return "";
+}
+
 function roleBadge(role){return`<span class="badge ${role}">${ROLE_LABEL[role]||role}</span>`}
 function groupBadge(n){return n?`<span class="badge group">${esc(n)}</span>`:""}
 function diffTag(d){const i=typeof d==="number"?d:-1;return`<span class="diff" style="background:${DIFF_COLORS[i]||"#ccc"}22;color:${DIFF_COLORS[i]||"#ccc"}">${esc(DIFF_NAMES[i]||"—")}</span>`}
@@ -224,8 +272,7 @@ function renderAds(){
       d.onclick=e=>{e.preventDefault();e.stopPropagation();adIndex=Number(d.dataset.idx);render()};
     });
   }
-  adIndex=0;
-  render();
+  adIndex=0;render();
   clearInterval(adTimer);
   if(ads.length>1)adTimer=setInterval(()=>{adIndex=(adIndex+1)%ads.length;render()},5000);
 }
@@ -303,10 +350,18 @@ console.log('%c\\n📥 抓取 '+endpoints[i][0]+'...','color:#f39c12');
 D[endpoints[i][0]]=await fetchAllPages(endpoints[i][0],endpoints[i][1]);
 await sleep(500);
 }
+console.log('%c\\n📥 抓取团队主页...','color:#f39c12');
 try{
 var r=await fetch(BASE+'/team/'+TID,{headers:{'x-lentille-request':'content-only'},credentials:'include'});
-if(r.status===200){var j=await r.json();D.team=j.currentData||null}
-}catch(e){}
+if(r.status===200){
+  var j=await r.json();
+  D.team=j.currentData||j;
+  var tob=(D.team.data&&D.team.data.team)||D.team.team||D.team;
+  console.log('  team 字段:',Object.keys(tob).join(', '));
+  console.log('  name =',tob.name||tob.title||'(空)');
+  console.log('  description 前80字 =',(tob.description||tob.notice||'').slice(0,80));
+}else{console.warn('  HTTP '+r.status)}
+}catch(e){console.warn('  异常:',e.message)}
 D.updatedAt=new Date().toISOString().replace('T',' ').slice(0,19);
 var jsContent='window.__TEAM_DATA__ = '+JSON.stringify(D,null,2)+';';
 var blob=new Blob([jsContent],{type:'application/javascript;charset=utf-8'});
@@ -315,7 +370,7 @@ var a=document.createElement('a');a.href=url;a.download='data.js';
 document.body.appendChild(a);a.click();document.body.removeChild(a);
 setTimeout(function(){URL.revokeObjectURL(url)},1500);
 console.log('%c\\n✅ 已下载 data.js','color:#27ae60;font-size:15px;font-weight:bold');
-alert('✅ 抓取完成！\\n\\ndata.js 已下载。\\n如果部署在 GitHub Pages，请打开仓库→点 data.js→编辑→粘贴覆盖→Commit。');
+alert('✅ 抓取完成！\\n\\n控制台会显示 team 字段名，请截图发我。');
 })();`;
 const BOOKMARKLET='javascript:'+encodeURIComponent(BOOKMARKLET_CODE);
 function openUpdate(){document.getElementById("updateModal").classList.add("show");document.body.style.overflow="hidden"}
@@ -345,10 +400,15 @@ async function loadScript(url,label){
 function init(){
 console.log('=== 渲染开始 ===');
 console.log('DATA.member:',!!DATA.member,'| CONFIG.ads:',(CONFIG.ads||[]).length);
-renderAds();renderRules();renderUserInfo();
-const team=getTeamInfo();
-document.getElementById("teamName").textContent=(team&&team.name)?team.name:"团队 "+TID;
+const teamName=getTeamName();
+console.log('[团队名]',teamName||'(空)');
+document.getElementById("teamName").textContent=teamName||"团队 "+TID;
+const teamAvatar=getTeamAvatar();
+if(teamAvatar){
+  document.getElementById("teamAvatar").innerHTML='<img src="'+esc(teamAvatar)+'" alt="团队头像" onerror="this.parentNode.textContent=\'🚀\'">';
+}
 document.getElementById("teamMeta").innerHTML='<span class="tag">洛谷团队</span><span class="tag g">编号 '+TID+'</span>';
+renderAds();renderRules();renderUserInfo();
 const pc=getProblems().length,mc=getMembers().length,cc=getContests().length,gc=getGroups().length;
 document.getElementById("statsRow").innerHTML=`<div class="stat-card" onclick="switchView('member')"><div class="num">${mc}</div><div class="label">团队成员</div></div><div class="stat-card" onclick="switchView('problem')"><div class="num">${pc}</div><div class="label">团队题目</div></div><div class="stat-card" onclick="switchView('contest')"><div class="num">${cc}</div><div class="label">团队比赛</div></div><div class="stat-card" onclick="switchView('member')"><div class="num">${gc}</div><div class="label">团队分组</div></div>`;
 document.getElementById("tabs").innerHTML=Object.keys(TAB_NAMES).map(k=>`<button class="tab ${k==='overview'?'active':''}" data-view="${k}">${TAB_NAMES[k]}</button>`).join("");
