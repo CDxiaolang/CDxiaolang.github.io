@@ -1,0 +1,36 @@
+name: 自动更新洛谷团队数据
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每天北京时间早上 8 点运行
+  workflow_dispatch: # 允许手动点击按钮运行
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装依赖 (puppeteer)
+        run: npm install
+
+      - name: 运行爬虫
+        env:
+          LUOGU_COOKIE: ${{ secrets.LUOGU_COOKIE }}
+        run: npm run crawl
+
+      - name: 提交并推送更新
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add data.json
+          git diff-index --quiet HEAD || git commit -m "自动更新团队数据: $(date +'%Y-%m-%d')"
+          git push
