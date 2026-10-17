@@ -1,0 +1,14 @@
+{
+  "name": "luogu-team-site",
+  "version": "1.0.0",
+  "main": "crawler.js",
+  "scripts": {
+    "crawl": "node crawler.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.11.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
