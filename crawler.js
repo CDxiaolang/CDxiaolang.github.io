@@ -1,13 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
 
 const TID = 128840;
 const COOKIE = process.env.LUOGU_COOKIE || '';
 
 async function crawlAll() {
   console.log('启动浏览器...');
+  // 🚀 直接使用 GitHub 环境自带的 Chrome 浏览器，无需下载！
   const browser = await puppeteer.launch({
+    executablePath: '/usr/bin/google-chrome',
     headless: "new",
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
   });
@@ -97,7 +99,6 @@ async function crawlAll() {
   function searchNotice(obj) {
     if (!obj) return;
     if (typeof obj === 'string') {
-      // 极其严格的公告特征匹配，屏蔽简介
       if (obj.length > 20 && (obj.includes('新成员必读') || obj.includes('<details') || obj.includes('计分'))) {
         if (obj.length > noticeMarkdown.length) noticeMarkdown = obj;
       }
