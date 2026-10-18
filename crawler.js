@@ -92,50 +92,34 @@ async function crawlAll() {
     console.log(`✅ ${pathKey} 抓取完成，共 ${all.length} 条`);
   }
   
-  console.log(`\n开始抓取团队主页及精确提取公告...`);
-  await page.goto(`https://www.luogu.com.cn/team/${TID}`, { waitUntil: 'networkidle0' });
-  
-  // 🚀 精准提取公告代码（绝不会混入讨论区）
-  const noticeHtml = await page.evaluate(() => {
-      // 1. 找到包含“团队公告”文本的元素
-      const titleEl = Array.from(document.querySelectorAll('*'))
-          .find(el => el.textContent.trim() === '团队公告' && el.children.length === 0);
-      
-      if (titleEl) {
-          // 向上找它的面板容器（洛谷通常用 .am-panel 或 .card）
-          let panel = titleEl.closest('.am-panel, .card');
-          if (panel) {
-              // 提取面板里的内容区
-              const content = panel.querySelector('.am-panel-bd, .card-body');
-              if (content) return content.innerHTML;
-          }
-          
-          // 如果找不到标准面板，尝试找父级的下一个兄弟节点
-          let target = titleEl.nextElementSibling || titleEl.parentElement.nextElementSibling;
-          if (target && !target.innerHTML.includes('最新讨论') && !target.innerHTML.includes('回复')) {
-              return target.innerHTML;
-          }
-      }
-      
-      // 兜底：如果确实没找到，尝试在左侧区域找折叠块
-      const leftPanel = document.querySelector('.am-u-md-9, .lg-left');
-      if (leftPanel) {
-          const blocks = leftPanel.querySelectorAll('details, blockquote');
-          if (blocks.length > 0) {
-              return Array.from(blocks).map(b => b.outerHTML).join('');
-          }
-      }
-      return "";
-  });
-  
+  console.log(`\n开始抓取团队主页并提取公告...`);
   const teamJson = await fetchWithBrowser(`/team/${TID}`);
   if (teamJson) D.team = teamJson.currentData || teamJson;
+
+  // 🚀 暴力全盘检索公告源码
+  let noticeMarkdown = "";
+  function searchNotice(obj) {
+    if (!obj) return;
+    if (typeof obj === 'string') {
+      // 只要包含这些字眼，就是公告！并且排除掉 URL 等干扰
+      if (obj.length > 20 && (obj.includes('新成员必读') || obj.includes('计分') || obj.includes('<details') || obj.includes('公告'))) {
+        if (obj.length > noticeMarkdown.length) noticeMarkdown = obj;
+      }
+    } else if (Array.isArray(obj)) {
+      obj.forEach(searchNotice);
+    } else if (typeof obj === 'object') {
+      for (let key in obj) {
+        searchNotice(obj[key]);
+      }
+    }
+  }
+  searchNotice(D.team);
   
-  D.noticeHtml = noticeHtml;
+  D.noticeMarkdown = noticeMarkdown;
   D.updatedAt = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
   
   fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(D, null, 2), 'utf-8');
-  console.log('✅ 公告提取成功，内容长度:', noticeHtml.length);
+  console.log('✅ 公告提取成功，内容长度:', noticeMarkdown.length);
   console.log('✅ 所有数据已保存到 data.json！');
   
   await browser.close();
