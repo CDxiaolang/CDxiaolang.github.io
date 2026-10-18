@@ -38,7 +38,7 @@ a{text-decoration:none;color:inherit}
 .team-info h1{font-size:21px;font-weight:700;margin-bottom:5px}
 .tag{font-size:11.5px;padding:3px 10px;border-radius:4px;font-weight:600;background:#eaf4fc;color:#3498db}.tag.g{background:#eafaf1;color:#27ae60}
 
-/* 🚀 公告区域 */
+/* 🚀 纯公告区域 */
 #teamNotice{padding:24px 28px;background:#fff;border:1px solid #e1e8ed;border-radius:10px;margin-bottom:18px;font-size:14px;line-height:1.75;box-shadow:0 2px 12px rgba(0,0,0,.02)}
 #teamNotice .notice-title{font-weight:700;color:#3498db;margin-bottom:16px;font-size:18px;display:flex;align-items:center;gap:8px;border-bottom:1px dashed #e1e8ed;padding-bottom:12px;}
 
@@ -113,7 +113,7 @@ footer{text-align:center;padding:26px 20px;color:#7f8c8d;font-size:12.5px;border
 </div>
 
 <div class="container">
-<!-- 🚀 公告区（无简介） -->
+<!-- 🚀 纯公告区域 -->
 <div id="teamNotice"></div>
 
 <div class="team-header">
@@ -369,10 +369,17 @@ async function boot(){
   if(tAvatar) document.getElementById("teamAvatar").innerHTML = `<img src="${esc(tAvatar)}" onerror="this.parentNode.textContent='🚀'">`;
   document.getElementById("teamMeta").innerHTML = `<span class="tag">洛谷团队</span><span class="tag g">编号 ${TID}</span>`;
   
-  // 🚀 只渲染公告
+  // 🚀 严格只渲染公告
   const noticeEl = document.getElementById("teamNotice");
-  if(DATA.noticeHtml && DATA.noticeHtml.trim() !== ""){
-    noticeEl.innerHTML = `<div class="notice-title">📢 团队公告</div><div id="noticeContent" class="markdown-body">${DATA.noticeHtml}</div>`;
+  if(DATA.noticeMarkdown && DATA.noticeMarkdown.trim() !== ""){
+    noticeEl.innerHTML = `<div class="notice-title">📢 团队公告</div><div id="noticeContent" class="markdown-body"></div>`;
+    let html = "";
+    if(window.marked) {
+        html = window.marked.parse(DATA.noticeMarkdown, {breaks:true, gfm:true});
+    } else {
+        html = esc(DATA.noticeMarkdown);
+    }
+    document.getElementById("noticeContent").innerHTML = html;
   } else {
     noticeEl.innerHTML = `<div class="notice-title">📢 团队公告</div><div style="color:#999;padding:10px 0;">暂无公告</div>`;
   }
