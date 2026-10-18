@@ -2046,13 +2046,13 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222043.812054
+    "time": 1792282456.542858
   },
   "homework": {
     "instance": "main",
@@ -2076,7 +2076,7 @@
             "createTime": 1791372284,
             "deadline": 1798732740,
             "problemCount": 15,
-            "markCount": 1
+            "markCount": 0
           },
           {
             "id": 1108575,
@@ -2090,7 +2090,7 @@
             "createTime": 1791173593,
             "deadline": 1798732740,
             "problemCount": 12,
-            "markCount": 2
+            "markCount": 1
           },
           {
             "id": 1079293,
@@ -2104,7 +2104,7 @@
             "createTime": 1787198524,
             "deadline": 1798732740,
             "problemCount": 15,
-            "markCount": 9
+            "markCount": 8
           },
           {
             "id": 1079029,
@@ -2118,7 +2118,7 @@
             "createTime": 1787183864,
             "deadline": 1787317200,
             "problemCount": 6,
-            "markCount": 8
+            "markCount": 7
           },
           {
             "id": 1072959,
@@ -2160,7 +2160,7 @@
             "createTime": 1786402344,
             "deadline": 1798732740,
             "problemCount": 10,
-            "markCount": 4
+            "markCount": 3
           },
           {
             "id": 1070242,
@@ -2258,13 +2258,13 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222048.079513
+    "time": 1792282461.448539
   },
   "training": {
     "instance": "main",
@@ -2316,7 +2316,7 @@
             "createTime": 1784853811,
             "deadline": null,
             "problemCount": 3,
-            "markCount": 1
+            "markCount": 0
           },
           {
             "id": 1048453,
@@ -2400,13 +2400,13 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222049.494857
+    "time": 1792282463.021057
   },
   "contest": {
     "instance": "main",
@@ -2570,13 +2570,13 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222051.515658
+    "time": 1792282467.691522
   },
   "member": {
     "instance": "main",
@@ -3188,7 +3188,7 @@
               "uid": 1934210,
               "avatar": "https://cdn.luogu.com.cn/upload/usericon/1934210.png",
               "name": "_zyx2012",
-              "slogan": "辽宁第一菜，求放过 || 题会是题唐，题不会是我唐 || 你在OJ上提交了千百遍，却依然不能卡进那时限",
+              "slogan": "辽宁第一菜，求放过 || 被全人类单调队列 || 题会是题唐，题不会是我唐 || 你在OJ上提交了千百遍，却依然不能卡进那时限",
               "badge": null,
               "isAdmin": false,
               "isBanned": false,
@@ -3349,7 +3349,7 @@
               "uid": 1895369,
               "avatar": "https://cdn.luogu.com.cn/upload/usericon/1895369.png",
               "name": "cuiyunqi1229",
-              "slogan": "Le hollandais volant||Don Quichotte||Statut : En ligne",
+              "slogan": "Le hollandais volant||Statut : En ligne",
               "badge": null,
               "isAdmin": false,
               "isBanned": false,
@@ -3480,13 +3480,13 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222052.874058
+    "time": 1792282469.017417
   },
   "file": {
     "instance": "main",
@@ -3683,13 +3683,13 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222053.486988
+    "time": 1792282469.657052
   },
   "team": {
     "instance": "main",
@@ -3734,7 +3734,7 @@
           "no": 6
         }
       ],
-      "notice": ":::info[新成员必读]\n[小龙GESP算法精进新成员必读](https://www.luogu.me/article/6e3hlap3 \"小龙GESP算法精进新成员必读\")  \n[小龙出题组新成员必读](https://www.luogu.me/article/wxkbuj8m \"小龙出题组新成员必读\")  \n[关于建立子团](https://www.luogu.me/article/uvct08cv \"关于建立子团\")\n:::\n::::info[计分]\n:::info[颜色]\n* ${\\color{purple} 紫名}$（+100分）\n* ${\\color{red} 红名}$（+50分）\n* ${\\color{orange} 橙名}$（+30分）\n* ${\\color{green} 绿名}$（+10分）\n* ${\\color{blue} 蓝名}$（-10分）\n* ${\\color{grey} 灰名}$（-50分）\n* ${\\color{brown} 棕名}$（-100分）\n:::\n:::info[等级分]\n* 等级分$\\ge$1000（+50分）\n* 等级分$\\ge$500，等级分$<$1000（+20分）\n* 等级分$<$500（-10分）\n:::\n:::info[勾]\n* ${\\color{orange} 金勾}$（+1000分）\n* ${\\color{blue} 蓝勾}$（+300分）\n* ${\\color{green} 绿勾}$（+100分）\n:::\n:::info[气球]\n* ${\\color{orange} 金气球}$（+3000分）\n* ${\\color{blue} 蓝气球}$（+1000分）\n* ${\\color{green} 绿气球}$（+200分）\n:::\n:::info[做题]\n* 能独立写1道黑题（1000分）\n* 能独立写1道紫题，不能能独立写1道黑题（+300分）\n* 能独立写1道蓝题，不能能独立写1道紫题（+100分）\n* 能独立写1道青题，不能能独立写1道蓝题（+50分）\n* 能独立写1道绿题，不能能独立写1道青题（+30分）\n* 能独立写1道黄题，不能能独立写1道绿题（+10分）\n* 能独立写1道橙题，不能能独立写1道黄题（-10分）\n* 能独立写1道红题，不能能独立写1道橙题（-50分）\n:::\n:::info[GESP]\n* GESP8级水平（+100分）\n* GESP7级水平（+50分）\n* GESP6级水平（+30分）\n* GESP5级水平（+20分）\n* GESP4级水平（+15分）\n* GESP3级水平（+10分）\n* GESP2级水平（-10分）\n* GESP1级水平（-20分）\n* GESP0级水平（-50分）\n:::\n:::info[团队分组]\n* 团队大管理（+100分）\n* 团队管理员（+50分）\n* 团队优秀成员（+30分）\n:::\n:::info[在线时间]\n* 平均每周有5天及以上的时间在线，并能为团队作出贡献的（+50分）\n* 平均每周有3~4天的时间在线，并能为团队作出贡献的（+30分）\n* 平均每周有1~2天的时间在线，并能为团队作出贡献的（+10分）\n* 平均每周有0天及以上的时间在线（-30分）\n:::\n总分$<$100分的成员会被**踢出团队**（dongdong2013修改）\n::::\n:::info[团队管理员晋升条件]\n1. 在团队待满7天（5分）\n2. 在出题组（5分）\n3. 有晋升团队管理员的申请（5分）\n4. 是团主或大管理的朋友（10分）\n5. ${\\color{orange}橙名}$或${\\color{red}红名}$（10分）\n6. 30天内没有被${\\color{brown}棕}$记录（10分）\n7. 参与比赛1次及以上，参与作业5次及以上（10分）\n8. 在优秀成员组或吉祥物组（10分）\n9. 假期每天在线时间大于1小时，上学每天在线时间大于30分钟（15分）\n10. 有三道及以上的出题贡献（20分）\n\n晋升团队管理员需要分数大于等于85，晋升团队大管理需要分数大于等于90，其它途径均不能成为团队管理员或大管理员\n:::\n:::info[比赛]\n### 第一届-xiaolong赛（已结束）\n[第一届-xiaolong赛](https://www.luogu.com.cn/contest/339222)\\\n[第一届-xiaolong赛参考贴1](https://www.luogu.com.cn/discuss/1318946)\\\n[第一届-xiaolong赛参考贴2](https://www.luogu.me/article/6xt4zi3r)\n### 清水杯·夏日狂欢赛（已结束）\n[清水杯·夏日狂欢赛](https://www.luogu.com.cn/contest/347649)\\\n[清水杯·夏日狂欢赛参考贴1](https://www.luogu.com.cn/discuss/1347297)\\\n[清水杯·夏日狂欢赛参考贴2](https://www.luogu.me/paste/ajyzdzey)\n### 团队练习赛1（已结束）\n[团队练习赛1](https://www.luogu.com.cn/contest/348648)\\\n[团队练习赛1参考贴1](https://www.luogu.com.cn/discuss/1350630)\\\n[团队练习赛1参考贴2](https://www.luogu.me/article/qebcxa08)\n### 第二届-xiaolong赛（已结束）\n[第二届-xiaolong赛](https://www.luogu.com.cn/contest/340301)\\\n[第二届-xiaolong赛参考贴1](https://www.luogu.com.cn/discuss/1325680)\\\n[第二届-xiaolong赛参考贴2](https://www.luogu.me/article/xbxtygrg)\n### 团队练习赛2（已结束）\n[团队练习赛2](https://www.luogu.com.cn/contest/357899)\\\n[团队练习赛2参考贴1](https://www.luogu.com.cn/discuss/1382510)\\\n[团队练习赛2参考贴2](https://www.luogu.me/article/nuq73w81)\n\n:::\n:::info[权益（按名字颜色）]\n- ${\\color{purple} 紫}$：享所有权益\n- ${\\color{red} 红}$：（三选一）加入优秀成员/加入题目组/加入吉祥物\n- ${\\color{orange} 橙}$：（二选一）加入优秀成员/加入题目组\n- ${\\color{green} 绿}$：（二选一）加入吃瓜群众/加入题目组\n- ${\\color{blue} 蓝}$：加入吃瓜群众\n- ${\\color{gray} 灰}$/${\\color{brown} 棕}$：踢出团队（如有管理推荐可留到每周的周一或周二）\n:::\n:::info[分组]\n- 默认分组/吃瓜群众：自由加入\n- 优秀成员：管理员引荐\n- 题目组：向${\\color{orange} 所有者}$or${\\color{green} 大管理}$ 申请\n- 管理组：团队管理员可加入\n- 吉祥物：${\\color{orange} 所有者}$or${\\color{green} 大管理}$ 批准\n:::\n:::info[其它]\n### QQ群（新）：  \n链接：https://qm.qq.com/q/l9TSoXhzPO  \n二维码：https://cdn.luogu.com.cn/upload/image_hosting/m98noh8f.png\n### 宝藏网站：\n[实用插件](https://luogu.ac.cn/plugin \"实用插件\")  \n\n如有任何问题请在团队讨论区发帖提问\n:::",
+      "notice": "我团保存站：https://cdxiaolang.github.io/\n:::info[新成员必读]\n[小龙GESP算法精进新成员必读](https://www.luogu.me/article/6e3hlap3 \"小龙GESP算法精进新成员必读\")  \n[小龙出题组新成员必读](https://www.luogu.me/article/wxkbuj8m \"小龙出题组新成员必读\")  \n[关于建立子团](https://www.luogu.me/article/uvct08cv \"关于建立子团\")\n:::\n::::info[计分]\n:::info[颜色]\n* ${\\color{purple} 紫名}$（+100分）\n* ${\\color{red} 红名}$（+50分）\n* ${\\color{orange} 橙名}$（+30分）\n* ${\\color{green} 绿名}$（+10分）\n* ${\\color{blue} 蓝名}$（-10分）\n* ${\\color{grey} 灰名}$（-50分）\n* ${\\color{brown} 棕名}$（-100分）\n:::\n:::info[等级分]\n* 等级分$\\ge$1000（+50分）\n* 等级分$\\ge$500，等级分$<$1000（+20分）\n* 等级分$<$500（-10分）\n:::\n:::info[勾]\n* ${\\color{orange} 金勾}$（+1000分）\n* ${\\color{blue} 蓝勾}$（+300分）\n* ${\\color{green} 绿勾}$（+100分）\n:::\n:::info[气球]\n* ${\\color{orange} 金气球}$（+3000分）\n* ${\\color{blue} 蓝气球}$（+1000分）\n* ${\\color{green} 绿气球}$（+200分）\n:::\n:::info[做题]\n* 能独立写1道黑题（1000分）\n* 能独立写1道紫题，不能能独立写1道黑题（+300分）\n* 能独立写1道蓝题，不能能独立写1道紫题（+100分）\n* 能独立写1道青题，不能能独立写1道蓝题（+50分）\n* 能独立写1道绿题，不能能独立写1道青题（+30分）\n* 能独立写1道黄题，不能能独立写1道绿题（+10分）\n* 能独立写1道橙题，不能能独立写1道黄题（-10分）\n* 能独立写1道红题，不能能独立写1道橙题（-50分）\n:::\n:::info[GESP]\n* GESP8级水平（+100分）\n* GESP7级水平（+50分）\n* GESP6级水平（+30分）\n* GESP5级水平（+20分）\n* GESP4级水平（+15分）\n* GESP3级水平（+10分）\n* GESP2级水平（-10分）\n* GESP1级水平（-20分）\n* GESP0级水平（-50分）\n:::\n:::info[团队分组]\n* 团队大管理（+100分）\n* 团队管理员（+50分）\n* 团队优秀成员（+30分）\n:::\n:::info[在线时间]\n* 平均每周有5天及以上的时间在线，并能为团队作出贡献的（+50分）\n* 平均每周有3~4天的时间在线，并能为团队作出贡献的（+30分）\n* 平均每周有1~2天的时间在线，并能为团队作出贡献的（+10分）\n* 平均每周有0天及以上的时间在线（-30分）\n:::\n总分$<$100分的成员会被**踢出团队**（dongdong2013修改）\n::::\n:::info[团队管理员晋升条件]\n1. 在团队待满7天（5分）\n2. 在出题组（5分）\n3. 有晋升团队管理员的申请（5分）\n4. 是团主或大管理的朋友（10分）\n5. ${\\color{orange}橙名}$或${\\color{red}红名}$（10分）\n6. 30天内没有被${\\color{brown}棕}$记录（10分）\n7. 参与比赛1次及以上，参与作业5次及以上（10分）\n8. 在优秀成员组或吉祥物组（10分）\n9. 假期每天在线时间大于1小时，上学每天在线时间大于30分钟（15分）\n10. 有三道及以上的出题贡献（20分）\n\n晋升团队管理员需要分数大于等于85，晋升团队大管理需要分数大于等于90，其它途径均不能成为团队管理员或大管理员\n:::\n:::info[比赛]\n### 第一届-xiaolong赛（已结束）\n[第一届-xiaolong赛](https://www.luogu.com.cn/contest/339222)\\\n[第一届-xiaolong赛参考贴1](https://www.luogu.com.cn/discuss/1318946)\\\n[第一届-xiaolong赛参考贴2](https://www.luogu.me/article/6xt4zi3r)\n### 清水杯·夏日狂欢赛（已结束）\n[清水杯·夏日狂欢赛](https://www.luogu.com.cn/contest/347649)\\\n[清水杯·夏日狂欢赛参考贴1](https://www.luogu.com.cn/discuss/1347297)\\\n[清水杯·夏日狂欢赛参考贴2](https://www.luogu.me/paste/ajyzdzey)\n### 团队练习赛1（已结束）\n[团队练习赛1](https://www.luogu.com.cn/contest/348648)\\\n[团队练习赛1参考贴1](https://www.luogu.com.cn/discuss/1350630)\\\n[团队练习赛1参考贴2](https://www.luogu.me/article/qebcxa08)\n### 第二届-xiaolong赛（已结束）\n[第二届-xiaolong赛](https://www.luogu.com.cn/contest/340301)\\\n[第二届-xiaolong赛参考贴1](https://www.luogu.com.cn/discuss/1325680)\\\n[第二届-xiaolong赛参考贴2](https://www.luogu.me/article/xbxtygrg)\n### 团队练习赛2（已结束）\n[团队练习赛2](https://www.luogu.com.cn/contest/357899)\\\n[团队练习赛2参考贴1](https://www.luogu.com.cn/discuss/1382510)\\\n[团队练习赛2参考贴2](https://www.luogu.me/article/nuq73w81)\n\n:::\n:::info[权益（按名字颜色）]\n- ${\\color{purple} 紫}$：享所有权益\n- ${\\color{red} 红}$：（三选一）加入优秀成员/加入题目组/加入吉祥物\n- ${\\color{orange} 橙}$：（二选一）加入优秀成员/加入题目组\n- ${\\color{green} 绿}$：（二选一）加入吃瓜群众/加入题目组\n- ${\\color{blue} 蓝}$：加入吃瓜群众\n- ${\\color{gray} 灰}$/${\\color{brown} 棕}$：踢出团队（如有管理推荐可留到每周的周一或周二）\n:::\n:::info[分组]\n- 默认分组/吃瓜群众：自由加入\n- 优秀成员：管理员引荐\n- 题目组：向${\\color{orange} 所有者}$or${\\color{green} 大管理}$ 申请\n- 管理组：团队管理员可加入\n- 吉祥物：${\\color{orange} 所有者}$or${\\color{green} 大管理}$ 批准\n:::\n:::info[其它]\n### QQ群（新）：  \n链接：https://qm.qq.com/q/l9TSoXhzPO  \n二维码：https://cdn.luogu.com.cn/upload/image_hosting/m98noh8f.png\n### 宝藏网站：\n[实用插件](https://luogu.ac.cn/plugin \"实用插件\")  \n\n如有任何问题请在团队讨论区发帖提问\n:::",
       "latestDiscussions": [
         {
           "id": 1349232,
@@ -3890,6 +3890,57 @@
           }
         },
         {
+          "id": 1403476,
+          "title": "重大消息！！！我团保存站正式上线",
+          "author": {
+            "uid": 1760152,
+            "avatar": "https://cdn.luogu.com.cn/upload/usericon/1760152.png",
+            "name": "CD小狼2015",
+            "slogan": "星之所向CDxiaolang||不方便互关||这辈子不打基础赛了qwp（真的吗？？？哈不计等级分计算我又行了）",
+            "badge": null,
+            "isAdmin": false,
+            "isBanned": false,
+            "color": "Red",
+            "ccfLevel": 0,
+            "xcpcLevel": 0,
+            "background": "",
+            "verified": true
+          },
+          "time": 1792226192,
+          "forum": {
+            "name": "团队<小龙GESP算法精进>",
+            "type": 3,
+            "slug": "g128840",
+            "color": null,
+            "team": {
+              "id": 128840,
+              "name": "小龙GESP算法精进",
+              "isPremium": false
+            }
+          },
+          "topped": false,
+          "valid": true,
+          "locked": false,
+          "replyCount": 1,
+          "recentReply": {
+            "id": 8752952,
+            "author": {
+              "uid": 2189699,
+              "avatar": "https://cdn.luogu.com.cn/upload/usericon/2189699.png",
+              "name": "Lysoar",
+              "slogan": "cex,cex,cex~",
+              "badge": null,
+              "isAdmin": false,
+              "isBanned": false,
+              "color": "Red",
+              "ccfLevel": 0,
+              "xcpcLevel": 0,
+              "background": "https://cdn.luogu.com.cn/upload/image_hosting/yl6pi51r.png"
+            },
+            "time": 1792236919
+          }
+        },
+        {
           "id": 1382510,
           "title": "团队练习赛2",
           "author": {
@@ -3988,56 +4039,6 @@
             },
             "time": 1790391130
           }
-        },
-        {
-          "id": 1350630,
-          "title": "团队练习赛1",
-          "author": {
-            "uid": 2023180,
-            "avatar": "https://cdn.luogu.com.cn/upload/usericon/2023180.png",
-            "name": "dongdong2013",
-            "slogan": "努力编程，天天向上",
-            "badge": null,
-            "isAdmin": false,
-            "isBanned": false,
-            "color": "Orange",
-            "ccfLevel": 0,
-            "xcpcLevel": 0,
-            "background": "https://cdn.luogu.com.cn/upload/image_hosting/3km9koz4.png"
-          },
-          "time": 1786458290,
-          "forum": {
-            "name": "团队<小龙GESP算法精进>",
-            "type": 3,
-            "slug": "g128840",
-            "color": null,
-            "team": {
-              "id": 128840,
-              "name": "小龙GESP算法精进",
-              "isPremium": false
-            }
-          },
-          "topped": false,
-          "valid": true,
-          "locked": true,
-          "replyCount": 4,
-          "recentReply": {
-            "id": 8498236,
-            "author": {
-              "uid": 1824721,
-              "avatar": "https://cdn.luogu.com.cn/upload/usericon/1824721.png",
-              "name": "luogu_LiuShaRui",
-              "slogan": "&BSD_5622  初赛 J:92 S:GESP八级98  无条件互关 友团：124697",
-              "badge": null,
-              "isAdmin": false,
-              "isBanned": false,
-              "color": "Red",
-              "ccfLevel": 0,
-              "xcpcLevel": 0,
-              "background": ""
-            },
-            "time": 1786623402
-          }
         }
       ],
       "usages": {
@@ -4124,13 +4125,14 @@
       "verified": true,
       "eloValue": 1283,
       "followingCount": 20,
-      "followerCount": 37,
+      "followerCount": 38,
       "ranking": 2020,
-      "unreadMessageCount": 1,
+      "unreadMessageCount": 0,
       "unreadNoticeCount": 0,
       "learnMode": false
     },
-    "time": 1792222054.363504
+    "time": 1792282473.220417
   },
-  "updatedAt": "2026/10/17 15:27:34"
+  "noticeHtml": "<a data-v-12b24cc3=\"\" data-v-41f986ea=\"\" href=\"/discuss?forum=g128840\" class=\"\" disabled=\"false\" style=\"float: right;\">查看更多</a><h3 data-v-41f986ea=\"\" class=\"lfe-h3\">讨论区</h3><div data-v-84064f0e=\"\" data-v-41f986ea=\"\" class=\"list\"><div data-v-84064f0e=\"\" class=\"list-scroll\"><div data-v-84064f0e=\"\" class=\"list-wrap block\"><!----><div data-v-84064f0e=\"\" class=\"row-wrap\"><div data-v-84064f0e=\"\" class=\"row\"><div data-v-176b97b3=\"\" data-v-f0b998c8=\"\" data-v-41f986ea=\"\" data-v-84064f0e-s=\"\" class=\"l-card inner-card\"><div data-v-f0b998c8=\"\" class=\"row top-container\"><img data-v-f0b998c8=\"\" src=\"https://cdn.luogu.com.cn/upload/usericon/1760152.png\" class=\"avatar\"><div data-v-f0b998c8=\"\" class=\"avatar-right\"><div data-v-f0b998c8=\"\" class=\"row row-space-between top\"><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1349232\" class=\"row content-left title link\" disabled=\"false\" title=\"新成员必读\">新成员必读</a><div data-v-f0b998c8=\"\" class=\"row content-right\"><a data-v-12b24cc3=\"\" data-v-7d4e2718=\"\" data-v-f0b998c8=\"\" href=\"/discuss?forum=g128840\" class=\"wrap forum-name\" disabled=\"false\" title=\"团队&lt;小龙GESP算法精进&gt;\" style=\"--link-indicator-color: #262626;\"><svg data-v-7d4e2718=\"\" class=\"svg-inline--fa fa-square indicator\" data-prefix=\"fas\" data-icon=\"square\" role=\"img\" viewBox=\"0 0 448 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32z\"></path></svg><span data-v-7d4e2718=\"\" class=\"name\">团队&lt;小龙GESP算法精进&gt;</span></a><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-thumbtack stick-top\" data-prefix=\"fas\" data-icon=\"thumbtack\" role=\"img\" viewBox=\"0 0 384 512\" aria-hidden=\"true\" style=\"transform-origin: 0.375em 0.5em;\"><g class=\"\" transform=\"translate(192 256)\"><g class=\"\" transform=\"translate(0, 0)  scale(1, 1)  rotate(45 0 0)\"><path class=\"\" fill=\"currentColor\" d=\"M32 32C32 14.3 46.3 0 64 0L320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-29.5 0 10.3 134.1c37.1 21.2 65.8 56.4 78.2 99.7l3.8 13.4c2.8 9.7 .8 20-5.2 28.1S362 352 352 352L32 352c-10 0-19.5-4.7-25.5-12.7s-8-18.4-5.2-28.1L5 297.8c12.4-43.3 41-78.5 78.2-99.7L93.5 64 64 64C46.3 64 32 49.7 32 32zM160 400l64 0 0 112c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-112z\" transform=\"translate(-192 -256)\"></path></g></g></svg><!----></div></div><div data-v-f0b998c8=\"\" class=\"row row-space-between bottom\"><div data-v-f0b998c8=\"\" class=\"row content-left\"><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1760152\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--pink-3);\">CD小狼2015</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-10T10:23:22.000Z\" title=\"2026-08-10 18:23:22\">2 个月前</time></div></div><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1349232\" class=\"row content-right link\" disabled=\"false\"><div data-v-f0b998c8=\"\" class=\"row content-right reply\"><div data-v-f0b998c8=\"\" class=\"info-item\" style=\"margin-right: 0.66em;\"><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-comment\" data-prefix=\"far\" data-icon=\"comment\" role=\"img\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z\"></path></svg> 18</div><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/2047774\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--blue-3);\">董骏2015</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-31T06:14:27.000Z\" title=\"2026-08-31 14:14:27\">2 个月前</time></div></div></a></div></div></div><!----></div></div><div data-v-84064f0e=\"\" class=\"row\"><div data-v-176b97b3=\"\" data-v-f0b998c8=\"\" data-v-41f986ea=\"\" data-v-84064f0e-s=\"\" class=\"l-card inner-card\"><div data-v-f0b998c8=\"\" class=\"row top-container\"><img data-v-f0b998c8=\"\" src=\"https://cdn.luogu.com.cn/upload/usericon/1892078.png\" class=\"avatar\"><div data-v-f0b998c8=\"\" class=\"avatar-right\"><div data-v-f0b998c8=\"\" class=\"row row-space-between top\"><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1353822\" class=\"row content-left title link\" disabled=\"false\" title=\"陶片放逐\">陶片放逐</a><div data-v-f0b998c8=\"\" class=\"row content-right\"><a data-v-12b24cc3=\"\" data-v-7d4e2718=\"\" data-v-f0b998c8=\"\" href=\"/discuss?forum=g128840\" class=\"wrap forum-name\" disabled=\"false\" title=\"团队&lt;小龙GESP算法精进&gt;\" style=\"--link-indicator-color: #262626;\"><svg data-v-7d4e2718=\"\" class=\"svg-inline--fa fa-square indicator\" data-prefix=\"fas\" data-icon=\"square\" role=\"img\" viewBox=\"0 0 448 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32z\"></path></svg><span data-v-7d4e2718=\"\" class=\"name\">团队&lt;小龙GESP算法精进&gt;</span></a><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-thumbtack stick-top\" data-prefix=\"fas\" data-icon=\"thumbtack\" role=\"img\" viewBox=\"0 0 384 512\" aria-hidden=\"true\" style=\"transform-origin: 0.375em 0.5em;\"><g class=\"\" transform=\"translate(192 256)\"><g class=\"\" transform=\"translate(0, 0)  scale(1, 1)  rotate(45 0 0)\"><path class=\"\" fill=\"currentColor\" d=\"M32 32C32 14.3 46.3 0 64 0L320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-29.5 0 10.3 134.1c37.1 21.2 65.8 56.4 78.2 99.7l3.8 13.4c2.8 9.7 .8 20-5.2 28.1S362 352 352 352L32 352c-10 0-19.5-4.7-25.5-12.7s-8-18.4-5.2-28.1L5 297.8c12.4-43.3 41-78.5 78.2-99.7L93.5 64 64 64C46.3 64 32 49.7 32 32zM160 400l64 0 0 112c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-112z\" transform=\"translate(-192 -256)\"></path></g></g></svg><!----></div></div><div data-v-f0b998c8=\"\" class=\"row row-space-between bottom\"><div data-v-f0b998c8=\"\" class=\"row content-left\"><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1892078\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--green-3);\">wmq0525</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-14T12:45:15.000Z\" title=\"2026-08-14 20:45:15\">2 个月前</time></div></div><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1353822\" class=\"row content-right link\" disabled=\"false\"><div data-v-f0b998c8=\"\" class=\"row content-right reply\"><div data-v-f0b998c8=\"\" class=\"info-item\" style=\"margin-right: 0.66em;\"><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-comment\" data-prefix=\"far\" data-icon=\"comment\" role=\"img\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z\"></path></svg> 5</div><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1760152\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--pink-3);\">CD小狼2015</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-17T05:14:13.000Z\" title=\"2026-08-17 13:14:13\">2 个月前</time></div></div></a></div></div></div><!----></div></div><div data-v-84064f0e=\"\" class=\"row\"><div data-v-176b97b3=\"\" data-v-f0b998c8=\"\" data-v-41f986ea=\"\" data-v-84064f0e-s=\"\" class=\"l-card inner-card\"><div data-v-f0b998c8=\"\" class=\"row top-container\"><img data-v-f0b998c8=\"\" src=\"https://cdn.luogu.com.cn/upload/usericon/1892078.png\" class=\"avatar\"><div data-v-f0b998c8=\"\" class=\"avatar-right\"><div data-v-f0b998c8=\"\" class=\"row row-space-between top\"><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1352833\" class=\"row content-left title link\" disabled=\"false\" title=\"工单/反馈\">工单/反馈</a><div data-v-f0b998c8=\"\" class=\"row content-right\"><a data-v-12b24cc3=\"\" data-v-7d4e2718=\"\" data-v-f0b998c8=\"\" href=\"/discuss?forum=g128840\" class=\"wrap forum-name\" disabled=\"false\" title=\"团队&lt;小龙GESP算法精进&gt;\" style=\"--link-indicator-color: #262626;\"><svg data-v-7d4e2718=\"\" class=\"svg-inline--fa fa-square indicator\" data-prefix=\"fas\" data-icon=\"square\" role=\"img\" viewBox=\"0 0 448 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32z\"></path></svg><span data-v-7d4e2718=\"\" class=\"name\">团队&lt;小龙GESP算法精进&gt;</span></a><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-thumbtack stick-top\" data-prefix=\"fas\" data-icon=\"thumbtack\" role=\"img\" viewBox=\"0 0 384 512\" aria-hidden=\"true\" style=\"transform-origin: 0.375em 0.5em;\"><g class=\"\" transform=\"translate(192 256)\"><g class=\"\" transform=\"translate(0, 0)  scale(1, 1)  rotate(45 0 0)\"><path class=\"\" fill=\"currentColor\" d=\"M32 32C32 14.3 46.3 0 64 0L320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-29.5 0 10.3 134.1c37.1 21.2 65.8 56.4 78.2 99.7l3.8 13.4c2.8 9.7 .8 20-5.2 28.1S362 352 352 352L32 352c-10 0-19.5-4.7-25.5-12.7s-8-18.4-5.2-28.1L5 297.8c12.4-43.3 41-78.5 78.2-99.7L93.5 64 64 64C46.3 64 32 49.7 32 32zM160 400l64 0 0 112c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-112z\" transform=\"translate(-192 -256)\"></path></g></g></svg><!----></div></div><div data-v-f0b998c8=\"\" class=\"row row-space-between bottom\"><div data-v-f0b998c8=\"\" class=\"row content-left\"><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1892078\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--green-3);\">wmq0525</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-13T13:28:30.000Z\" title=\"2026-08-13 21:28:30\">2 个月前</time></div></div><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1352833\" class=\"row content-right link\" disabled=\"false\"><div data-v-f0b998c8=\"\" class=\"row content-right reply\"><div data-v-f0b998c8=\"\" class=\"info-item\" style=\"margin-right: 0.66em;\"><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-comment\" data-prefix=\"far\" data-icon=\"comment\" role=\"img\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z\"></path></svg> 3</div><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1760152\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--pink-3);\">CD小狼2015</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-24T01:05:21.000Z\" title=\"2026-08-24 09:05:21\">2 个月前</time></div></div></a></div></div></div><!----></div></div><div data-v-84064f0e=\"\" class=\"row\"><div data-v-176b97b3=\"\" data-v-f0b998c8=\"\" data-v-41f986ea=\"\" data-v-84064f0e-s=\"\" class=\"l-card inner-card\"><div data-v-f0b998c8=\"\" class=\"row top-container\"><img data-v-f0b998c8=\"\" src=\"https://cdn.luogu.com.cn/upload/usericon/1760152.png\" class=\"avatar\"><div data-v-f0b998c8=\"\" class=\"avatar-right\"><div data-v-f0b998c8=\"\" class=\"row row-space-between top\"><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1403476\" class=\"row content-left title link\" disabled=\"false\" title=\"重大消息！！！我团保存站正式上线\">重大消息！！！我团保存站正式上线</a><div data-v-f0b998c8=\"\" class=\"row content-right\"><a data-v-12b24cc3=\"\" data-v-7d4e2718=\"\" data-v-f0b998c8=\"\" href=\"/discuss?forum=g128840\" class=\"wrap forum-name\" disabled=\"false\" title=\"团队&lt;小龙GESP算法精进&gt;\" style=\"--link-indicator-color: #262626;\"><svg data-v-7d4e2718=\"\" class=\"svg-inline--fa fa-square indicator\" data-prefix=\"fas\" data-icon=\"square\" role=\"img\" viewBox=\"0 0 448 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32z\"></path></svg><span data-v-7d4e2718=\"\" class=\"name\">团队&lt;小龙GESP算法精进&gt;</span></a><!----><!----></div></div><div data-v-f0b998c8=\"\" class=\"row row-space-between bottom\"><div data-v-f0b998c8=\"\" class=\"row content-left\"><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1760152\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--pink-3);\">CD小狼2015</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-10-17T08:36:32.000Z\" title=\"2026-10-17 16:36:32\">16 小时前</time></div></div><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1403476\" class=\"row content-right link\" disabled=\"false\"><div data-v-f0b998c8=\"\" class=\"row content-right reply\"><div data-v-f0b998c8=\"\" class=\"info-item\" style=\"margin-right: 0.66em;\"><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-comment\" data-prefix=\"far\" data-icon=\"comment\" role=\"img\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z\"></path></svg> 1</div><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/2189699\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--pink-3);\">Lysoar</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-10-17T11:35:19.000Z\" title=\"2026-10-17 19:35:19\">13 小时前</time></div></div></a></div></div></div><!----></div></div><div data-v-84064f0e=\"\" class=\"row\"><div data-v-176b97b3=\"\" data-v-f0b998c8=\"\" data-v-41f986ea=\"\" data-v-84064f0e-s=\"\" class=\"l-card inner-card\"><div data-v-f0b998c8=\"\" class=\"row top-container\"><img data-v-f0b998c8=\"\" src=\"https://cdn.luogu.com.cn/upload/usericon/2023180.png\" class=\"avatar\"><div data-v-f0b998c8=\"\" class=\"avatar-right\"><div data-v-f0b998c8=\"\" class=\"row row-space-between top\"><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1382510\" class=\"row content-left title link\" disabled=\"false\" title=\"团队练习赛2\">团队练习赛2</a><div data-v-f0b998c8=\"\" class=\"row content-right\"><a data-v-12b24cc3=\"\" data-v-7d4e2718=\"\" data-v-f0b998c8=\"\" href=\"/discuss?forum=g128840\" class=\"wrap forum-name\" disabled=\"false\" title=\"团队&lt;小龙GESP算法精进&gt;\" style=\"--link-indicator-color: #262626;\"><svg data-v-7d4e2718=\"\" class=\"svg-inline--fa fa-square indicator\" data-prefix=\"fas\" data-icon=\"square\" role=\"img\" viewBox=\"0 0 448 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32z\"></path></svg><span data-v-7d4e2718=\"\" class=\"name\">团队&lt;小龙GESP算法精进&gt;</span></a><!----><!----></div></div><div data-v-f0b998c8=\"\" class=\"row row-space-between bottom\"><div data-v-f0b998c8=\"\" class=\"row content-left\"><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/2023180\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--orange-3);\">dongdong2013</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-09-21T11:24:31.000Z\" title=\"2026-09-21 19:24:31\">27 天前</time></div></div><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1382510\" class=\"row content-right link\" disabled=\"false\"><div data-v-f0b998c8=\"\" class=\"row content-right reply\"><div data-v-f0b998c8=\"\" class=\"info-item\" style=\"margin-right: 0.66em;\"><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-comment\" data-prefix=\"far\" data-icon=\"comment\" role=\"img\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z\"></path></svg> 4</div><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1546444\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--green-3);\">GTI666</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-09-26T12:37:19.000Z\" title=\"2026-09-26 20:37:19\">21 天前</time></div></div></a></div></div></div><!----></div></div><div data-v-84064f0e=\"\" class=\"row\"><div data-v-176b97b3=\"\" data-v-f0b998c8=\"\" data-v-41f986ea=\"\" data-v-84064f0e-s=\"\" class=\"l-card inner-card\"><div data-v-f0b998c8=\"\" class=\"row top-container\"><img data-v-f0b998c8=\"\" src=\"https://cdn.luogu.com.cn/upload/usericon/2023180.png\" class=\"avatar\"><div data-v-f0b998c8=\"\" class=\"avatar-right\"><div data-v-f0b998c8=\"\" class=\"row row-space-between top\"><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1355192\" class=\"row content-left title link\" disabled=\"false\" title=\"团队成员信息调查\">团队成员信息调查</a><div data-v-f0b998c8=\"\" class=\"row content-right\"><a data-v-12b24cc3=\"\" data-v-7d4e2718=\"\" data-v-f0b998c8=\"\" href=\"/discuss?forum=g128840\" class=\"wrap forum-name\" disabled=\"false\" title=\"团队&lt;小龙GESP算法精进&gt;\" style=\"--link-indicator-color: #262626;\"><svg data-v-7d4e2718=\"\" class=\"svg-inline--fa fa-square indicator\" data-prefix=\"fas\" data-icon=\"square\" role=\"img\" viewBox=\"0 0 448 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32z\"></path></svg><span data-v-7d4e2718=\"\" class=\"name\">团队&lt;小龙GESP算法精进&gt;</span></a><!----><!----></div></div><div data-v-f0b998c8=\"\" class=\"row row-space-between bottom\"><div data-v-f0b998c8=\"\" class=\"row content-left\"><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/2023180\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--orange-3);\">dongdong2013</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-08-16T06:22:03.000Z\" title=\"2026-08-16 14:22:03\">2 个月前</time></div></div><a data-v-12b24cc3=\"\" data-v-f0b998c8=\"\" href=\"/discuss/1355192\" class=\"row content-right link\" disabled=\"false\"><div data-v-f0b998c8=\"\" class=\"row content-right reply\"><div data-v-f0b998c8=\"\" class=\"info-item\" style=\"margin-right: 0.66em;\"><svg data-v-f0b998c8=\"\" class=\"svg-inline--fa fa-comment\" data-prefix=\"far\" data-icon=\"comment\" role=\"img\" viewBox=\"0 0 512 512\" aria-hidden=\"true\"><path class=\"\" fill=\"currentColor\" d=\"M51.9 384.9C19.3 344.6 0 294.4 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240 397.4 480 256 480c-36.5 0-71.2-7.2-102.6-20L37 509.9c-3.7 1.6-7.5 2.1-11.5 2.1-14.1 0-25.5-11.4-25.5-25.5 0-4.3 1.1-8.5 3.1-12.2l48.8-89.4zm37.3-30.2c12.2 15.1 14.1 36.1 4.8 53.2l-18 33.1 58.5-25.1c11.8-5.1 25.2-5.2 37.1-.3 25.7 10.5 54.2 16.4 84.3 16.4 117.8 0 208-88.8 208-192S373.8 48 256 48 48 136.8 48 240c0 42.8 15.1 82.4 41.2 114.7z\"></path></svg> 36</div><div data-v-759e5bde=\"\" data-v-f0b998c8=\"\" class=\"luogu-username user-name\"><!----><span data-v-2b916ac8=\"\" data-v-759e5bde=\"\"><span data-v-2b916ac8=\"\"><a data-v-12b24cc3=\"\" data-v-759e5bde=\"\" data-v-2b916ac8-s=\"\" href=\"/user/1632990\" class=\"\" disabled=\"false\" style=\"font-weight: bold; font-size: 1em; color: var(--lfe-color--green-3);\">kkYCQ2026</a></span></span><!----><!----><!----></div><div data-v-f0b998c8=\"\" class=\"time\"><time data-v-f0b998c8=\"\" datetime=\"2026-09-26T02:52:10.000Z\" title=\"2026-09-26 10:52:10\">22 天前</time></div></div></a></div></div></div><!----></div></div></div></div></div><!----></div>",
+  "updatedAt": "2026/10/18 08:14:33"
 }
