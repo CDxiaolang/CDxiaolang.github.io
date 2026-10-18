@@ -6,7 +6,7 @@ const TID = 128840;
 const COOKIE = process.env.LUOGU_COOKIE || '';
 
 async function crawlAll() {
-  console.log('启动浏览器进行抓取...');
+  console.log('启动浏览器...');
   const browser = await puppeteer.launch({
     headless: "new",
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
@@ -45,10 +45,10 @@ async function crawlAll() {
     }, 'https://www.luogu.com.cn' + pathStr);
   }
 
+  // 抓取各个模块
   for (const [pathKey, key] of endpoints) {
     let all = [], pageNum = 1, lastData = null, prevFirstId = null;
-    console.log(`开始抓取 ${pathKey}...`);
-    
+    console.log(`正在抓取 ${pathKey}...`);
     while (pageNum <= 50) {
       let currentUrl = `/team/${TID}/${pathKey}`;
       if (pageNum > 1) currentUrl += `?page=${pageNum}`;
@@ -78,7 +78,6 @@ async function crawlAll() {
       const perPage = Number(container.perPage) || 20;
       
       if ((count > 0 && all.length >= count) || list.length < perPage) break;
-      
       pageNum++;
       await new Promise(r => setTimeout(r, 300));
     }
@@ -89,19 +88,17 @@ async function crawlAll() {
       else if (dl[pathKey]) dl[pathKey].result = all;
       D[pathKey] = lastData;
     }
-    console.log(`✅ ${pathKey} 抓取完成，共 ${all.length} 条`);
   }
   
-  console.log(`\n开始抓取团队主页并提取公告...`);
+  console.log(`\n开始抓取团队主页并暴力提取公告...`);
   const teamJson = await fetchWithBrowser(`/team/${TID}`);
   if (teamJson) D.team = teamJson.currentData || teamJson;
 
-  // 🚀 暴力全盘检索公告源码
+  // 🚀 暴力爬取：全局搜索包含公告关键词的字符串
   let noticeMarkdown = "";
   function searchNotice(obj) {
     if (!obj) return;
     if (typeof obj === 'string') {
-      // 只要包含这些字眼，就是公告！并且排除掉 URL 等干扰
       if (obj.length > 20 && (obj.includes('新成员必读') || obj.includes('计分') || obj.includes('<details') || obj.includes('公告'))) {
         if (obj.length > noticeMarkdown.length) noticeMarkdown = obj;
       }
@@ -119,8 +116,8 @@ async function crawlAll() {
   D.updatedAt = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
   
   fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(D, null, 2), 'utf-8');
-  console.log('✅ 公告提取成功，内容长度:', noticeMarkdown.length);
-  console.log('✅ 所有数据已保存到 data.json！');
+  console.log('✅ 公告提取结果 (长度 ' + noticeMarkdown.length + '):');
+  console.log(noticeMarkdown ? noticeMarkdown.slice(0, 100) + '...' : '未找到公告');
   
   await browser.close();
 }
