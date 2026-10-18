@@ -45,7 +45,6 @@ async function crawlAll() {
     }, 'https://www.luogu.com.cn' + pathStr);
   }
 
-  // 抓取各个模块
   for (const [pathKey, key] of endpoints) {
     let all = [], pageNum = 1, lastData = null, prevFirstId = null;
     console.log(`正在抓取 ${pathKey}...`);
@@ -94,7 +93,6 @@ async function crawlAll() {
   const teamJson = await fetchWithBrowser(`/team/${TID}`);
   if (teamJson) D.team = teamJson.currentData || teamJson;
 
-  // 🚀 暴力爬取：全局搜索包含公告关键词的字符串
   let noticeMarkdown = "";
   function searchNotice(obj) {
     if (!obj) return;
@@ -116,8 +114,7 @@ async function crawlAll() {
   D.updatedAt = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
   
   fs.writeFileSync(path.join(__dirname, 'data.json'), JSON.stringify(D, null, 2), 'utf-8');
-  console.log('✅ 公告提取结果 (长度 ' + noticeMarkdown.length + '):');
-  console.log(noticeMarkdown ? noticeMarkdown.slice(0, 100) + '...' : '未找到公告');
+  console.log('✅ 公告提取结果 (长度 ' + noticeMarkdown.length + ')');
   
   await browser.close();
 }
