@@ -89,7 +89,7 @@ async function crawlAll() {
     }
   }
   
-  console.log(`\n开始抓取团队主页并暴力提取公告...`);
+  console.log(`\n开始抓取团队主页并精准提取公告...`);
   const teamJson = await fetchWithBrowser(`/team/${TID}`);
   if (teamJson) D.team = teamJson.currentData || teamJson;
 
@@ -97,7 +97,8 @@ async function crawlAll() {
   function searchNotice(obj) {
     if (!obj) return;
     if (typeof obj === 'string') {
-      if (obj.length > 20 && (obj.includes('新成员必读') || obj.includes('计分') || obj.includes('<details') || obj.includes('公告'))) {
+      // 极其严格的公告特征匹配，屏蔽简介
+      if (obj.length > 20 && (obj.includes('新成员必读') || obj.includes('<details') || obj.includes('计分'))) {
         if (obj.length > noticeMarkdown.length) noticeMarkdown = obj;
       }
     } else if (Array.isArray(obj)) {
